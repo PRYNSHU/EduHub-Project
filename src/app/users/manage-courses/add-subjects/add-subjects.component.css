@@ -1,0 +1,7 @@
+[class*="col-"]{
+    padding:0 7.5px;
+}
+
+td img{
+    max-width: 60px;
+}

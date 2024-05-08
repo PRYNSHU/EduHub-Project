@@ -1,0 +1,68 @@
+#compare {
+  background-color: #fff;
+  padding: 10px;
+  margin-top: 15px;
+}
+
+#compare-title{
+  position: relative;
+  background: #1193ad;
+  color: #fff;
+  padding: 6px 50px;
+}
+
+#compare-title img {
+  position: absolute;
+  left: 10px;
+  top: 5px;
+}
+
+.compare-table {
+  margin-top:10px;
+  table-layout: fixed;
+  width:calc(100% - 7px);
+  border-collapse: collapse;
+}
+.compare-table th{
+  background: #f6f6f6;
+  padding: 15px 0;
+}
+
+.compare-table th,
+.compare-table td {
+  text-align: center;
+  font-weight: 400;
+  border:1px solid #e8e8e8;
+}
+.compare-table td{
+  padding:3px 0 0 0;
+}
+.compare-table td div{
+  line-height: 40px;
+  height: 40px;
+}
+.compare-table tr td:nth-child(2) div{
+  background: #f3ecfc;
+}
+.compare-table tr td:nth-child(3) div{
+  background: #ebf9ef;
+}
+.compare-table tr td:nth-child(4) div{
+  background: #ffebf0;
+}
+.compare-table tr td:nth-child(5) div{
+  background: #fff8ea;
+}
+
+#topper-wrapper{
+  max-height: 400px;
+  overflow-y: auto;
+}
+.compare-table.toppers{
+  margin-top: 0;
+  width:100%;
+}
+
+.compare-table.toppers tr td:first-child{
+  background: #f6f6f6;;
+}

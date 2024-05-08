@@ -1,0 +1,94 @@
+.main-row {
+  justify-content: space-between;
+  padding: 15px 0px;
+  padding-top: 0;
+}
+
+.filter-box {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.filter-box>mat-form-field {
+  margin-top: 10px;
+}
+
+.btns-box {
+  width: 100%;
+  display: none;
+}
+
+.btns-box>* {
+  margin-left: 10px;
+}
+
+#filtertype, #filtername {
+  width: calc(50% - 5px);
+  margin-bottom: 10px;
+}
+
+#filtername {
+  margin-left: 10px;
+}
+
+#add, #export, #more {
+  margin-left: 10px;
+}
+
+table {
+  width: 100%
+}
+
+.status-div button {
+  margin-left: 10px;
+}
+
+#menu{
+  position: relative;
+}
+
+.submenu{
+  position: absolute;
+  width:140px;
+  max-height: 0;
+  overflow: hidden;
+  background:#fff;
+  top: 36px;
+  left: -75px;
+  box-shadow: 0 0 2px rgba(0,0,0,.25);
+}
+
+#menu:hover .submenu{
+  max-height: 20em;
+}
+
+.sub-item{
+  color:#666;
+  padding:8px 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+
+@media screen and (min-width:1060px) {
+  #add, #export, #more {
+    display: none;
+  }
+  #filtertype, #filtername, #search {
+    width: auto;
+    margin-left: 0;
+    margin-right: 10px;
+    margin-bottom: 0;
+  }
+  #filtertype, #filtername {
+    width: 250px;
+  }
+  .filter-box {
+    width: auto;
+  }
+  .btns-box {
+    width: 250px;
+    display: flex;
+  }
+}

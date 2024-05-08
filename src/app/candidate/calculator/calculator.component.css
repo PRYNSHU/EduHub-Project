@@ -1,0 +1,26 @@
+.calculator{
+    background: #fff;
+    max-width: 300px;
+    padding:10px;
+}
+
+.input-result-area{
+    min-height: 60px;
+    border:1px solid #f1f1f1;
+    margin-bottom: 10px;
+}
+
+.input{
+    padding:7px 10px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.result {
+    padding:0 10px 5px 0;
+    color:#777
+}
+
+.text-right{
+    text-align: right;
+}

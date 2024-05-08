@@ -1,0 +1,72 @@
+<div class="solution-title"><img src="assets/images/detailed-report/light.svg"> SOLUTION REPORT</div>
+<div class="question-item" [ngClass]="{bonus:q.bonus==1}" *ngFor="let q of questions;let i = index">
+  <p class="paragraph" *ngIf="q.paragraph" [innerHTML]="q.paragraph|safe|tex"></p>
+  <div class="hr-line" *ngIf="q.paragraph"></div>
+  <div class="option-wrapper">  <span class="question-number">{{i+1}}. &nbsp;</span>
+    <p class="question" [innerHTML]="q.question_text | safe | tex"></p>
+  </div>
+  <img src="assets/images/bonus.png" class="bonus-image" *ngIf="q.bonus">
+  <p class="options-title">Options</p>
+
+  <div *ngIf="q.questionTypeId==SINGLE_RESPONSE_TYPE || q.questionTypeId==ASSERTION_REASON || q.questionTypeId==CASE_STUDY ">
+    <div class="option-wrapper" [ngClass]="{correct:q.correct == 'A',wrong:q.correct !=q.answer && q.answer=='A'}"> (A)
+      <p class="material-icons" *ngIf="q.answer == 'A'">done</p>
+      <p class="options" [innerHTML]="q.option_a | safe | tex"></p>
+    </div>
+    <div class="option-wrapper" [ngClass]="{correct:q.correct == 'B',wrong:q.correct !=q.answer && q.answer=='B'}"> (B)
+      <p class="material-icons" *ngIf="q.answer == 'B'">done</p>
+      <p class="options" [innerHTML]="q.option_b | safe | tex"></p>
+    </div>
+    <div class="option-wrapper" [ngClass]="{correct:q.correct == 'C',wrong:q.correct !=q.answer && q.answer=='C'}"> (C)
+      <p class="material-icons" *ngIf="q.answer == 'C'">done</p>
+      <p class="options" [innerHTML]="q.option_c | safe | tex"></p>
+    </div>
+    <div class="option-wrapper" [ngClass]="{correct:q.correct == 'D',wrong:q.correct !=q.answer && q.answer=='D'}"> (D)
+      <p class="material-icons" *ngIf="q.answer == 'D'">done</p>
+      <p class="options" [innerHTML]="q.option_d | safe | tex"></p>
+    </div>
+  </div>
+
+  <div *ngIf="q.questionTypeId == MULTI_RESPONSE_TYPE">
+    <div class="option-wrapper"
+      [ngClass]="{correct:q.correct.includes('A') ,wrong:!q.correct.includes('A') && q.answer.includes('A')}"> (A)
+      <p class="material-icons" *ngIf="q.answer.includes('A') ">done</p>
+      <p class="options" [innerHTML]="q.option_a | safe | tex"></p>
+    </div>
+    <div class="option-wrapper"
+      [ngClass]="{correct:q.correct.includes('B') ,wrong:!q.correct.includes('B') && q.answer.includes('B')}"> (B)
+      <p class="material-icons" *ngIf="q.answer.includes('B') ">done</p>
+      <p class="options" [innerHTML]="q.option_b | safe | tex"></p>
+    </div>
+    <div class="option-wrapper"
+      [ngClass]="{correct:q.correct.includes('C') ,wrong:!q.correct.includes('C') && q.answer.includes('C')}"> (C)
+      <p class="material-icons" *ngIf="q.answer.includes('C') ">done</p>
+      <p class="options" [innerHTML]="q.option_c | safe | tex"></p>
+    </div>
+    <div class="option-wrapper"
+      [ngClass]="{correct:q.correct.includes('D') ,wrong:!q.correct.includes('D') && q.answer.includes('D')}"> (D)
+      <p class="material-icons" *ngIf="q.answer.includes('D') ">done</p>
+      <p class="options" [innerHTML]="q.option_d | safe | tex"></p>
+    </div>
+  </div>
+
+  <div *ngIf="q.questionTypeId == TRUE_FALSE_TYPE">
+    <button [ngClass]="{correct:q.correct == 1 ,wrong:q.correct !=q.answer && q.answer==1  }" mat-raised-button>
+      <mat-icon *ngIf="q.answer==1">done</mat-icon> True
+    </button>&nbsp;&nbsp;
+    <button [ngClass]="{correct:q.correct == 0 ,wrong:q.correct !=q.answer && q.answer==0  }" mat-raised-button>
+      <mat-icon *ngIf="q.answer==0">done</mat-icon> False
+    </button>
+  </div>
+
+  <div *ngIf="q.questionTypeId==INTEGER_TYPE">
+    <div class="integer-correct correct">Correct = {{q.correct}}</div>
+    <div class="integer-answered" [ngClass]="{correct:q.correct == q.answer ,wrong:q.correct !=q.answer  }">Answered =
+      {{q.answer}}</div>
+  </div>
+  <div *ngIf="q.explanation">
+    <p class="options-title">Explanation</p>
+    <div [innerHTML]="q.explanation | safe"></div>
+  </div>
+</div>
+<loading [show]="loading"></loading>

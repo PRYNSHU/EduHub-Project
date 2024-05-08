@@ -1,0 +1,239 @@
+#main {
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    background-position: top center, center, bottom center;
+    background-repeat: no-repeat;
+    user-select: none;
+  }
+  
+  #logo{
+    width: 200px;
+    position: absolute;
+    top:4%;
+    left: 10%;
+  }
+  
+  #row {
+    display: flex;
+    width: 80vw;
+  }
+  
+  #left,
+  #right {
+    width: 50%;
+  }
+  
+  #left {
+    padding-left: 70px;
+  }
+  
+  #right {
+    padding-top: 100px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  
+  #kid-mobile {
+    display: block;
+    max-width: 500px;
+    margin-top: 90px;
+  }
+  
+  #form,
+  #otp-form {
+    max-width: 450px;
+    margin: auto;
+    text-align: center;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  #form-title {
+    padding: 15px;
+    color: #fff;
+    background: linear-gradient(180deg, #28d9e4 0%, #1774b6 223.29%);
+    font-family: Nexa Heavy;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 30px;
+  }
+  
+  #form-body {
+    background: #fff;
+    padding: 25px 10% 0 10%;
+  }
+  
+  #lets-begin {
+    font-family: Nexa Heavy;
+    font-weight: 900;
+    font-size: 30px;
+    color: #0b5f73;
+  }
+  
+  #note {
+    margin: 20px auto;
+    color: #373435;
+    font-size: 15px;
+  }
+  
+  #input-wrapper {
+    display: flex;
+  }
+  
+  #input-wrapper select {
+    width: 20%;
+    outline: none;
+    height: 35px;
+    border: 1px solid #c5c5c5;
+  }
+  
+  #input-wrapper input {
+    width: 80%;
+    height: 35px;
+    border: 1px solid #c5c5c5;
+    outline: none;
+    border-left: none;
+    padding: 5px 20px;
+  }
+  
+  .loginSelect {
+    border-radius: 4px 0 0 4px;
+  }
+  .loginInput{
+    border-radius: 0 4px 4px 0;
+  }
+  
+  #login-button,#verify-btn,#resend-btn {
+    background:linear-gradient( #29DBE5 10.18%, #030281 196.01%);
+    box-shadow: 0 3px 0 #075585;
+    padding: 10px 30px;
+    width: 100%;
+    border: none;
+    outline: none;
+    margin: 20px auto 10px auto;
+    border-radius: 5px;
+    font-family: Nexa Black;
+    font-weight: 900;
+    font-size: 18px;
+    color: #fefefe;
+    cursor: pointer;
+  }
+  
+  #login-button:disabled,#verify-btn:disabled,#resend-btn:disabled{
+    opacity: .6;
+    cursor: not-allowed;
+  }
+  
+  #reg-link {
+    padding: 4px 20px;
+    margin-bottom: 10px;
+    display: inline-block;
+    color: #275781;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+  
+  #otp-form {
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-size: 200px;
+    padding: 25px 20px;
+    background-color: #fff;
+    border-radius: 30px;
+    max-width: 550px;
+  }
+  
+  #student-name {
+    font-family: Nexa Heavy;
+    font-weight: 900;
+    font-size: 27px;
+    color: #1a86be;
+    margin-bottom: 10px;
+  }
+  
+  #otp-verification {
+    font-family: Nexa Regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    color: #282829;
+  }
+  
+  
+  #otp-fields-wrapper{
+    display: flex;
+    justify-content: space-between;
+    max-width: 200px;
+    margin:auto
+  }
+  
+  .otp-inputs{
+    width:30px;
+    height: 30px;
+    border:1px solid #888;
+    outline: none;
+    text-align: center;
+  }
+  
+  #otp-btns-wrapper{
+    display: flex;
+    margin-top: 25px;
+    justify-content: space-between;
+  }
+  
+  #verify-btn,#resend-btn {
+    margin:0;
+    font-size: 15px;
+    padding:7px 10px;
+  }
+  
+  #verify-btn{
+    width: calc(75% - 15px);
+  }
+  
+  #resend-btn{
+    width:25%;
+  }
+  
+  #edit-mob{
+    padding: 4px 20px;
+    background: transparent;
+    display: inline-block;
+    color: #275781;
+    border-radius: 4px;
+    border:none;
+    cursor: pointer;
+  } 
+
+
+
+  @media screen and (max-width:1000px){
+    #left{
+      padding-left: 0;
+    }
+    #right{
+      padding-right: 0;
+    }
+  }
+
+  @media screen and (max-width:900px){
+    #form-title{
+      line-height: 32px;
+    }
+  }
+
+  @media screen and (max-width:768px){
+    #left{
+      display: none;
+    }
+    #right{
+      padding-left: 0;
+      width:100%
+    }
+  }

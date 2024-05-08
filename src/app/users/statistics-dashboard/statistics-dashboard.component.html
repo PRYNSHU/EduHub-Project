@@ -1,0 +1,20 @@
+<div id="page-content">
+  <div class="row">
+    <div class="padding-box" *ngFor="let s of statisticsData">
+      <div class="dashboard-item">
+        <div class="item-body row">
+          <div class="item-icon">
+            <img src="assets/images/question.png" id="question-img">
+          </div>
+          <div class="item-content">
+            <div class="total-title">{{s.title}}</div>
+            <div class="total-value">{{s.value}}</div>
+          </div>
+        </div>
+        <div class="item-footer" [routerLink]="s.link">
+          <mat-icon>add</mat-icon> {{s.footerTitle}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

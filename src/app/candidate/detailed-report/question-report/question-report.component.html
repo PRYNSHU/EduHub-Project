@@ -1,0 +1,43 @@
+<div class="question-report-title"><img src="assets/images/detailed-report/question-report.svg">&nbsp; QUESTION REPORT</div>
+<div class="row justify-content-end question-report">
+  <div id="question-report-buttons">
+    <button mat-raised-button [color]="filter=='All'?'primary':''"
+      (click)="filterData('All')">All({{masterData.length}})</button>
+    <button mat-raised-button [color]="filter=='bonus'?'primary':''" (click)="filterData('bonus')">Bonus</button>
+    <button mat-raised-button [color]="filter=='C'?'primary':''" (click)="filterData('C')">Correct</button>
+    <button mat-raised-button [color]="filter=='W'?'primary':''" (click)="filterData('W')">Incorrect</button>
+    <button mat-raised-button [color]="filter=='S'?'primary':''" (click)="filterData('S')">Skip</button>
+  </div>
+</div>
+
+<div style="max-width:100%;overflow: auto;">
+  <table class="reports-table">
+    <tr>
+      <th style="text-align: left;">S.NO.</th>
+      <th>QUESTION STATUS</th>
+      <th>CORRECT ANSWER</th>
+      <th>YOUR ANSWER</th>
+      <th>YOUR SCORE</th>
+      <th>USER&apos;S CORRECT ATTEMPT</th>
+      <th>YOUR TIME(IN MINUTES)</th>
+      <th>TOPPER'S SCORE</th>
+      <th>TOPPER's TIME</th>
+    </tr>
+    <tr *ngFor="let q of questionData;let i=index">
+      <td>{{i+1}}</td>
+      <td>
+        <mat-icon [ngClass]="{correct:q.status=='C',wrong:q.status=='W' }" *ngIf="!q.bonus">
+          {{q.status=="C"?'check_circle_outline': q.status=="W"?'highlight_off':'-' }}</mat-icon>
+          <img src="assets/images/bonus.png" class="bonus-image" *ngIf="q.bonus">
+      </td>
+      <td [innerHTML]="getCorrectAnswer(q.correct) | safe"></td>
+      <td [innerHTML]="getYourAnswer(q.your_answer,q.questionTypeId) | safe"></td>
+      <td>{{q.scored_marks}}</td>
+      <td>{{q.user_correct_attempts}}</td>
+      <td>{{timeService.getFormattedTime(q.time_spend)}}</td>
+      <td>{{q.topper_score}}</td>
+      <td>{{timeService.getFormattedTime(q.topper_time_spend)}}</td>
+    </tr>
+  </table>
+</div>
+<loading [show]="loading"></loading>

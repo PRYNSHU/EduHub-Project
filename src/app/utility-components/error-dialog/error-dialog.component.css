@@ -1,0 +1,9 @@
+.error-table{
+  border-collapse: collapse;
+  width:100%;
+}
+.error-table th,.error-table td{
+  padding:4px 15px;
+  border:1px solid #e8e8e8;
+  text-align: left;
+}

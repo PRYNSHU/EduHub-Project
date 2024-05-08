@@ -1,0 +1,6 @@
+<div id="course-highlights" *ngIf="course">
+    <h1>Course Highlights</h1>
+    <div class="highlight" *ngFor="let f of course.courseHighlights">
+        <h2>{{f.key}}</h2> <span>{{f.value}}</span>
+    </div>
+</div>

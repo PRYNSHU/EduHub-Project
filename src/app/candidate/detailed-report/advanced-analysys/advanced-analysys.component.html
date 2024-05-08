@@ -1,0 +1,115 @@
+<top-statistics [testInfo]="testInfo"></top-statistics>
+
+<div class="row justify-content-between box-row">
+    <div class="box">
+        <h2 class="title">Subjectwise Marks</h2>
+        <subject-wise-marks [testInfo]="testInfo"></subject-wise-marks>
+    </div>
+    <div class="box">
+        <h2 class="title">Subjectwise Questions Statistics</h2>
+        <div class="row justify-content-between">
+            <div class="pencil-box">
+                <subject-wise-questions-statistics [testInfo]="testInfo" [subject]="'Physics'">
+                </subject-wise-questions-statistics>
+                <div class="pencil-subject physics"><img
+                        src="assets/images/courses/10th-school/subjects/physics/physics.svg"> Physics</div>
+            </div>
+            <div class="pencil-box">
+                <subject-wise-questions-statistics [testInfo]="testInfo" [subject]="'Chemistry'">
+                </subject-wise-questions-statistics>
+                <div class="pencil-subject chemistry"><img
+                        src="assets/images/courses/10th-school/subjects/chemistry/chemistry.svg"> Chemistry</div>
+            </div>
+            <div class="pencil-box">
+                <subject-wise-questions-statistics [testInfo]="testInfo" [subject]="'Mathematics'">
+                </subject-wise-questions-statistics>
+                <div class="pencil-subject mathematics"><img
+                        src="assets/images/courses/10th-school/subjects/mathematics/mathematics.svg"> Mathematics</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row justify-content-between box-row">
+    <div class="box">
+        <h2 class="title">Questions Statistics</h2>
+        <questions-statistics [questionStatistics]="questionStatistics"></questions-statistics>
+    </div>
+    <div class="box">
+        <h2 class="title">Marks Distribution</h2>
+        <marks-distribution [marksDistribution]="marksDistribution"></marks-distribution>
+    </div>
+</div>
+
+<div class="row justify-content-between box-row">
+    <div class="box">
+        <h2 class="title">Subjectwise Accuracy</h2>
+        <subjectwise-accuracy [subjectWiseAccuracy]="subjectWiseAccuracy"></subjectwise-accuracy>
+    </div>
+    <div class="box" style="padding:0">
+        <h2 class="title">Time Distribution</h2>
+        <time-distribution *ngIf="isSubjectDataLoaded && isScoreCardLoaded " [timeDistribution]="timeDistribution"></time-distribution>
+    </div>
+</div>
+<div class="row justify-content-between box-row">
+    <div class="box">
+        <h2 class="title">Marks distribution of all Students</h2>
+        <marks-distribution-all-students [testInfo]="testInfo"></marks-distribution-all-students>
+    </div>
+    <div class="box">
+        <h2 class="title">Pace Analysys</h2>
+        <pace-analysis [testInfo]="testInfo"></pace-analysis>
+    </div>
+</div>
+<div class="row justify-content-between box-row">
+    <div class="box">
+        <h2 class="title">Performance Analysys (Based on Difficulty Level)</h2>
+        <google-chart *ngIf="showChart" [options]="{legend:{position:'bottom'},colors:['#00A859','#F5301E','#567ECD']}"
+            [width]="550" [height]="360" type="ColumnChart" [data]="performanceData" [columns]="columnNames">
+        </google-chart>
+    </div>
+    <div class="box">
+        <h2 class="title">Skills Strenth (Based on performance in test)</h2>
+        <div style="height:30px"></div>
+        <skills-strength [testInfo]="testInfo"></skills-strength>
+    </div>
+</div>
+
+<div class="row justify-content-between box-row">
+    <div class="box">
+        <h2 class="title">Accuracy Based on Difficulty Level</h2>
+        <accuracy-difficulty-level [testInfo]="testInfo" ></accuracy-difficulty-level>
+    </div>
+    <div class="box">
+        <h2 class="title">Accuracy Based on Skills Strenth</h2>
+        <accuracy-skills-strength [testInfo]="testInfo"></accuracy-skills-strength>
+    </div>
+</div>
+
+<div class="row justify-content-between box-row">
+    <div class="box">
+        <h2 class="title">First Look Accuracy vs Re-Attempt Accuracy</h2>
+        <accuracy-first-look [testInfo]="testInfo"></accuracy-first-look>
+    </div>
+    <div class='box'>
+        <h2 class="title">Subject Swaps</h2>
+        <subject-swaps [value]="subjectSwaps"></subject-swaps>
+    </div>
+</div>
+
+<div class="row justify-content-between box-row">
+    <div class="box">
+        <h2 class="title">Last 10 Minutes Utilization</h2>
+        <last-minutes-utilization [data]="utilizationData"></last-minutes-utilization>
+    </div>
+    <div class="box">
+        <h2 class='title'>Time Statistics</h2>
+        <time-statistics [testInfo]="testInfo" ></time-statistics>
+    </div>
+</div>
+
+<div class="row justify-content-between box-row">
+    <div class="box full">
+        <h2 class="title">Behaviour Analysis</h2>
+        <behaviour-analysis [testInfo]="testInfo"></behaviour-analysis>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<admin-header></admin-header>
+<admin-sidebar></admin-sidebar>
+<div id="page-content">
+    <div class="content-title">Edit Chapter</div>
+    <div class="content-box">
+        <form #form="ngForm" (ngSubmit)="update(form.value)">
+            <input type="hidden" name="chapterId" [(ngModel)]="chapter.chapterId">
+            <div class="row align-items-center">
+                <div class="col-sm-3">
+                    <mat-form-field>
+                        <mat-label>Chapter</mat-label>
+                        <input name="chapter" matInput [(ngModel)]="chapter.chapter" required>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-12">
+                    <button mat-raised-button color="primary" [disabled]="form.invalid">Update Chapter</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<loading [show]="loading"></loading>

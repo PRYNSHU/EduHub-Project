@@ -1,0 +1,13 @@
+
+.cell-bar{
+    line-height: 0;
+}
+
+.curve{
+    position: absolute;
+    top:-3px;
+}
+
+.cell{
+    width: 43px;
+}

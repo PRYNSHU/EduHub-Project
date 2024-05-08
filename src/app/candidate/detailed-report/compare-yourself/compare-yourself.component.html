@@ -1,0 +1,48 @@
+<div id="compare">
+  <div id="compare-title"><img src="assets/images/detailed-report/compare.svg"> COMPARE</div>
+  <table class="compare-table">
+    <tr>
+      <th>Topper List</th>
+      <th>Marks</th>
+      <th>Time</th>
+      <th>Accuracy</th>
+      <th>Q. Attempted</th>
+    </tr>
+    <tr *ngIf="yourDetails!=null">
+      <td style="background:  var(--text-success);color:#fff">You</td>
+      <td>
+        <div [ngStyle]="{width:yourDetails.score+'%'}">{{yourDetails.marks_obtained}}</div>
+      </td>
+      <td>
+        <div [ngStyle]="{width:yourDetails.time_spend_percentage+'%'}">
+          {{timeService.getFormattedTime(yourDetails.time_spend)}}</div>
+      </td>
+      <td>
+        <div [ngStyle]="{width:yourDetails.accuracy+'%'}">{{yourDetails.accuracy}}</div>
+      </td>
+      <td>
+        <div [ngStyle]="{width:yourDetails.attempted_percentage+'%'}">{{yourDetails.attempted_questions}}</div>
+      </td>
+    </tr>
+  </table>
+  <div id="topper-wrapper">
+    <table class="compare-table toppers">
+      <tr *ngFor="let t of top10Data">
+        <td>{{t.name}}</td>
+        <td>
+          <div [ngStyle]="{width:t.score+'%'}">{{t.marks_obtained}}</div>
+        </td>
+        <td>
+          <div [ngStyle]="{width:t.time_spend_percentage+'%'}">{{timeService.getFormattedTime(t.time_spend)}}</div>
+        </td>
+        <td>
+          <div [ngStyle]="{width:t.accuracy+'%'}">{{t.accuracy}}</div>
+        </td>
+        <td>
+          <div [ngStyle]="{width:t.attempted_percentage+'%'}">{{t.attempted_questions}}</div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+<loading [show]="loading"></loading>

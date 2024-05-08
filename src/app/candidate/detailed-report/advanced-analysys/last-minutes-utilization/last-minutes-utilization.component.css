@@ -1,0 +1,51 @@
+@font-face {
+    font-family: digital-7-italic;
+    src: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzWt7HbnY3dG5awLJy7_2jA8QGfnq71z05MrJxDUpO1w&s);
+}
+
+.row {
+  padding: 0 110px;
+}
+
+.box{
+    position: relative;
+}
+
+h2.subject {
+  font-family: Arial;
+  font-weight: 400;
+  font-size: 16px;
+  margin:0
+}
+
+h2.marks{
+    font-family: Arial;
+    font-weight: 400;
+    margin:0;
+    position: absolute;
+    left:50%;
+    top:10px;
+    transform: translateX(-50%);
+}
+
+.marks.physics{
+    color:#D93B3B
+}
+
+.marks.chemistry{
+    color:#07A4C4
+}
+
+.marks.mathematics{
+    color:#6569B7
+}
+
+h3.time{
+    font-family: digital-7-italic;
+    position:absolute;
+    bottom: 40px;
+    left: 50%;
+    color:#fff;
+    font-size: 12px;
+    transform: translateX(-50%);
+}

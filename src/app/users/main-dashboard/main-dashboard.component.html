@@ -1,0 +1,103 @@
+<admin-sidebar></admin-sidebar>
+<admin-header></admin-header>
+<div id="page-content">
+    <div class="row">
+        <div class="col-sm-8 pr">
+            <div class="content-title row">Schedule
+                <div class="input-field-date">
+                    <mat-icon id="date-prev" (click)="changeScheduleDate('prev')">navigate_before</mat-icon>
+                    <input name="inquiryDate" (dateTimeChange)="filterSchedules()" [(ngModel)]="filters.scheduleDate"
+                        class="input-field" ngModel [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1"
+                        placeholder="Schedule Date" required>
+                    <mat-icon id="date-next" (click)="changeScheduleDate('next')">navigate_next</mat-icon>
+                    <span matSuffix class="material-icons">calendar_today</span>
+                    <owl-date-time #dt1 [pickerType]="'calendar'"></owl-date-time>
+                </div>
+            </div>
+            <table *ngIf="schedules.length >0 " class="common-table big-heading">
+                <tr>
+                    <th style="width:160px">Time</th>
+                    <th>Class Name</th>
+                    <th></th>
+                </tr>
+                <tr *ngFor="let s of schedules">
+                    <td>
+                        {{s.fromTime.replace(":00","")}} - {{s.toTime.replace(":00","")}}
+                        <div *ngIf="s.isVirtual" class="row align-items-center classrow">
+                            <div class="virtual"><i class='material-icons'>videocam</i> Virtual</div>
+                            <div class="zoom">Zoom</div>
+                        </div>
+                    </td>
+                    <td>
+                        <p class='class-name'>{{s.cb}} - {{s.subject}} </p>
+                        <p class='teacher-name'>{{s.name}}</p>
+                    </td>
+                    <td>
+                        <ng-container *ngIf="s.isVirtual && !s.isCancelled">
+                            <button *ngIf="!['Live Class Ended','Live Class Not Started'].includes(getButtonName(s))"
+                                mat-raised-button color="primary"
+                                (click)="startMeeting(s.id)">{{getButtonName(s)}}</button>
+                            <button *ngIf="getButtonName(s) == 'Live Class Ended' " mat-raised-button
+                                color='accent'>View
+                                Attendance</button>
+                            <div class="button-status"
+                                *ngIf="['Live Class Ended','Live Class Not Started'].includes(getButtonName(s))">
+                                {{getButtonName(s)}}</div>
+                        </ng-container>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-4 pl">
+            <div class="content-title row">To Do
+                <div class="input-field-date">
+                    <mat-icon id="date-prev" (click)="changeToDoDate('prev')">navigate_before</mat-icon>
+                    <input name="inquiryDate" (dateTimeChange)="filterAssignedWork()" [(ngModel)]="filters.toDoDate"
+                        class="input-field" ngModel [owlDateTime]="dt2" [owlDateTimeTrigger]="dt2"
+                        placeholder="Schedule Date" required>
+                    <mat-icon id="date-next" (click)="changeToDoDate('next')">navigate_next</mat-icon>
+                    <span matSuffix class="material-icons">calendar_today</span>
+                    <owl-date-time #dt2 [pickerType]="'calendar'"></owl-date-time>
+                </div>
+            </div>
+            <div class="content-box">
+                <div class="follow-item" *ngFor="let f of followUps">
+                    Follow Up {{f.name}} on {{f.phone}}
+                    <button mat-mini-fab color="primary" (click)="getInquiryById(f.admissionInquiryId)">
+                        <mat-icon>phone</mat-icon>
+                    </button>
+                </div>
+                <div class="follow-item" *ngFor="let a of assignedWork"
+                    [ngClass]="{carriedOver:a.isCarriedOver&&!a.isCompleted,completed:a.isCompleted }">
+                    {{a.work}}
+                    <div class='follow-item-footer row justify-content-between align-items-center'>Assigned By
+                        {{a.name}}
+                        <ng-container *ngIf="!a.isCompleted">
+                            <button mat-mini-fab color="primary" (click)="markWorkDone(a.id)">
+                                <mat-icon>done</mat-icon>
+                            </button>
+                            <button mat-mini-fab color="primary" (click)="carryOverWork(a.id)">
+                                <mat-icon>arrow_forward_ios</mat-icon>
+                            </button>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Follow Up Modal-->
+<div class="modal" modal [show]="showFollowModal" [options]="{width:'60%'}">
+    <div class="dialog">
+        <div class="modal-header">Follow Up Admission Inquiry</div>
+        <div class='close' (click)="showFollowModal=false">&times;</div>
+        <div class="modal-body" style="padding:0">
+            <follow-up-admission-inquiry [InquiryDetails]="activeInquiry" *ngIf="showFollowModal">
+            </follow-up-admission-inquiry>
+        </div>
+    </div>
+</div>
+
+<loading [show]="loading"></loading>

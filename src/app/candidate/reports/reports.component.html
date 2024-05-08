@@ -1,0 +1,37 @@
+<candidate-sidebar></candidate-sidebar>
+<candidate-header [details]="details"></candidate-header>
+<div class="content">
+  <div id="tests" class="row">
+    <div class="test-cols" *ngFor="let t of completedTests">
+      <div class="single-test">
+        <div class="done">Attempt : {{t.attempt_no}} </div>
+        <div class="test-name" [innerHTML]="t.name | safe"></div>
+        <div class="end-date"> <i class="fa fa-calendar"></i>&nbsp; {{t.done_time}}</div>
+        <div class="row completed">
+          <div class="marks-col">
+            <div class="marks">{{t.total_marks}}</div>
+            <div class="marks-name">Maximum Marks</div>
+            <div class="marks">{{t.marks_obtained}}</div>
+            <div class="marks-name">Scored Marks</div>
+          </div>
+          <div class="line-col"></div>
+          <div class="attempts-col">
+            <div class="attempts text-success">{{t.correct_questions}}</div>
+            <div class="attempt-name">Right Attempt</div>
+            <div class="attempts text-danger">{{t.wrong_questions}}</div>
+            <div class="attempt-name">Wrong Attempt</div>
+            <div class="attempts" style='color:#f90'>{{t.skipped}}</div>
+            <div class="attempt-name">Left Attempt</div>
+          </div>
+        </div>
+        <div style="border-top: 1px dashed #ddd;margin-top: 15px;margin-bottom: 20px;"></div>
+        <button mat-stroked-button class="full-width" (click)="viewReports(t)">View
+          Report</button>
+      </div>
+    </div>
+    <div *ngIf="completedTests.length==0" id="notest">
+      No Reports Available
+    </div>
+  </div>
+</div>
+<loading [show]="onlineLoading"></loading>

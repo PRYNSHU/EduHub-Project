@@ -1,0 +1,55 @@
+.box {
+  position: relative;
+  background: #fff;
+  border-radius: 25px;
+  padding: 30px;
+  min-height: 200px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.statistic-item {
+  text-align: center;
+  width: 33.33%;
+  padding: 0px 20px;
+}
+
+.statistic-item.below {
+  margin-top: 50px;
+}
+
+.statistic-item-name {
+  padding: 3px 20px;
+  margin-bottom: 10px;
+  background: #1776b6;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.questions {
+  background: #0e9c8b;
+}
+
+.time {
+  background: #1193ad;
+}
+
+.avg-time {
+  background: #a8518a;
+}
+
+.marks {
+  background: #575bb8;
+}
+
+.percentile {
+  background: #62b354;
+}
+
+.statistic-item.below {
+  padding: 0px 0px;
+}
+
+.statistic-item > img {
+  width: 45px;
+}

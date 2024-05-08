@@ -1,0 +1,30 @@
+@font-face {
+    font-family: digital-7-italic;
+    src: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzWt7HbnY3dG5awLJy7_2jA8QGfnq71z05MrJxDUpO1w&s);
+}
+
+h2{
+    font-family: Arial;
+    font-weight: 400;
+    font-size: 16px;
+    max-width: 115px;
+    line-height: 20px;
+    display: inline-block;
+}
+
+.box{
+    position: relative;
+    margin-top: 40px;
+    text-align: center;
+}
+
+h3.time{
+    font-family: digital-7-italic;
+    position:absolute;
+    top:10px;
+    left: 50%;
+    top:50px;
+    color:#fff;
+    font-size: 20px;
+    transform: translateX(-50%);
+}

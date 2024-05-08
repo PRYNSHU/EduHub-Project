@@ -1,0 +1,248 @@
+#main {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  background-position: top center, center, bottom center;
+  background-repeat: no-repeat;
+  user-select: none;
+}
+
+#logo{
+  width: 200px;
+  position: absolute;
+  top:4%;
+  left: 10%;
+}
+
+#row {
+  display: flex;
+  width: 80vw;
+}
+
+#left,
+#right {
+  width: 50%;
+}
+
+#left {
+  padding-left: 70px;
+}
+
+#right {
+  padding-top: 100px;
+  padding-left: 10px;
+}
+
+#kid-mobile {
+  display: block;
+  max-width: 500px;
+  margin-top: 90px;
+}
+
+#regform,
+#otp-form {
+  max-width: 450px;
+  margin: auto;
+  text-align: center;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+[class*="col-"] {
+  padding: 0 7.5px;
+}
+
+#form-title {
+  font-family: Nexa Black;
+  font-weight: 900;
+  font-size: 22px;
+  color: #236073;
+  margin-bottom: 7px;
+}
+
+h4{
+  font-size: 14px;
+}
+
+h6 {
+  font-family: Arial;
+  font-weight: normal;
+  font-size: 14.8007px;
+  color: #373435;
+}
+
+select {
+  width: 100%;
+  outline: none;
+  height: 35px;
+  padding: 0 5px;
+  border: 1px solid #c5c5c5;
+}
+
+input {
+  width: 100%;
+  height: 35px;
+  border: 1px solid #c5c5c5;
+  outline: none;
+  padding: 5px 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+#verify-btn,#resend-btn,#reg-btn {
+  background:linear-gradient( #29DBE5 10.18%, #030281 196.01%);
+  box-shadow: 0 3px 0 #075585;
+  padding: 10px 30px;
+  width: 100%;
+  border: none;
+  outline: none;
+  margin: 10px auto;
+  border-radius: 5px;
+  font-family: Nexa Black;
+  font-weight: 900;
+  font-size: 18px;
+  color: #fefefe;
+  cursor: pointer;
+}
+
+#verify-btn:disabled,#resend-btn:disabled,#reg-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+#regform,
+#otp-form {
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzWt7HbnY3dG5awLJy7_2jA8QGfnq71z05MrJxDUpO1w&s);
+  background-position: top right;
+  background-repeat: no-repeat;
+  background-size: 200px;
+  padding: 25px 20px;
+  background-color: #fff;
+  border-radius: 30px;
+  max-width: 700px;
+}
+
+#student-name {
+  font-family: Nexa Heavy;
+  font-weight: 900;
+  font-size: 27px;
+  color: #1a86be;
+  margin-bottom: 10px;
+}
+
+#otp-verification {
+  font-family: Nexa Regular;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  color: #282829;
+}
+
+#otp-fields-wrapper {
+  display: flex;
+  justify-content: space-between;
+  max-width: 200px;
+  margin: auto;
+}
+
+.otp-inputs {
+  padding: initial;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #888;
+  outline: none;
+  text-align: center;
+}
+
+#otp-btns-wrapper {
+  display: flex;
+  margin-top: 25px;
+  justify-content: space-between;
+}
+
+#verify-btn,
+#resend-btn {
+  margin: 0;
+  font-size: 15px;
+  padding: 7px 10px;
+}
+
+#verify-btn {
+  width: calc(75% - 15px);
+}
+
+#resend-btn {
+  width: 25%;
+}
+
+#edit-mob {
+  width: auto;
+  padding: 4px 20px;
+  display: inline-block;
+  color: #275781;
+  background:transparent;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+#content {
+  background: #fff;
+  padding: 60px 15vw;
+}
+
+#why {
+  text-align: center;
+  font-family: Nexa Black;
+  font-weight: 900;
+  font-size: 36px;
+  line-height: 36px;
+  max-width: 650px;
+  margin: auto;
+}
+
+.row.why {
+  margin-top: 70px;
+  align-items: center;
+}
+
+.img {
+  height: 200px;
+  background-color: #31D7E6;
+}
+
+.why-img-wrapper {
+  width: 45%;
+  padding: 0 15px;
+}
+
+.why-img-wrapper lootie-player{
+ width: auto;
+}
+
+.why-content {
+  width: 55%;
+  padding: 0 15px;
+  color: #373435;
+}
+
+.why-content h1 {
+  font-family: Nexa Heavy;
+  font-weight: 900;
+  font-size: 25px;
+  line-height: 21px;
+}
+
+.why-content p {
+  font-family: Nexa Regular;
+  font-size: 18px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 24px;
+  text-align: justify;
+}

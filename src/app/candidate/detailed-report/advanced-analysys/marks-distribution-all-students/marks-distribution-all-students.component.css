@@ -1,0 +1,109 @@
+
+#marks-distribution-title {
+    position: absolute;
+    left: 25px;
+    top: 150px;
+    transform: rotate(-90deg);
+  }
+  
+  .marks-distribution-cell-wrapper {
+    position: relative;
+    width: 66px;
+    height: 200px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+  }
+  
+  .marks-distribution-row {
+    max-width: 400px;
+    margin: auto;
+  }
+  
+  .marks-distribution-cell {
+    position: absolute;
+    width: 58px;
+    height: 60%;
+    bottom: 20px;
+    left: 4.15px;
+    z-index: 1;
+  }
+  
+  .marks-distribution-cell-title {
+    position: absolute;
+    width: 100%;
+    bottom: -65px;
+    line-height: 20px;
+  }
+  
+  .marks-distribution-cell.lowest-marks {
+    background: linear-gradient(
+      90deg,
+      #d93b3b 0%,
+      #e86161 5.88%,
+      #e76e6e 12.94%,
+      #fcb8b8 23.92%,
+      #ea6666 45.1%,
+      #df4a4a 58.04%,
+      #dc4242 76.08%,
+      #e04b4b 83.92%,
+      #f78888 100%
+    );
+  }
+  
+  .marks-distribution-cell.average-marks {
+    background: linear-gradient(
+      90deg,
+      #06a4c4 0%,
+      #c4dee3 21.88%,
+      #24bcdb 45.88%,
+      #43d5f2 86.46%,
+      #88e9fc 99.48%
+    );
+  }
+  
+  .marks-distribution-cell.you {
+    background: linear-gradient(
+      90deg,
+      #eaef8b 0%,
+      #e0e85d 7.45%,
+      #f0ffab 16.86%,
+      #78ab20 56.86%,
+      #73a81b 72.16%,
+      #88b41f 85.1%,
+      #d6e12f 100%
+    );
+  }
+  
+  .marks-distribution-cell.highest-marks {
+    background: linear-gradient(
+      90deg,
+      #f58539 0%,
+      #f58e44 13.73%,
+      #f6cb98 30.2%,
+      #f58438 58.04%,
+      #f57c2d 70.98%,
+      #f69045 87.06%,
+      #f4984f 100%
+    );
+  }
+  
+  .marks-distribution-cell-top {
+    position: absolute;
+    top: -9px;
+    left:0;
+    width: 59px;
+    z-index: 2;
+  }
+  
+  .marks-distribution-cell-bottom {
+    position: absolute;
+    width: 66px;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+  }
+  
+  .marks-value {
+    color: #fff;
+    margin-top: 10px;
+  }

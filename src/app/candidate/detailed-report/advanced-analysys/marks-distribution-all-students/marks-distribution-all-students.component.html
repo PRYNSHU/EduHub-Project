@@ -1,0 +1,45 @@
+<h3 id="marks-distribution-title">Marks</h3>
+<div class="row justify-content-between marks-distribution-row">
+    <div class="marks-distribution-cell-wrapper">
+        <div class="marks-distribution-cell lowest-marks"
+            [style]="{height:(marks.lowestMarks/marks.totalMarks)*80+20+'%'}">
+            <img src="assets/images/detailed-report/marks-distribution-lowest-marks-cell-top.svg"
+                class="marks-distribution-cell-top">
+            <h2 class="marks-value" [innerText]="marks.lowestMarks"></h2>
+        </div>
+        <img src="assets/images/detailed-report/marks-distribution-cell-bottom.svg"
+            class="marks-distribution-cell-bottom">
+        <h3 class="marks-distribution-cell-title">Lowest Marks</h3>
+    </div>
+    <div class="marks-distribution-cell-wrapper">
+        <div class="marks-distribution-cell average-marks" [style]="{height:(marks.avgMarks/marks.totalMarks)*80+20+'%'}">
+            <img src="assets/images/detailed-report/marks-distribution-average-marks-cell-top.svg"
+                class="marks-distribution-cell-top">
+            <h2 class="marks-value" [innerText]="marks.avgMarks"></h2>
+        </div>
+        <img src="assets/images/detailed-report/marks-distribution-cell-bottom.svg"
+            class="marks-distribution-cell-bottom">
+        <h3 class="marks-distribution-cell-title">Average Marks</h3>
+    </div>
+    <div class="marks-distribution-cell-wrapper">
+        <div class="marks-distribution-cell you" [style]="{height:(marks.yourMarks/marks.totalMarks)*80+20+'%'}">
+            <img src="assets/images/detailed-report/marks-distribution-you-cell-top.svg"
+                class="marks-distribution-cell-top">
+            <h2 class="marks-value" [innerText]="marks.yourMarks"></h2>
+        </div>
+        <img src="assets/images/detailed-report/marks-distribution-cell-bottom.svg"
+            class="marks-distribution-cell-bottom">
+        <h3 class="marks-distribution-cell-title" style="bottom:-50px">You</h3>
+    </div>
+    <div class="marks-distribution-cell-wrapper">
+        <div class="marks-distribution-cell highest-marks"
+            [style]="{height:(marks.highestMarks/marks.totalMarks)*80+20+'%'}">
+            <img src="assets/images/detailed-report/marks-distribution-highest-marks-cell-top.svg"
+                class="marks-distribution-cell-top">
+            <h2 class="marks-value" [innerText]="marks.highestMarks"></h2>
+        </div>
+        <img src="assets/images/detailed-report/marks-distribution-cell-bottom.svg"
+            class="marks-distribution-cell-bottom">
+        <h3 class="marks-distribution-cell-title">Highest Marks</h3>
+    </div>
+</div>

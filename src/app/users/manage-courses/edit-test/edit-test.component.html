@@ -1,0 +1,27 @@
+<form #testForm="ngForm" (ngSubmit)="updateTest()">
+    <div class="row align-items-center">
+        <div class="col-sm-3">
+            <mat-form-field>
+                <mat-label>Test Name</mat-label>
+                <input name="testName" matInput [(ngModel)]="test.testName" required>
+            </mat-form-field>
+        </div>
+        <div class="col-sm-3">
+            <mat-form-field>
+                <mat-label>Test Type</mat-label>
+                <mat-select name="testTypeId" [(ngModel)]="test.testTypeId" required>
+                    <mat-option *ngFor="let t of testTypes" [value]="t.testTypeId" [innerText]="t.testType" ></mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-sm-3">
+            <mat-form-field>
+                <mat-label>Test Code</mat-label>
+                <input name="testCode" matInput [(ngModel)]="test.testCode" required>
+            </mat-form-field>
+        </div>
+        <div class="col-sm-12">
+            <button mat-raised-button color="primary" [disabled]="testForm.invalid">Update Test</button>
+        </div>
+    </div>
+</form>

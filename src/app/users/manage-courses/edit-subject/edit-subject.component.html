@@ -1,0 +1,23 @@
+<admin-header></admin-header>
+<admin-sidebar></admin-sidebar>
+<div id="page-content">
+    <div class="content-title">Edit Subject</div>
+    <div class="content-box">
+        <form #form="ngForm" *ngIf="subject" (ngSubmit)="update(form)">
+            <div class="row align-items-center">
+                <div class="col-sm-3">
+                    <mat-form-field>
+                        <mat-label>Subject</mat-label>
+                        <input name="subject" matInput [(ngModel)]="subject.subject" required>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-3">
+                    <input type="file" name="file" (change)="setSubjectImage($event)">
+                </div>
+                <div class="col-sm-12">
+                    <button mat-raised-button color="primary" [disabled]="form.invalid">Update Subject</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

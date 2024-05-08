@@ -1,0 +1,109 @@
+<div class="row mainrow">
+  <div class="col-12 col-lg-9">
+    <div class="custom-shadow">
+      <div class="content-box">
+        <div class="row inner-rows">
+          <div class="update-subject-left pr">
+            <mat-form-field>
+              <mat-label>Enter Subject Name</mat-label>
+              <input matInput [(ngModel)]="this.subjectData.subject" #sub="ngModel" required>
+            </mat-form-field>
+          </div>
+          <div class="update-subject-right justify-space-between pl">
+            <button mat-mini-fab color="primary" [disabled]="sub.invalid || subjectData.subject==masterSubject"
+              (click)="updateSubject()">
+              <mat-icon class='btn-icons'>save</mat-icon>
+            </button>&nbsp;
+            <!-- <button color="primary" mat-raised-button (click)="addchapter=!addchapter">
+              <mat-icon class='btn-icons'>add</mat-icon> Chapter
+            </button> -->
+          </div>
+        </div>
+
+        <div class="row inner-rows border-box" *ngIf="addchapter">
+          <div class="add-chapter-left pr">
+            <mat-form-field>
+              <mat-label>Enter Chapter Name</mat-label>
+              <input matInput placeholder="Enter Chapter Name" [(ngModel)]="chapter" #top="ngModel" required>
+            </mat-form-field>
+          </div>
+          <div class="add-chapter-right pl">
+            <button mat-mini-fab color="primary" [disabled]="top.invalid" (click)="saveChapter()">
+              <mat-icon class='btn-icons'>save</mat-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="row inner-rows border-box" *ngFor="let c of chapters;let i=index">
+          <div class="row col-12 chapters">
+            <div class="update-chapter-left pr">
+              <mat-form-field>
+                <mat-label>Enter Chapter Name</mat-label>
+                <input matInput placeholder="Enter Chapter Name" [(ngModel)]="chapters[i].chapter" #edittop="ngModel"
+                  required>
+              </mat-form-field>
+            </div>
+            <div class="update-chapter-right justify-space-between pl">
+              <button mat-mini-fab color="primary"
+                [disabled]="edittop.invalid || chapters[i].chapter==masterChapters[i].chapter"
+                (click)="updateChapter(i)">
+                <mat-icon class='btn-icons'>save</mat-icon>
+              </button>
+              &nbsp;<button mat-mini-fab color="warn" [disabled]="c.topics.length>0"
+                (click)="showDelete(c.chapterId,c.chapter,i)">
+                <mat-icon>delete</mat-icon>
+              </button>
+              &nbsp;<button mat-raised-button color="primary" (click)="showAddTopics[i]=!showAddTopics[i]">
+                <mat-icon class='btn-icons'>add</mat-icon> Topic
+              </button>
+            </div>
+          </div>
+
+          <div class="row inner-rows border-box col-12" *ngIf="showAddTopics[i]">
+            <div class="add-topic-left pr">
+              <mat-form-field>
+                <mat-label>Enter Topic Name</mat-label>
+                <input matInput placeholder="Enter Chapter Name" [(ngModel)]="topics[i]" #top="ngModel" required>
+              </mat-form-field>
+            </div>
+            <div class="add-topic-right pl">
+              <button mat-mini-fab color="primary" [disabled]="top.invalid" (click)="saveTopic(c.chapterId,i)">
+                <mat-icon class='btn-icons'>save</mat-icon>
+              </button>
+            </div>
+          </div>
+
+          <div class="row inner-rows border-box col-12" *ngFor="let t of c.topics;let ind=index">
+            <div class="update-topic-left pr">
+              <mat-form-field>
+                <mat-label>Enter Topic Name</mat-label>
+                <input matInput placeholder="Enter Chapter Name" [(ngModel)]="t.topic" required>
+              </mat-form-field>
+            </div>
+            <div class="update-topic-right justify-space-between pl">
+              <button mat-mini-fab color="primary" [disabled]="masterChapters[i].topics[ind].topic ==t.topic"
+                (click)="updateTopic(t.topicId,i,ind)">
+                <mat-icon class='btn-icons'>save</mat-icon>
+              </button>
+              &nbsp;<button mat-mini-fab color="warn" (click)="showTopicDelete(t.topicId,t.topic,i,ind)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-lg-3">
+    <div class="custom-shadow">
+      <div class="content-title">Important Instructions</div>
+      <div id="instructions">
+        <div><div class="material-icons">check_box</div>Add subject to the question bank.</div>
+        <div><div class="material-icons">check_box</div>Can define 4 level hierarchy to a created subject. </div>
+        <div><div class="material-icons">check_box</div>Considering an example:
+          add a subject, chapter, topic, sub-topic</div>
+      </div>
+    </div>
+  </div>
+</div>

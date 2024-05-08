@@ -1,0 +1,17 @@
+<div class="row justify-content-between">
+    <div class="dumbbell-box">
+        <h4 [innerText]="questionStatistics.correctQuestions"></h4>
+        <img src="assets/images/detailed-report/green-dumbbell.svg">
+        <h3>Correct Questions</h3>
+    </div>
+    <div class="dumbbell-box below">
+        <h4 [innerText]="questionStatistics.incorrectQuestions"></h4>
+        <img src="assets/images/detailed-report/red-dumbbell.svg">
+        <h3>Incorrect Questions</h3>
+    </div>
+    <div class="dumbbell-box">
+        <h4 [innerText]="questionStatistics.skippedQuestions"></h4>
+        <img src="assets/images/detailed-report/blue-dumbbell.svg">
+        <h3>Skipped Questions</h3>
+    </div>
+</div>

@@ -1,0 +1,156 @@
+/*Styles for Time distribution Starts*/
+#time-distribution-box {
+  position: relative;
+  display: inline-block;
+  width: 580px;
+  height: 329px;
+}
+
+#total-time {
+  background: #025b85;
+  position: absolute;
+  width: calc(100% - 16px);
+  left: 7px;
+  height: 150px;
+  top: 8px;
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
+  z-index: 0;
+}
+
+#total-minutes {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  font-weight: 700;
+  transform: translateX(-50%);
+  color: #fff;
+  z-index: 2;
+}
+
+#back {
+  background-color: #e6e7e8;
+  width: calc(100% - 16px);
+  height: calc(100% - 8px);
+  position: absolute;
+  left: 7px;
+  top: 8px;
+  z-index: -1;
+}
+
+#beeker {
+  position: absolute;
+  width: 100%;
+  height: 329px;
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzWt7HbnY3dG5awLJy7_2jA8QGfnq71z05MrJxDUpO1w&s);
+  background-repeat: no-repeat;
+}
+
+.subjects {
+  position: absolute;
+  bottom: 6px;
+  width: 108px;
+}
+
+.droping {
+  height: 166px;
+  width: 8px;
+  position: absolute;
+  bottom: 0;
+}
+
+.spend-time {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+}
+
+.physics .spend-time {
+  color: #fba9a9;
+}
+
+.chemistry .spend-time {
+  color: #7ce3f9;
+}
+
+.mathematics .spend-time {
+  color: #c4c6e8;
+}
+
+.unused .spend-time {
+  color: #7eabc1;
+}
+
+#time-subjects {
+  display: inline-block;
+  width: 580px;
+  margin-top: 15px;
+}
+
+.time-subjects-row > div {
+  width: 25%;
+  display: flex;
+  padding: 0 9px;
+  justify-content: center;
+  align-items: center;
+}
+
+.time-subjects-row > div img {
+  display: block;
+  margin-right: 10px;
+}
+
+#time-subjects h3 {
+  display: inline-block;
+  padding: 0 8px;
+  margin: 0;
+  font-size: 12px;
+  border-radius: 10px;
+  background: linear-gradient(0deg, #fefefe 4.62%, #e9e3e3 93.85%);
+  box-shadow: 0 0 2px #888;
+}
+
+.subjects.physics {
+  left: 10px;
+  background: #e15151;
+}
+
+.physics .droping {
+  left: calc(50% - 5px);
+  background: #e15151;
+}
+
+.subjects.chemistry {
+  left: 160px;
+  background: #15b0ce;
+}
+
+.chemistry .droping {
+  left: calc(50% - 4px);
+  background: #15b0ce;
+}
+
+.subjects.mathematics {
+  left: 310px;
+  background: #7175c2;
+}
+
+.mathematics .droping {
+  left: calc(50% - 5px);
+  background: #7175c2;
+}
+
+.subjects.unused {
+  left: 462px;
+  width: 109px;
+  height: 100px;
+  background: #025b85;
+}
+
+.unused .droping {
+  left: calc(50% - 5.8px);
+  background: #025b85;
+}
+
+/*Styles for Time Distribution ends*/

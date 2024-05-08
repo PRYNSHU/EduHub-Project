@@ -1,0 +1,43 @@
+<div id="main">
+  <div id="branding">EduHub</div>
+  <div id="login-form">
+    <div id="login-title">EduHub Login</div>
+    <p id="login-please">Please enter credentials to Login.</p>
+
+    <div class="form-group-p">
+      <mat-form-field>
+        <mat-label>Enter Username</mat-label>
+        <input matInput placeholder="Enter Username" [(ngModel)]="loginForm.username" #username="ngModel" required
+          (keydown)="$event.keyCode==13?onSubmitLogin():null">
+      </mat-form-field>
+    </div>
+
+    <div class="form-group-p">
+      <mat-form-field>
+        <mat-label>Enter Password</mat-label>
+        <input matInput type="password" placeholder="Enter Password" [(ngModel)]="loginForm.password" #pass="ngModel"
+          required (keydown)="$event.keyCode==13?onSubmitLogin():null">
+      </mat-form-field>
+    </div>
+
+    <button id="login-button" mat-raised-button (click)="onSubmitLogin()" [disabled]="username.invalid || pass.invalid"
+      color="primary">LOG IN</button>
+
+    <p id="status">{{msg}}</p>
+  </div>
+</div>
+
+<div class="modal" modal [show]="showmodal" [options]="options">
+  <div class="dialog">
+    <div class="modal-header">Login Status</div>
+    <div class='close' (click)="showmodal=false">&times;</div>
+    <div class="modal-body">
+      {{msg}}
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary pull-right" (click)="showmodal=false">Close</button>
+    </div>
+  </div>
+</div>
+
+<loading [show]="loading"></loading>

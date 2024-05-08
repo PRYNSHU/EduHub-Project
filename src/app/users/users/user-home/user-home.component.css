@@ -1,0 +1,51 @@
+.main-row {
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0px;
+  padding-top: 0;
+}
+
+.filter-box {
+  display: flex;
+}
+
+.filter-box>button {
+  margin-left: 10px;
+}
+
+.btns-box {
+  display: flex;
+}
+
+.btns-box>button {
+  margin-right: 10px;
+}
+
+.btns-box>button:last-child {
+  margin-right: 0;
+}
+
+table {
+  width: 100%
+}
+
+@media screen and (max-width:528px) {
+  .btns-box {
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .btns-box>*{
+    width: 33.33%;
+  }
+
+  .filter-box {
+    width: 100%;
+  }
+  .filter-box>input {
+    width: 60%;
+  }
+  .filter-box>button {
+    width: calc(40% - 10px);
+  }
+}

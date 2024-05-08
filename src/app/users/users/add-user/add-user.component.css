@@ -1,0 +1,101 @@
+.content-title {
+  padding: 10px;
+  font-weight: 500;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.content-box {
+  padding: 15px;
+  background-color: #fff;
+}
+
+.add-form-row{
+  justify-content: space-between;
+}
+.add-form-cols{
+  width:calc(33.33% - 10px)
+}
+
+.add-form-cols-66-percent{
+    width:calc(66.66% - 10px)
+}
+
+.add-form-cols-50{
+  width:calc(50% - 10px)
+}
+
+fieldset {
+  padding: 0 10px 10px 10px;
+  margin-bottom: 0px;
+  border: 1px solid transparent;
+}
+
+legend {
+  padding: 0 0px;
+  font-weight: 500;
+  color: #0063c6;
+}
+
+#gender-wrapper {
+  margin-top: 10px;
+}
+
+#gender-wrapper mat-radio-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.row.upload {
+  height: calc(100% - 17px);
+  justify-content: space-between;
+  align-items: center
+}
+
+.upload-box {
+  padding: 7px;
+  border: 1px solid #888888;
+  width: calc(50% - 10px);
+  height: 100%;
+}
+
+.upload-box img {
+  width: 100px;
+  height: 90px;
+  border: 1px solid #888;
+}
+
+.upload-box button {
+  width: 100px;
+  padding: 1px 10px;
+  font-size: 12px;
+  border-radius: 0;
+  line-height: 25px;
+}
+
+.upload-box p {
+  color: red;
+  margin-top: 4px;
+  font-size: 10px;
+  line-height: 14px;
+}
+
+[type='file'] {
+  position: absolute;
+  left: -1600px;
+}
+
+@media screen and (max-width:920px){
+  .add-form-cols{
+    width:calc(50% - 10px)
+  }
+  .add-form-cols.upl{
+    width:calc(100%)
+  }
+  .add-form-cols-66-percent{
+    width:calc(100%)
+  }
+  .add-form-cols-50{
+    width:calc(50% - 10px)
+  }
+}

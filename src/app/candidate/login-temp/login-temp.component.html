@@ -1,0 +1,34 @@
+<loading [show]="loading"></loading>
+
+<div id="main">
+    <a href="">
+        <img src="assets/images/login/logo.svg" id="logo">
+    </a>
+    <div id="row">
+        <div id="left">
+            <img id="kid-mobile" src="assets/images/login/kid-mobile.svg">
+        </div>
+        <div id="right">
+            <div id="form">
+                <div id="form-title">Welcome to EduHub</div>
+                <div id="form-body">
+                    <form (ngSubmit)="login()">
+                        <div id="lets-begin">Let's Begin</div>
+                        <p id="note">Enter Credentials to your EduHub`s account</p>
+                        <mat-form-field>
+                            <mat-label>Enter Username</mat-label>
+                            <input name="username" matInput [(ngModel)]="form.username">
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>Enter Password</mat-label>
+                            <input name="password" matInput type="password" [(ngModel)]="form.password">
+                        </mat-form-field>
+
+                        <button id="login-button">Login</button>
+                    </form>
+                    <br><br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

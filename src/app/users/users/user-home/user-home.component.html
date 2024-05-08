@@ -1,0 +1,102 @@
+<admin-header></admin-header>
+<admin-sidebar></admin-sidebar>
+<div id="page-content">
+  <div class="row main-row">
+    <div class="filter-box">
+      <input class="input-field" placeholder="Search by name,phone,city etc" #name
+        (keydown)="$event.keyCode==13?filterUsers(name.value):null">
+      <button mat-raised-button color="primary" (click)="filterUsers(name.value)">Search</button>
+    </div>
+    <div class="btns-box">
+      <button *ngIf="permissions.add_user" mat-raised-button routerLink="/users/manage-users/add-user"><i class="fa fa-plus"></i>
+        Add</button>
+      <button mat-raised-button color="warn">
+        <mat-icon>import_export</mat-icon>Export
+      </button>
+      <button mat-raised-button>
+        <mat-icon>more_vert</mat-icon>
+      </button>
+    </div>
+  </div>
+
+
+  <table mat-table [dataSource]="dataSource" class="shadow-sm" matSort>
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()"
+          [indeterminate]="selection.hasValue() && !isAllSelected()">
+        </mat-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(element) : null"
+          [checked]="selection.isSelected(element)">
+        </mat-checkbox>
+      </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <!-- Role Column -->
+    <ng-container matColumnDef="role">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Role </th>
+      <td mat-cell *matCellDef="let element"> {{element.roleName}} </td>
+    </ng-container>
+
+    <!--Phone Column -->
+    <ng-container matColumnDef="phone">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Phone </th>
+      <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+    </ng-container>
+
+    <!-- Action Column -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element;let i=index" id="actioncol">
+        <button mat-mini-fab color="primary" (click)="showFullUser(element)">
+          <mat-icon>open_in_full</mat-icon>
+        </button>&nbsp;
+        <button mat-mini-fab color="primary" (click)="editPermissions(element)">
+          <mat-icon>lock</mat-icon>
+        </button>&nbsp;
+        <button *ngIf="permissions.edit_user" mat-mini-fab color="primary" (click)="editUser(element)">
+          <mat-icon>create</mat-icon>
+        </button>
+        &nbsp;<button *ngIf="permissions.delete_user" mat-mini-fab color="warn" (click)="showDelete(element)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[9]" showFirstLastButtons></mat-paginator>
+</div>
+
+
+<!--Edit User Modal-->
+<div class="modal" modal [show]="modals.showEditModal" [options]="{width:'100%'}">
+  <div class="dialog">
+    <div class="modal-header">Edit User</div>
+    <div class='close' (click)="modals.showEditModal=false">&times;</div>
+    <div class="modal-body edit-modal-body">
+      <edit-user *ngIf="modals.showEditModal" [modals]="modals" [user]="userToEdit"></edit-user>
+    </div>
+  </div>
+</div>
+
+<!--Edit User Permissions Modal-->
+<div class="modal" modal [show]="modals.showEditPermissionsModal" [options]="{width:'100%'}">
+  <div class="dialog">
+    <div class="modal-header">Edit {{userToEdit && userToEdit.name}}'s Permissions</div>
+    <div class='close' (click)="modals.showEditPermissionsModal=false">&times;</div>
+    <div class="modal-body edit-modal-body">
+      <edit-user-permissions [modals]="modals" [user]="userToEdit" *ngIf="modals.showEditPermissionsModal"></edit-user-permissions>
+    </div>
+  </div>
+</div>
+<loading [show]="loading"></loading>

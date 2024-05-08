@@ -1,0 +1,64 @@
+<candidate-sidebar></candidate-sidebar>
+<candidate-header [details]="details" [links]="links"></candidate-header>
+
+<div class="content">
+  <div class="row ph">
+    <div id="profile-header">Personal Details</div>
+  </div>
+  <div id="profile-box">
+    <div id="candi_image">
+        <img [src]="candidate_image">
+    </div>
+    <div id="profile-form">
+      <div class="row fields">
+        <div class="col-4">
+          <label>Name</label>
+        </div>
+        <div class="col-4">
+          <span>{{profile.name}}</span>
+        </div>
+        <div class="col-3"></div>
+      </div>
+      <div class="row fields">
+        <div class="col-4">
+          <label>Email</label>
+        </div>
+        <div class="col-4">
+          <span>{{profile.email}}</span>
+        </div>
+        <div class="col-3"></div>
+      </div>
+      <div class="row fields">
+        <div class="col-4">
+          <label>Mobile Number</label>
+        </div>
+        <div class="col-4">
+          <span>{{profile.phone}}</span>
+        </div>
+        <div class="col-3"></div>
+      </div>
+      <div class="row fields">
+        <div class="col-4">
+          <label>Course Batch</label>
+        </div>
+        <div class="col-4">
+          <span>{{profile.group}}</span>
+        </div>
+        <div class="col-3"></div>
+      </div>
+      <div class="row fields">
+        <div class="col-4">
+          <label>Change Session</label>
+        </div>
+        <div class="col-5">
+            <select class="select" [(ngModel)]="sessionId">
+              <option *ngFor="let session of sessions" [value]="session.sessionId" >{{session.session}} [{{session.course}} {{session.batch}}]</option>
+            </select>
+        </div>
+        <div class="col-2">
+          <button mat-raised-button (click)="changeSession()">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

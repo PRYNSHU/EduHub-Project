@@ -1,0 +1,108 @@
+.reports-table-title {
+  margin-top: 0;
+}
+
+.reports-table td{
+  background: #fff;
+}
+
+
+.key img{
+  vertical-align: middle;
+}
+
+.statistics-title {
+  position: relative;
+  background: #1193ad;
+  color: #fff;
+  padding: 6px 40px;
+  margin-bottom: 10px;
+}
+
+.statistics-title img {
+  position: absolute;
+  left: 10px;
+  top: 3px;
+}
+
+#subject-analysis {
+  padding: 10px;
+  margin-top: 15px;
+  background: #fff;
+}
+.statistics-title {
+  margin-bottom: 10px;
+}
+.marksrow .value {
+  font-weight: 500;
+}
+
+.subanal .pl {
+  padding-left: 7.5px;
+}
+.subanal .pr {
+  padding-right: 7.5px;
+}
+
+.analysis-box {
+  border: 1px solid #e7e7e7;
+  height: 100%;
+  margin-bottom: 15px;
+  width: calc(50% - 7.5px);
+}
+
+.anal-marks {
+  font-weight: 700;
+  font-size: 20px;
+  color: #555;
+}
+.anal-marks span {
+  font-size: 16px;
+  font-weight: 500;
+}
+.subject_col {
+  width: 175px;
+}
+.subject-analysis-chart-wrapper {
+  overflow: hidden;
+  height: 130px;
+  width: calc(100% - 175px);
+}
+.subject-analysis-chart {
+  width: 600px;
+  height: 160px;
+  position: relative;
+  top: -25px;
+  left: -100px;
+}
+
+.details-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.details-table th,
+.details-table td {
+  color: #555;
+  padding: 7px 15px;
+  border: 1px solid #d7d7d7;
+}
+.details-table th {
+  font-size: 14px;
+  font-weight: 500;
+  background: #f1f1f1;
+}
+.details-table td {
+  text-align: center;
+}
+
+@media screen and (max-width: 1200px) {
+  .subject-analysis-chart-wrapper {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .analysis-box {
+    width: calc(100%);
+  }
+}

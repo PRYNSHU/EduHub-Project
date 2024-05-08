@@ -1,0 +1,62 @@
+
+#course-include {
+    background: #f7f7f7;
+    position: relative;
+    /* top: -245px; */
+    margin-top: -15.3125rem; /* -245px */
+    z-index: 1;
+    box-shadow: 0rem 0.25rem 0.5rem /* 0px 4px 8px */ rgba(58, 58, 58, 0.16);
+    border-radius: 0.625rem; /* 10px */
+}
+
+#price-tag {
+    padding: 3.875rem 4.5625rem 0 4.5625rem; /* 62px 73px 73px */
+    text-align: center;
+}
+
+#price-tag>h1 {
+    font-size: 2rem;     font-weight: 800;
+}
+
+#price-tag h1 span {
+    font-size: 1.5rem; /* 24px */
+    color: #767676
+}
+
+#join-now {
+    background: var(--primary-button-color);
+    padding: .9rem 1.938rem;
+    width: 100%;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: 600;
+    border-radius: 0.625rem; /* 10px */
+    white-space: nowrap;
+    margin-top: 1.5625rem; /* 25px */
+    cursor: pointer;
+}
+
+#line{
+    height:0.0313rem; /* 0.5px */
+    margin:3.5rem auto 0 /* 56px */ auto;
+    width:calc(100% - 32px);
+    background: #3a3a3a;
+}
+
+#course-include-body{
+    padding:3.75rem 1.875rem /* 60px 30px */
+}
+
+.includes-points{
+    color:#767676;
+    margin-top: 1.875rem; /* 30px */
+    font-size: 1.25rem; /* 20px */
+    font-weight: 600;
+}
+.includes-points img{
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 0.3125rem; /* 5px */
+}

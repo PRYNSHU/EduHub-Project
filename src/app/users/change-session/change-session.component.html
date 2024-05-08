@@ -1,0 +1,17 @@
+<admin-header></admin-header>
+<admin-sidebar></admin-sidebar>
+<div id="page-content">
+    <div id="form">
+        <div class="content-title">Change Session</div>
+        <div class="content-box">
+            <mat-form-field>
+                <mat-label>Select Session</mat-label>
+                <mat-select [(ngModel)]="sessionId">
+                    <mat-option *ngFor="let session of sessionYears" [value]="session.id">{{session.session}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" (click)="changeSession()">Submit</button>
+        </div>
+    </div>
+</div>

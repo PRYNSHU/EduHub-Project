@@ -1,0 +1,204 @@
+#percentage-accuracy {
+  position: absolute;
+  left: -40px;
+  top: 150px;
+  transform: rotate(-90deg);
+}
+
+#cells-row {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.cells-row {
+  justify-content: space-between;
+  width: 110px;
+  position: relative;
+}
+
+.cell {
+  position: relative;
+  width: 49px;
+  height: 200px;
+  background: #dfe3e6;
+  bottom: 0;
+}
+
+.cell-top {
+  position: absolute;
+  display: block;
+  left: 0;
+  top: -17px;
+  z-index: 3;
+}
+
+.cell-bottom {
+  position: absolute;
+  display: block;
+  left: 0;
+  bottom: -9px;
+  z-index: 2;
+}
+
+.cell-bar {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  height: 25%;
+  z-index: 1;
+}
+
+.memory-your-bar {
+  background: #1a85bd;
+}
+
+.memory-overall-bar {
+  background: #79c7f2;
+}
+
+.conceptual-your-bar {
+  background: #d91c29;
+}
+
+.conceptual-overall-bar {
+  background: #f7747d;
+}
+
+.application-your-bar {
+  background: #00a859;
+}
+
+.application-overall-bar {
+  background: #64c190;
+}
+
+#chart {
+  margin: 40px auto 40px;
+  height: 200px;
+  width: 450px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cell-shadow {
+  position: absolute;
+  display: block;
+  left: 8px;
+  top: -4px;
+  height: 100%;
+  z-index: 2;
+}
+
+.lines {
+  position: relative;
+  width: 100%;
+  height: 1px;
+  background: #777;
+}
+
+.lines span {
+  position: absolute;
+  left: -30px;
+  top: -10px;
+}
+
+.info {
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  bottom: -70px;
+  text-align: center;
+}
+
+.your-overall-row {
+  justify-content: space-between;
+  padding: 0 5px;
+  margin-top: -4px;
+}
+
+.info h4.category {
+  margin: 0;
+  font-size: 12px;
+}
+
+h4.your-overall {
+  font-size: 8px;
+  position: relative;
+}
+
+h4.your-overall::before {
+  display: block;
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  background: chocolate;
+  border-radius: 100%;
+  left: -12px;
+  top: 8px;
+}
+
+.info img {
+  position: absolute;
+  width: 100%;
+  top: 20px;
+  left: 0;
+}
+
+.curve {
+  position: absolute;
+  top: -12px;
+}
+
+h4.memory-your {
+  color: #1a85bd;
+}
+h4.memory-your::before {
+  background-color: #1a85bd;
+}
+
+h4.memory-overall {
+  color: #79c7f2;
+}
+h4.memory-overall::before {
+  background-color: #79c7f2;
+}
+
+h4.conceptual-your {
+  color: #d83438;
+}
+h4.conceptual-your::before {
+  background-color: #d83438;
+}
+
+h4.conceptual-overall {
+  color: #f7747d;
+}
+
+h4.conceptual-overall::before {
+  background-color: #f7747d;
+}
+
+h4.application-your {
+  color: #00a859;
+}
+h4.application-your::before {
+  background-color: #00a859;
+}
+
+h4.application-overall {
+  color: #64c190;
+}
+
+h4.application-overall::before {
+  background-color: #64c190;
+}

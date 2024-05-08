@@ -1,0 +1,71 @@
+<div class="sidebar" [ngClass]="{minimized:minimized}">
+  <mat-icon id="menubtn" (click)="minimizeSidebar()">menu</mat-icon>
+  <img id="logo" src="assets/images/eduhub-logo.jpg">
+
+  <div class="link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+    <a routerLink="/users/dashboard"><i class="material-icons before">dashboard</i> Dashboard</a>
+  </div>
+
+  <!--Manage Students on Desktop -->
+  <div *ngIf="permissions.see_student && !isMobile" class="link" routerLinkActive="active"
+    [ngClass]="{active:activeLink.includes('/manage-students')}" [routerLinkActiveOptions]="{exact: true}">
+    <a routerLink="/users/manage-students/"><i class="fa fa-user before"></i> Manage Students</a>
+  </div>
+
+  <!--Manage Students On Mobile <=920px -->
+  <div class="link" *ngIf="isMobile" routerLinkActive="active"
+    [ngClass]="{opened:opened=='manage-students',active:activeLink=='manage-students' }">
+    <a (click)="$event.preventDefault();opened=opened=='manage-students'?'':'manage-students'">
+      <i class="material-icons before">check_box</i> Manage Students
+      <i class="material-icons after">{{opened=="manage-students"?'keyboard_arrow_down':'chevron_right'}}</i> </a>
+    <div class="submenu">
+      <a routerLinkActive="active" routerLink="/users/manage-students/">Manage Students</a>
+      <a routerLinkActive="active" routerLink="/users/manage-students/add-candidate/">Add Student</a>
+    </div>
+  </div>
+
+  <!--Manage Users on Desktop-->
+  <div *ngIf="permissions.see_user && !isMobile" class="link" routerLinkActive="active"
+    [ngClass]="{active:activeLink.includes('/manage-users')}" [routerLinkActiveOptions]="{exact:true}">
+    <a routerLink="/users/manage-users/"><i class="fa fa-user before"></i> Manage Users</a>
+  </div>
+
+  <!--Manage Users On Mobile <=920px -->
+  <div class="link" *ngIf="isMobile" routerLinkActive="active"
+    [ngClass]="{opened:opened=='manage-users',active:activeLink=='manage-users' }">
+    <a (click)="$event.preventDefault();opened=opened=='manage-users'?'':'manage-users'">
+      <i class="material-icons before">check_box</i> Manage Users
+      <i class="material-icons after">{{opened=="manage-users"?'keyboard_arrow_down':'chevron_right'}}</i> </a>
+    <div class="submenu">
+      <a routerLinkActive="active" routerLink="/users/manage-users/">Manage Users</a>
+      <a routerLinkActive="active" routerLink="/users/manage-users/add-user/">Add User</a>
+      <a routerLinkActive="active" routerLink="/users/manage-users/assign-batches/">Assign Batches</a>
+      <a routerLinkActive="active" routerLink="/users/manage-users/assign-subjects/">Assign Subjects</a>
+    </div>
+  </div>
+
+
+  <div class="link" routerLinkActive="active" [ngClass]="{active:activeLink.includes('/manage-courses')}"
+    [routerLinkActiveOptions]="{exact: true}">
+    <a routerLink="/users/manage-courses/"><i class="material-icons before">notes</i> Manage Courses</a>
+  </div>
+
+  <div *ngIf="permissions.default_permissions" class="link" routerLinkActive="active"
+    [ngClass]="{active:activeLink.includes('/default-permissions')}" [routerLinkActiveOptions]="{exact:true}">
+    <a routerLink="/users/default-permissions/"><i class="material-icons before">class</i> Default Permissions</a>
+  </div>
+
+  <div class="link" routerLinkActive="active" [ngClass]="{active:activeLink.includes('/change-password')}"
+    [routerLinkActiveOptions]="{exact:true}">
+    <a routerLink="/users/change-password/"><i class="material-icons before">class</i> Change Password</a>
+  </div>
+
+  <div class="link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+    <a routerLink="/users/contact-inquiries"><i class="material-icons before">class</i> Contact Inquiries <span
+        [matBadge]="contactInquiriesCount"></span> </a>
+  </div>
+
+  <div class="link">
+    <a routerLink="/logout/users/"><i class="material-icons before">logout</i> Logout</a>
+  </div>
+</div>

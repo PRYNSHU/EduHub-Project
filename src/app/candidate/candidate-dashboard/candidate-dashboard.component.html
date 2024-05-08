@@ -1,0 +1,102 @@
+<candidate-sidebar></candidate-sidebar>
+<div class="content">
+    <div id="page_title">EduHub courses</div>
+    <div id="statistics-title">
+        <h1>Overall Statistics</h1>
+    </div>
+    <div id="statistics">
+        <div class="statistic-left">
+            <div id="chartWrapper">
+                <statistics-chart [data]="data"></statistics-chart>
+            </div>
+        </div>
+        <div class="statistic-right">
+            <div class="statistics-box">
+                <div class="statistic-item below">
+                    <img src="assets/images/dashboard/question-mark.svg">
+                    <div class="statistic-item-name questions">Questions</div>
+                    <circle-progress [percent]="70" [radius]="30" [showInnerStroke]="false" [outerStrokeWidth]="8"
+                        [outerStrokeColor]="'#29DBE5'" [outerStrokeGradient]="true"
+                        [outerStrokeGradientStopColor]="'#1A89BF'" [animation]="true" [showSubtitle]="false"
+                        [showUnits]="false" [animationDuration]="300"></circle-progress>
+                </div>
+                <div class="statistic-item below">
+                    <img src="assets/images/dashboard/time.svg">
+                    <div class="statistic-item-name time">Time</div>
+                    <circle-progress [percent]="70" [radius]="30" [showInnerStroke]="false" [outerStrokeWidth]="8"
+                        [outerStrokeColor]="'#29DBE5'" [outerStrokeGradient]="true"
+                        [outerStrokeGradientStopColor]="'#1A89BF'" [animation]="true" [showSubtitle]="false"
+                        [showUnits]="false" [animationDuration]="300"></circle-progress>
+                </div>
+                <div class="statistic-item below">
+                    <img src="assets/images/dashboard/avg-time.svg">
+                    <div class="statistic-item-name avg-time">Avg. Time</div>
+                    <circle-progress [percent]="70" [radius]="30" [showInnerStroke]="false" [outerStrokeWidth]="8"
+                        [outerStrokeColor]="'#29DBE5'" [outerStrokeGradient]="true"
+                        [outerStrokeGradientStopColor]="'#1A89BF'" [animation]="true" [showSubtitle]="false"
+                        [showUnits]="false" [animationDuration]="300"></circle-progress>
+                </div>
+            </div>
+
+            <div class="statistics-box">
+                <div class="statistic-item">
+                    <img src="assets/images/dashboard/memory.svg">
+                    <div class="statistic-item-name memory">Memory</div>
+                    <div class="row kid-row">
+                        <div class="cell">
+                            <div class="grad-1"></div>
+                            <div class="grad-2"></div>
+                            <img class="cell-top" src="assets/images/dashboard/cell-top.svg">
+                            <img class="cell-bottom" src="assets/images/dashboard/cell-bottom.svg">
+                            <div class="cell-bar memory-bar">
+                                <div class="percentage">70%</div>
+                                <div class="grad-1"></div>
+                                <div class="grad-2"></div>
+                            </div>
+                        </div>
+                        <img class="kid-image" src="assets/images/dashboard/memory-kid.svg">
+                    </div>
+                </div>
+                <div class="statistic-item">
+                    <img src="assets/images/dashboard/conceptual.svg">
+                    <div class="statistic-item-name conceptual">Conceptual</div>
+                    <div class="row align-items-center kid-row">
+                        <div class="cell">
+                            <div class="grad-1"></div>
+                            <div class="grad-2"></div>
+                            <img class="cell-top" src="assets/images/dashboard/cell-top.svg">
+                            <img class="cell-bottom" src="assets/images/dashboard/cell-bottom.svg">
+                            <div class="cell-bar conceptual-bar">
+                                <div class="percentage">70%</div>
+                                <div class="grad-1"></div>
+                                <div class="grad-2"></div>
+                            </div>
+                        </div>
+                        <img class="kid-image" src="assets/images/dashboard/conceptual-kid.svg">
+                    </div>
+                </div>
+                <div class="statistic-item">
+                    <img src="assets/images/dashboard/application.svg">
+                    <div class="statistic-item-name application">Application</div>
+                    <div class="row kid-row">
+                        <div class="cell">
+                            <div class="grad-1"></div>
+                            <div class="grad-2"></div>
+                            <img class="cell-top" src="assets/images/dashboard/cell-top.svg">
+                            <img class="cell-bottom" src="assets/images/dashboard/cell-bottom.svg">
+                            <div class="cell-bar application-bar">
+                                <div class="percentage">70%</div>
+                                <div class="grad-1"></div>
+                                <div class="grad-2"></div>
+                            </div>
+                        </div>
+                        <img class="kid-image" src="assets/images/dashboard/application-kid.svg">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<loading [show]="loading"></loading>

@@ -1,0 +1,174 @@
+
+.pace-row-main {
+    border-bottom: 3px solid #e7e8e8;
+    margin-bottom: 40px;
+  }
+  
+  .pace-row {
+    position: relative;
+    width: 160px;
+    padding: 0 20px;
+  }
+  
+  .pace-info {
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    height: 50px;
+  }
+  
+  .pace-info > h3 {
+    font-size: 12px;
+    margin: 0;
+  }
+  
+  .pace-info > img {
+    position: absolute;
+    left: 0;
+    top: 21px;
+  }
+  
+  .pace-labels-row {
+    position: absolute;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    left: 0;
+    top: 35px;
+    width: 100%;
+  }
+  
+  .pace-labels-row > h4 {
+    font-size: 10px;
+    line-height: 12px;
+    position: relative;
+  }
+  
+  .pace-labels-row > h4::before {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 10px;
+    height: 10px;
+    left: -12px;
+    border-radius: 100%;
+    top: 2px;
+  }
+  
+  .pace-tube {
+    position: relative;
+    width: 25px;
+    height: 200px;
+    background: #d2d3d5;
+    border-radius: 12.5px;
+  }
+  
+  .pace-tube-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    border-radius: 12.5px;
+    z-index: 1;
+  }
+  
+  .pace-tube-bar.correct-too-slow {
+    background: #77c79e;
+  }
+  .pace-tube-bar.correct-perfect {
+    background: #00a859;
+  }
+  .pace-tube-bar.correct-too-fast {
+    background: #0f7a49;
+  }
+  
+  h4.correct-too-slow {
+    color: #77c79e;
+  }
+  h4.correct-too-slow::before {
+    background: #77c79e;
+  }
+  h4.correct-perfect {
+    color: #00a859;
+  }
+  h4.correct-perfect::before {
+    background: #00a859;
+  }
+  h4.correct-too-fast {
+    color: #0f7a49;
+  }
+  h4.correct-too-fast::before {
+    background: #0f7a49;
+  }
+  
+  .pace-tube-bar.incorrect-too-slow {
+    background: #fc7a6f;
+  }
+  .pace-tube-bar.incorrect-perfect {
+    background: #f5301e;
+  }
+  .pace-tube-bar.incorrect-too-fast {
+    background: #c4190a;
+  }
+  
+  h4.incorrect-too-slow {
+    color: #fc7a6f;
+  }
+  h4.incorrect-too-slow::before {
+    background: #fc7a6f;
+  }
+  h4.incorrect-perfect {
+    color: #f5301e;
+  }
+  h4.incorrect-perfect::before {
+    background: #f5301e;
+  }
+  h4.incorrect-too-fast {
+    color: #c4190a;
+  }
+  h4.incorrect-too-fast::before {
+    background: #c4190a;
+  }
+  
+  .pace-tube-bar.not-answered {
+    background: #067cb3;
+  }
+  .pace-tube-bar.marked-for-review {
+    background: #025b85;
+  }
+  .pace-tube-bar.not-visited {
+    background: #033a54;
+  }
+  
+  h4.not-answered {
+    color: #067cb3;
+  }
+  h4.not-answered::before {
+    background: #067cb3;
+  }
+  
+  h4.marked-for-review {
+    color: #025b85;
+  }
+  h4.marked-for-review::before {
+    background: #025b85;
+  }
+  
+  h4.not-visited {
+    color: #033a54;
+  }
+  h4.not-visited::before {
+    background: #033a54;
+  }
+  
+  .pace-shadow {
+    height: calc(100% - 20px);
+    top: 10px;
+    width: 5px;
+    border-radius: 2.5px;
+    background: rgba(255, 255, 255, 0.34);
+    left: 5px;
+    z-index: 3;
+    position: absolute;
+  }

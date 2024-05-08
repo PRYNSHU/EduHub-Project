@@ -1,0 +1,32 @@
+
+#course-highlights{
+    padding:2.5rem; /* 40px */
+    margin-top: 3.125rem; /* 50px */
+    background: #f7f7f7;
+    box-shadow: 0rem 0.25rem 0.5rem /* 0px 4px 8px */ rgba(58, 58, 58, 0.16);
+    border-radius: 0.625rem; /* 10px */
+}
+
+#course-highlights>h1{
+    font-size: 2rem; 
+    margin-bottom: 2.5rem; /* 40px */
+}
+
+.highlight{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 0.0313rem /* 0.5px */ solid #767676;
+    padding:0 0.8125rem 1.25rem 0.8125rem; /* 13px 20px 13px */
+    margin-top: 1.25rem; /* 20px */
+}
+
+.highlight:last-child{
+    border: none;
+}
+
+.highlight span{
+    color:#767676;
+    font-size: 1.25rem; /* 20px */
+    font-weight: bold;
+}

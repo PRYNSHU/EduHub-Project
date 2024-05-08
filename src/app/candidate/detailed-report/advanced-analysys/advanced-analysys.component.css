@@ -1,0 +1,56 @@
+.box {
+  position: relative;
+  background: #fff;
+  border-radius: 25px;
+  padding: 30px;
+  min-height: 200px;
+}
+
+.box-row {
+  margin-top: 15px;
+}
+
+.box-row .box {
+  padding-top: 10px;
+  text-align: center;
+  width: calc(50% - 7.5px);
+}
+
+.box-row .box.full{
+  width: 100%;
+}
+
+.box h2.title {
+  color: #373435;
+  font-family: Arial;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+/* Styles For Pencil Chart */
+.pencil-subject {
+  position: relative;
+  padding: 4px;
+  color: #fff;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.physics {
+  background: #da3c3c;
+}
+
+.chemistry {
+  background: #08a5c4;
+}
+
+.mathematics {
+  background: #666ab8;
+}
+
+.pencil-subject img {
+  position: absolute;
+  left: 10px;
+  max-width: 20px;
+}
+/*Styles for Pencils Ends here*/

@@ -1,0 +1,17 @@
+.subject {
+    align-items: center;
+}
+
+.subject>button{
+    margin-left: 10px;
+}
+
+.subject>mat-form-field {
+    width: calc(100% - 140px);
+}
+
+@media screen and (max-width:576px){
+    .pl,.pr{
+        padding: 0;
+    }
+}

@@ -1,0 +1,27 @@
+<admin-header></admin-header>
+<admin-sidebar></admin-sidebar>
+<div id="page-content">
+    <div class="content-title">Contact Inquiries</div>
+    <table class="common-table">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Message</th>
+            <th>Status</th>
+            <th>Date Time</th>
+        </tr>
+        <tr *ngFor="let ci of contactInquiries">
+            <td>{{ci.name}}</td>
+            <td>{{ci.email}}</td>
+            <td>{{ci.phone}}</td>
+            <td>
+                <button mat-mini-fab (click)="showContent(ci.message,ci.id)"><mat-icon>visibility</mat-icon></button>
+            </td>
+            <td>{{ci.isSeen?'Seen':'New'}}</td>
+            <td>{{ci.datetime}}</td>
+        </tr>
+    </table>
+</div>
+
+<loading [show]="loading"></loading>

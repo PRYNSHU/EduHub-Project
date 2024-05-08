@@ -1,0 +1,70 @@
+<admin-header></admin-header>
+<admin-sidebar></admin-sidebar>
+<div id="page-content">
+    <div *ngIf="permissions.assign_user_batches" class="content-title">Assign Batches</div>
+    <div *ngIf="permissions.assign_user_batches" class="content-box">
+        <form #assignForm="ngForm">
+            <mat-form-field>
+                <mat-label>Select User</mat-label>
+                <mat-select name="userId" [(ngModel)]="userId" (selectionChange)="setUserChoosedIds()" required>
+                    <mat-option *ngFor="let u of users" [value]="u.userId">{{u.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div class="row" *ngFor="let cb of CourseBatches;let i = index">
+                <div class="col-sm-3 pr">
+                    <mat-form-field>
+                        <mat-label>Select Course</mat-label>
+                        <mat-select [(ngModel)]="cb.courseId" [name]="'courseId'+i"
+                            (selectionChange)="setBatches(cb.courseId,i)" required>
+                            <mat-option *ngFor="let c of cb.courses" [value]="c.courseId">{{c.course}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-3 pr pl">
+                    <mat-form-field>
+                        <mat-label>Select Batch</mat-label>
+                        <mat-select [(ngModel)]="cb.batchId" [name]="'batchId'+i" (selectionChange)="setChoosedIds()"
+                            required>
+                            <mat-option *ngFor="let b of cb.batches" [value]="b.batchId"
+                                [disabled]="choosedBatchIds.includes(b.batchId) || userChoosedBatchIds.includes(b.batchId) ">
+                                {{b.batch}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-3 pl">
+                    <button mat-mini-fab color="primary" (click)="$event.preventDefault();addMore()">
+                        <mat-icon>add</mat-icon>
+                    </button>&nbsp;&nbsp;
+                    <button mat-mini-fab color="warn" *ngIf="i>0" (click)="removeItem(i)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+            </div>
+            <button mat-raised-button color="primary" [disabled]="assignForm.invalid"
+                (click)="assignBatches()">Submit</button>
+        </form>
+    </div>
+
+    <div style="height:15px"></div>
+
+    <div class="content-title">Assigned Batches</div>
+    <table class="common-table">
+        <tr>
+            <th>Name</th>
+            <th>Course - Batch</th>
+        </tr>
+        <tr *ngFor="let ab of assignedBatchUsers;let userIndex = index">
+            <td>{{ab.name}}</td>
+            <td>
+                <div class="assigned-items" *ngFor="let data of ab.assignedBatches;let batchIndex = index">
+                    {{data.course+" - "+data.batch}}
+                     <mat-icon color="warn" *ngIf="permissions.deassign_user_batches"
+                        (click)="showRemoveBatchFromUser(data.userId,data.batchId,userIndex,batchIndex)">delete</mat-icon>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+<loading [show]="loading"></loading>

@@ -1,0 +1,98 @@
+<div class="statistics-title"><img src="assets/images/detailed-report/time-management.svg"> Time Management</div>
+<div style="max-width: 100%;overflow: auto;">
+  <table class="reports-table">
+    <tr>
+      <th style="text-align: left;">SUBJECT NAME</th>
+      <th>ATTEMPTS</th>
+      <th>INCORRECT</th>
+      <th>PERCENTAGE</th>
+      <th>SCORE &amp; TIME</th>
+      <th>HOW DID TOPPER DO?</th>
+      <th>TOPIC REPORT</th>
+    </tr>
+    <tr *ngFor="let swd of tableData;let i=index">
+      <td>{{swd.subject}}</td>
+      <td>{{swd.attempted}}</td>
+      <td>{{swd.wrong_questions}}</td>
+      <td>{{fixedDecimal((swd.scored_marks/swd.maximum_marks)*100)}}</td>
+      <td>{{swd.scored_marks}} &#47; {{timeService.getFormattedTime(swd.time_spend)}}</td>
+      <td>{{swd.topper_score}} &#47; {{timeService.getFormattedTime(swd.topper_time_spend)}} </td>
+      <td><button style="line-height: 27px;" (click)="setActiveReports(swd.subject)" mat-flat-button
+          color="primary">View Details</button></td>
+    </tr>
+  </table>
+</div>
+
+<div id="subject-analysis">
+  <div class="statistics-title" style="margin:-10px;margin-bottom: 10px;"><img src="assets/images/detailed-report/subject-analysys.svg"> Subject Analysis</div>
+  <div class="row justify-content-between subanal">
+    <div class="analysis-box" *ngFor="let s of tableData ">
+      <div style="padding:10px">
+        <div class="row justify-content-between">
+          <div class="perfect-centered subject_col">
+            <div>
+              <div class="anal-marks">{{s.scored_marks}}&#47;<span>{{s.maximum_marks}}</span></div>
+              <div class="anal-subject">{{s.subject}}</div>
+            </div>
+          </div>
+          <div class="subject-analysis-chart-wrapper">
+            <google-chart class="subject-analysis-chart" #chart [type]="'PieChart'"
+              [data]="[['Correct Questions', s.correct_questions],['Skipped Questions', s.skipped_questions],['Incorrect Questions', s.wrong_questions ]]"
+              [options]="options">
+            </google-chart>
+          </div>
+        </div>
+      </div>
+      <div class="row marksrow">
+        <div class="key"><img src="assets/images/detailed-report/my-marks.svg"> &nbsp;Scored Marks</div>
+        <div class="value">{{s.scored_marks}}</div>
+      </div>
+      <div class="row marksrow">
+        <div class="key"><img src="assets/images/detailed-report/my-percentile.svg"> &nbsp;Percentage Marks</div>
+        <div class="value">{{fixedDecimal((s.scored_marks/s.maximum_marks)*100)}}</div>
+      </div>
+      <div class="row marksrow">
+        <div class="key"><img src="assets/images/detailed-report/my-rank.svg"> &nbsp;Subject Rank</div>
+        <div class="value">{{s.rank}}</div>
+      </div>
+      <div class="row marksrow">
+        <div class="key"><img src="assets/images/detailed-report/maximum-marks.svg"> &nbsp;Maximum Marks</div>
+        <div class="value">{{s.maximum_marks}}</div>
+      </div>
+      <div class="row marksrow">
+        <div class="key"><img src="assets/images/detailed-report/topper-score.svg"> &nbsp;Topper's Score</div>
+        <div class="value">{{s.topper_score}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--View Details Modal-->
+<div class="modal" modal [show]="showDetails" [options]="{width:'60%'}">
+  <div class="dialog">
+    <div class="modal-header">{{ActiveReportsSubject}}</div>
+    <div class='close' (click)="showDetails=false">&times;</div>
+    <div class="modal-body">
+      <table class="details-table">
+        <tr>
+          <th>Name</th>
+          <th>Total Questions</th>
+          <th>Correct/Incorrect Questions</th>
+          <th>Left Question/Left Questions Marks</th>
+          <th>Total Time(In Min)</th>
+        </tr>
+        <tr *ngFor="let d of ActiveReports">
+          <td>{{d.chapter}}</td>
+          <td>{{d.count}}</td>
+          <td>{{d.correct_questions}}&#47;{{d.wrong_questions}}</td>
+          <td>{{d.skipped_questions}}&#47;{{d.skipped_questions_marks}}</td>
+          <td>{{timeService.getFormattedTime(d.time_spend)}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="modal-footer" *ngIf="false">
+      <button mat-raised-button color="primary" (click)="showDetails=false">Close</button>
+    </div>
+  </div>
+</div>
+<loading [show]="loading"></loading>

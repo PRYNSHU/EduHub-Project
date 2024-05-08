@@ -1,0 +1,35 @@
+<div class="calculator">
+    <div class='input-result-area'>
+        <div class="input text-right" type="text">{{input}}</div>
+        <div class="result text-right" type="text">{{result}}</div>
+    </div>
+    <div class="col-sm-12">
+        <button mat-stroked-button class="col-sm-6" type="button" (click)="allClear()">C</button>
+        <button mat-stroked-button class="btn btn-warning col-sm-3" type="button" (click)="clear()">x</button>
+        <button mat-stroked-button class="col-sm-3" type="button" (click)="pressOperator('/')">/</button>
+    </div>
+
+    <div class="col-sm-12">
+        <button mat-stroked-button class="col-sm-3 p-1" type="button" (click)="pressNum('7')">7</button>
+        <button mat-stroked-button class="col-sm-3 p-1" type="button" (click)="pressNum('8')">8</button>
+        <button mat-stroked-button class="col-sm-3 p-1" type="button" (click)="pressNum('9')">9</button>
+        <button mat-stroked-button class="col-sm-3 p-1" type="button" (click)="pressOperator('*')">X</button>
+    </div>
+    <div class="col-sm-12">
+        <button mat-stroked-button class="col-sm-3 p-1" type="button" (click)="pressNum('4')">4</button>
+        <button mat-stroked-button class="col-sm-3 p-1" type="button" (click)="pressNum('5')">5</button>
+        <button mat-stroked-button class="col-sm-3 p-1" type="button" (click)="pressNum('6')">6</button>
+        <button mat-stroked-button class="col-sm-3 p-1" type="button" (click)="pressOperator('-')">-</button>
+    </div>
+    <div class="col-sm-12">
+        <button mat-stroked-button class="col-sm-3 p-1" type="button" (click)="pressNum('1')">1</button>
+        <button mat-stroked-button class="col-sm-3 p-1" type="button" (click)="pressNum('2')">2</button>
+        <button mat-stroked-button class="col-sm-3 p-1" type="button" (click)="pressNum('3')">3</button>
+        <button mat-stroked-button class="col-sm-3 p-1" type="button" (click)="pressOperator('+')">+</button>
+    </div>
+    <div class="col-sm-12">
+        <button mat-stroked-button class="col-sm-3 p-1" type="button" (click)="pressNum('.')">.</button>
+        <button mat-stroked-button class="col-sm-3 p-1" type="button" (click)="pressNum('0')">0</button>
+        <button mat-stroked-button class="col-sm-6 p-1" type="button" (click)="getAnswer()">=</button>
+    </div>
+</div>

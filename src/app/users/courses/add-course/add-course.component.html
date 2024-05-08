@@ -1,0 +1,37 @@
+<admin-header></admin-header>
+<admin-sidebar></admin-sidebar>
+<div id="page-content">
+  <div class="row">
+    <div class="col-sm-12 col-md-5 pr">
+      <div class="content-title">Add Course</div>
+      <div class="content-box">
+        <form #form="ngForm">
+          <mat-form-field>
+            <mat-label>Course Name</mat-label>
+            <input matInput name="course" [(ngModel)]="course" #cs="ngModel" required>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Select Session</mat-label>
+            <mat-select name="sessionId" [(ngModel)]="sessionId">
+              <mat-option *ngFor="let session of sessionYears" [value]="session.id">{{session.session}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div class="row batch" *ngFor="let b of batches;let i=index">
+            <mat-form-field>
+              <mat-label>Batch</mat-label>
+              <input matInput [(ngModel)]="b.batch" #bat="ngModel" [name]="'batch'+i">
+            </mat-form-field>
+            <button mat-mini-fab color="primary" (click)="$event.preventDefault();batches.push({batch:null})">
+              <mat-icon>add</mat-icon>
+            </button>
+            <button *ngIf="i>0" mat-mini-fab color="warn" (click)="batches.splice(i,1)">
+              <mat-icon>remove</mat-icon>
+            </button>
+          </div>
+          <button [disabled]="cs.invalid || disableButton" color="primary" mat-raised-button
+            (click)="saveCourse()">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <loading [show]="loading"></loading>

@@ -1,0 +1,43 @@
+<!--Issue Dialog Starts-->
+<div id="modal" *ngIf="modals.issue">
+    <div id="dialog">
+        <span class="close" (click)="modals.issue=false">&times;</span>
+        <div id="header">
+            <h1>Report an Issue</h1> <img src="assets/images/practice/dialog-header.svg">
+        </div>
+        <div id="body">
+            <div class="issue-item" (click)="modals.issue=false;modals.reportIssue=true;issueTypeId=1">
+                <p>Question has an error <img src="assets/images/practice/issue-arrow.svg"></p>
+            </div>
+            <div class="issue-item" (click)="modals.issue=false;modals.reportIssue=true;issueTypeId=2">
+                <p>Solution has an error <img src="assets/images/practice/issue-arrow.svg"></p>
+            </div>
+            <div class="issue-item" (click)="modals.issue=false;modals.reportIssue=true;issueTypeId=3">
+                <p>Options has an error <img src="assets/images/practice/issue-arrow.svg"></p>
+            </div>
+            <div class="issue-item" (click)="modals.issue=false;modals.reportIssue=true;issueTypeId=4">
+                <p>Other Reason <img src="assets/images/practice/issue-arrow.svg"></p>
+            </div>
+        </div>
+        <div id="footer"></div>
+    </div>
+</div>
+<!--Issue Dialog Ends-->
+
+<div id="modal" *ngIf="modals.reportIssue">
+    <div id="dialog">
+        <span class="close" (click)="modals.reportIssue=false">&times;</span>
+        <div id="header">
+            <h1>Report an Issue</h1> <img src="assets/images/practice/dialog-header.svg">
+        </div>
+        <div id="body" style="padding:15px">
+            <mat-form-field>
+                <textarea matInput [(ngModel)]="content"></textarea>
+            </mat-form-field>
+            <button mat-raised-button color="primary" [disabled]="content==''" (click)="reportIssue()" >Submit</button>
+        </div>
+        <div id="footer"></div>
+    </div>
+</div>
+
+<loading [show]="loading"></loading>

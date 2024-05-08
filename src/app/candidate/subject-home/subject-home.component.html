@@ -1,0 +1,54 @@
+<candidate-sidebar></candidate-sidebar>
+<div class="contentSubjectHome" *ngIf="subject" >
+    <h1 id="subject-title" [innerText]="subject?subject.subject:''"></h1>
+    <div class="chaptersTitle">{{chapters.length}} Chapters</div>
+    <img *ngIf="subject" id="subjectLogo" [src]="WEBSITE_URL + subject.folderPath+subject.image">
+    <div id="main-content">
+        <ng-container *ngFor="let c of chapters">
+            <div class="titles chapter-name">{{c.chapter}}</div>
+            <div id="spacer"></div>
+            <div class="chapters-carousel">
+                <owl-carousel-o [options]="carouselOptions">
+                    <ng-template carouselSlide *ngFor="let t of c.topics;let i=index">
+                        <div class="topic-item"
+                            [ngClass]="{disabled:i>0 && ( t.type==undefined && c.topics[i-1].topicResult==false) || (t.type=='test' && c.topics[i-2].topicResult==false)  }">
+
+                            <a *ngIf="t.type==undefined && (i>0 && c.topics[i-1].topicResult) || i==0"
+                                [routerLink]="['/candidate/video-page']"
+                                [queryParams]="{subjectId:subject.subjectId,chapterId:c.chapterId,topicId:t.topicId}"
+                                (click)="goToVideo(subject.subjectId,c.chapterId,t.topicId,c.topics[i+1],c.topics)">
+                                <img [src]="WEBSITE_URL + t.image">
+                                <h1 [innerHTML]="t.topic"></h1>
+                            </a>
+
+                            <a *ngIf="t.type==undefined && (i>0 && c.topics[i-1].topicResult)==false && i>0">
+                                <img [src]="WEBSITE_URL + t.image">
+                                <h1 [innerHTML]="t.topic"></h1>
+                            </a>
+
+                            <a *ngIf="t.type=='practice'" [routerLink]="'/candidate/chapter-practice-home'"
+                                [queryParams]="{subjectId:subject.subjectId,chapterId:c.chapterId}">
+                                <img [src]="WEBSITE_URL + t.image">
+                                <h1 [innerHTML]="t.topic"></h1>
+                            </a>
+
+                            <a *ngIf="t.type=='test' && (i>0 && c.topics[i-2].topicResult)"
+                                (click)="goToInstructions(subject.subjectId,c.chapterId)">
+                                <img [src]="WEBSITE_URL + t.image">
+                                <h1 [innerHTML]="t.topic"></h1>
+                            </a>
+
+                            <a *ngIf="t.type=='test' && (i>0 && c.topics[i-2].topicResult)==false">
+                                <img [src]="WEBSITE_URL + t.image">
+                                <h1 [innerHTML]="t.topic"></h1>
+                            </a>
+
+                        </div>
+                    </ng-template>
+                </owl-carousel-o>
+            </div>
+        </ng-container>
+    </div>
+</div>
+
+<loading [show]="loading1 || loading2"></loading>

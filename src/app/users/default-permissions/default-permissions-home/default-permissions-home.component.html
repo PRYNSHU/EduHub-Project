@@ -1,0 +1,43 @@
+<admin-header></admin-header>
+<admin-sidebar></admin-sidebar>
+<div id="page-content">
+
+    <div class="row filter-row">
+        <select class="select" [(ngModel)]="roleId" (change)="loadPermissions()">
+            <option value="">Select Role</option>
+            <option *ngFor="let r of roles" [value]="r.roleId">{{r.roleName}}</option>
+            <option id="add-role" [value]="-1">Add Role</option>
+        </select>
+        <button mat-raised-button [disabled]="!roleId || roleId == '-1'"
+            (click)="updatePermissions()">Update</button>
+    </div>
+
+    <div id="permissions-wrapper">
+        <div class="permission-item" *ngFor="let p of permissions">
+            <div class="permission-title" [innerHTML]="p.permissionsTitle | safe"></div>
+            <mat-checkbox class='toggle-checkbox' (change)="toggleAll(p,$event)"></mat-checkbox>
+            <div class="row">
+                <div class="col-sm-2" *ngFor="let permission of getKeys(p.permissions)">
+                    <mat-checkbox
+                        [(ngModel)]="p.permissions[permission]">
+                        {{renameKeys(permission)}}
+                    </mat-checkbox>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!permissions.length" class="no-data perfect-centered">Please choose role</div>
+</div>
+
+<!--Add New Role Modal-->
+<div class="modal" modal [show]="modals.addRole" [options]="{width:'400px'}">
+    <div class="dialog">
+        <div class="modal-header">Add Role</div>
+        <div class='close' (click)="modals.addRole=false">&times;</div>
+        <div class="modal-body">
+            <add-role [modal]="modals" [roles]="roles" ></add-role>
+        </div>
+    </div>
+</div>
+
+<loading [show]="loading"></loading>

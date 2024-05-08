@@ -1,0 +1,131 @@
+.sidebar {
+  width: 250px;
+  height: 100%;
+  position: fixed;
+  z-index: 4;
+  top: 0;
+  left: 0;
+  background: #fff;
+  overflow: auto;
+}
+
+#menubtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.sidebar.minimized {
+  width: 50px;
+}
+
+#logo {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  padding: 29.5px 15px;
+}
+
+.link {
+  transition: all 0.4s;
+  cursor: pointer;
+}
+
+.link.active,
+.link.opened {
+  background: #ebeff2;
+  border-left: 5px solid var(--primary-bg-color);
+}
+
+/* .link.opened{
+    padding-bottom: 2px;
+  } */
+
+.link > a {
+  color: #555;
+  font-weight: 500;
+  text-decoration: none;
+  display: block;
+  padding: 10px 20px 10px 60px;
+  position: relative;
+}
+
+.link.active a > i.before {
+  left: 25px;
+}
+
+.link > a > i.before {
+  position: absolute;
+  left: 30px;
+  vertical-align: middle;
+}
+
+.minimized .link a > i.before {
+  left: 12px;
+}
+
+.minimized .link.active a > i.before {
+  left: 10px;
+}
+
+.link a i.fa.before {
+  font-size: 24px;
+}
+
+.minimized .link {
+  max-height: 40px;
+  overflow: hidden;
+}
+
+.link > a > i.after {
+  position: absolute;
+  right: 20px;
+  vertical-align: middle;
+}
+
+.submenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s;
+  background: #ebeff2;
+}
+
+.submenu a {
+  display: block;
+  color: #666;
+  font-size: 12px;
+  padding: 6px 50px;
+  text-decoration: none;
+}
+
+.link.opened .submenu {
+  max-height: 20em;
+}
+
+a span.mat-badge {
+  position: absolute;
+  right: 20px;
+  top: 21px;
+}
+
+a span.mat-badge.mobile-badge{
+  right: 15px;
+}
+
+@media screen and (max-width: 920px) {
+  #menubtn {
+    display: none;
+  }
+  .sidebar {
+    width: 0;
+  }
+  .sidebar.minimized {
+    width: 250px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+  }
+  .minimized .link {
+    max-height: 20em;
+    overflow: hidden;
+  }
+}

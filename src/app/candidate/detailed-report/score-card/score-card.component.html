@@ -1,0 +1,99 @@
+<div class="row statistics justify-content-between">
+  <div class="col-sm-6 pr">
+    <div class="boxes boxes_npb">
+      <div class="statistics-title"> <img src="assets/images/detailed-report/candidate-statistics.svg"> Candidate Statistics</div>
+      <div class="row">
+        <div class="col-4 text-center">
+          <div class="value"><img src="assets/images/detailed-report/my-rank.svg"> {{myRank}}</div>
+          <div class="key mt">My Rank</div>
+        </div>
+        <div class="col-4 text-center">
+          <div class="value"><img src="assets/images/detailed-report/my-marks.svg">  {{myMarks}}</div>
+          <div class="key mt">My Marks</div>
+        </div>
+        <div class="col-4 text-center">
+          <div class="value"> <img src="assets/images/detailed-report/my-percentile.svg"> {{myPercentile}}</div>
+          <div class="key mt">My Percentile</div>
+        </div>
+      </div>
+      <div style="height:5px"></div>
+      <div class="row marksrow">
+        <div class="key"><img src="assets/images/detailed-report/right-marks.svg"> &nbsp;Right Marks</div>
+        <div class="value">{{rightMarks}}</div>
+      </div>
+      <div class="row marksrow">
+        <div class="key"><img src="assets/images/detailed-report/wrong-marks.svg"> &nbsp;Wrong Marks</div>
+        <div class="value">{{wrongMarks}}</div>
+      </div>
+      <div class="row marksrow">
+        <div class="key"><img src="assets/images/detailed-report/left-marks.svg"> &nbsp;Left Questions Marks</div>
+        <div class="value">{{leftQuestionsMarks}}</div>
+      </div>
+    </div>
+    <div style="height: 15px;"></div>
+    <div class="boxes">
+      <div class="statistics-title">Candidate Statistics <img src="assets/images/detailed-report/candidate-statistics.svg"> </div>
+      <div class="row">
+        <div class="col-4 text-center">
+          <div class="value"><img src="assets/images/detailed-report/questions.svg"> {{questions_attempted}}</div>
+          <div class="key mt">Questions</div>
+        </div>
+        <div class="col-4 text-center">
+          <div class="value"><img src="assets/images/detailed-report/total-time.svg"> {{time_on_questions}}</div>
+          <div class="key mt">Time On Questions</div>
+        </div>
+        <div class="col-4 text-center">
+          <div class="value"><img src="assets/images/detailed-report/avg-speed.svg"> 0.67X</div>
+          <div class="key mt">Avg Speed</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-sm-6 pl">
+    <div class="boxes" style="overflow: hidden;">
+      <div id="score-card-chart-wrapper">
+        <google-chart *ngIf="myRank!=null" id="score-card-chart" type="PieChart" [data]="chartData" [options]="options">
+        </google-chart>
+      </div>
+      <div class="row justify-content-between">
+        <div class="col-6 text-center">
+          <div class="value">{{accuracy}}</div>
+          <div class="key">Accuracy</div>
+        </div>
+        <div class="col-6 text-center">
+          <div class="value">{{correctQuestions}}</div>
+          <div class="key">Correct Questions</div>
+        </div>
+        <div style="height: 10px; width: 100%;"></div>
+        <div class="col-6 text-center">
+          <div class="value">{{skippedQuestions}}</div>
+          <div class="key">Skipped Questions</div>
+        </div>
+        <div class="col-6 text-center">
+          <div class="value">{{wrongQuestions}}</div>
+          <div class="key">Incorrect Questions</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="statistics-title table"> &nbsp;Overview  <img src="assets/images/detailed-report/overview.svg"> </div>
+<div style="max-width:100%;overflow: auto;">
+  <table class="reports-table">
+    <tr>
+      <th style="text-align: left;">SUBJECT</th>
+      <th>MAXIMUM MARKS</th>
+      <th>SCORED MARKS</th>
+      <th>PERCENTILE</th>
+    </tr>
+    <tr *ngFor="let sm of subject_marks_data">
+      <td>{{sm.subject}}</td>
+      <td>{{sm.maximum_marks}}</td>
+      <td>{{sm.scored_marks}}</td>
+      <td>{{sm.percentile}}</td>
+    </tr>
+  </table>
+</div>
+<loading [show]="loading"></loading>

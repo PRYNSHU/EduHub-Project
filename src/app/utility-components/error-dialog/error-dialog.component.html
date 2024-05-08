@@ -1,0 +1,17 @@
+<div class="modal" *ngIf="show" >
+  <div class="dialog">
+      <div class="modal-header">Error</div>
+       <div class='close' (click)="show=false" >&times;</div>
+      <div class="modal-body">
+        <table class='error-table'>
+          <tr><th>Status Code</th><td>{{error.status}}</td></tr>
+          <tr><th>Error</th><td [innerHTML]="error.statusText | safe"></td></tr>
+          <tr><th>Error Details</th><td [innerHTML]="error.error | safe"></td></tr>
+        </table>
+      </div>
+      <div class="modal-footer">
+         <button mat-raised-button color="primary" class='pull-right'
+          style='margin-right:10px;line-height: 30px;' (click)="show=false">Close</button>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,120 @@
+<admin-header></admin-header>
+<admin-sidebar></admin-sidebar>
+<div id="page-content">
+    <div class="content-title">Edit Course</div>
+    <div class="content-box">
+        <form #courseForm="ngForm">
+            <fieldset>
+                <legend>Course Details</legend>
+                <div class="row align-items-center">
+                    <div class="col-sm-3">
+                        <mat-form-field>
+                            <mat-label>Course Title</mat-label>
+                            <input name="title" [(ngModel)]="course.course" matInput placeholder="Like 8th Class"
+                                required>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-3">
+                        <mat-form-field>
+                            <mat-label>Course Price</mat-label>
+                            <input name="price" [(ngModel)]="course.price" matInput placeholder="Like 120000"
+                                required>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-3">
+                        <mat-form-field>
+                            <mat-label>Lessons Count</mat-label>
+                            <input name="lessons" [(ngModel)]="course.lessonsCount" matInput placeholder="Like 24"
+                                required>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-3">
+                        <mat-form-field>
+                            <mat-label>Duration</mat-label>
+                            <input name="duration" [(ngModel)]="course.duration" matInput placeholder="Like 12 Hours"
+                                required>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-3">
+                        <mat-form-field>
+                            <mat-label>Students Enrolled</mat-label>
+                            <input name="studentsEnrolled" [(ngModel)]="course.studentsEnrolled" matInput
+                                placeholder="Like 120" required>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="file" name="courseImage"
+                            (change)="setCourseImage($event)">
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Course Includes</legend>
+                <div class="row align-items-center" *ngFor="let inc of courseIncludes;let i=index">
+                    <div class="col-sm-3">
+                        <mat-form-field>
+                            <mat-label>Include</mat-label>
+                            <input [name]="'include'+i" [(ngModel)]="inc.includeTitle" matInput
+                                placeholder="Like 10 Downloadable Resources" required>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="file" [disabled]="!inc.includeTitle" [name]="'incFile'+i"
+                            (change)="setIncludeIcon($event,i)">
+                    </div>
+                    <div class="col-sm-2">
+                        <button mat-mini-fab color="primary" (click)="$event.preventDefault();addMoreInclude()">
+                            <mat-icon>add</mat-icon>
+                        </button> &nbsp;
+                        <button mat-mini-fab color="warn" (click)="$event.preventDefault();removeInclude(i)"
+                           >
+                            <mat-icon>remove</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Course Highlights</legend>
+                <div class="row align-items-center" *ngFor="let ch of courseHighlights;let i=index">
+                    <div class="col-sm-3">
+                        <mat-form-field>
+                            <mat-label>Key</mat-label>
+                            <input [name]="'key'+i" [(ngModel)]="ch.key" matInput placeholder="Like Duration" required>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-3">
+                        <mat-form-field>
+                            <mat-label>Value</mat-label>
+                            <input [name]="'value'+i" [(ngModel)]="ch.value" matInput placeholder="Like 10 Hours"
+                                required>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-2">
+                        <button mat-mini-fab color="primary" (click)="$event.preventDefault();addMoreHighlight()">
+                            <mat-icon>add</mat-icon>
+                        </button> &nbsp;
+                        <button mat-mini-fab color="warn" (click)="$event.preventDefault();removeHighlight(i)"
+                            *ngIf="i>0">
+                            <mat-icon>remove</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Course Overview</legend>
+                <br>
+            </fieldset>
+            <fieldset>
+                <legend>Course Content</legend>
+                <br>
+            </fieldset>
+            <fieldset>
+                <legend>Course Syllabus</legend>
+                <br>
+            </fieldset>
+            <button mat-raised-button color="primary" [disabled]="courseForm.invalid" (click)="updateCourse()">Edit
+                Course</button>
+        </form>
+    </div>
+</div>
+<loading [show]="loading"></loading>

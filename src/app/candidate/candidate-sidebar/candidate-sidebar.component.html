@@ -1,0 +1,30 @@
+<div class="sidebar" [ngClass]="{minimized:minimized}">
+  <mat-icon id="menubtn" (click)="minimizeSidebar()">menu</mat-icon>
+  <img id="logo" src="assets/images/eduhub-logo.jpg">
+
+  <div id="candidtate-info-box">
+    <div id="candidate-info">
+      <img [src]="candidate_image">
+      <h2 [innerText]="candidate_name"></h2>
+      <div id="candidate-class" [innerText]="course"></div>
+    </div> 
+  </div>
+
+  <div class="link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+    true}">
+    <a routerLink="/candidate/"><i class="material-icons before">dashboard</i> Dashboard</a>
+  </div>
+  
+  <div class="link" routerLinkActive="active">
+    <a routerLink="/candidate/edustore"><i class="material-icons before">check_box</i> Edu Store</a>
+  </div>
+
+  <div class="link" [ngClass]="{active:activeLink.includes('reports')}" routerLinkActive="active"
+    [routerLinkActiveOptions]="{exact:
+    true}">
+    <a routerLink="/candidate/reports"><i class="material-icons before">bar_chart</i>Quiz Reports</a>
+  </div>
+
+  <div class="link">
+    <a routerLink="/logout/candidate"><i class="material-icons before">settings_power</i> Logout</a>
+  </div>

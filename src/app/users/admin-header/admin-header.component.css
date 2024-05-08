@@ -1,0 +1,268 @@
+#wrapper {
+  padding-top: 113px;
+}
+
+header {
+  position: fixed;
+  width: calc(100% - 250px);
+  left: 250px;
+  top: 0;
+  z-index: 2;
+}
+
+header.minimized {
+  left: 50px;
+  width: calc(100% - 50px)
+}
+
+nav {
+  background-color: var(--primary-bg-color)
+}
+
+nav:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+#menu {
+  float: left;
+}
+
+#right_menu {
+  margin-right: 20px;
+  float: right;
+}
+
+#logo {
+  float: left;
+  color: #fff;
+  padding: 17px 40px;
+}
+
+#menu, #right_menu {
+  list-style-type: none;
+}
+
+#menu:after, #right_menu:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+#menu>li, #right_menu>li {
+  display: block;
+  float: left;
+  margin-left: 3px;
+}
+
+#menu>li.visible-mob {
+  display: none;
+}
+
+#right_menu>li {
+  position: relative;
+}
+
+#menu>li>a, #right_menu>li>a {
+  display: block;
+  padding: 17px 12px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+#menu>li>a.showonmobile {
+  display: none;
+}
+
+#menu>li.active>a, #menu>li:hover>a {
+  position: relative;
+  background-color: #fff;
+  color: var(--primary-bg-color)
+}
+
+#menu>li.active>a:before, #menu>li:hover>a:before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 7px;
+  background-color: var(--primary-bg-color);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 59px;
+}
+
+#menu>li.active .submenu {
+  display: block;
+  background-color: #fff;
+  z-index: 1;
+}
+
+#menu>li:hover>.submenu {
+  display: block;
+  background-color: #fff;
+  z-index: 2;
+}
+
+#menu>li:hover>.submenu:before {
+  position: absolute;
+  width: 100vh;
+  height: 59px;
+  background: #fff;
+  content: '';
+  display: block;
+  transform: translateX(-100%);
+}
+
+.submenu>a {
+  display: inline-block;
+  padding: 18.5px 16px;
+  color: #333;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.submenu>a.active, .submenu>a:hover {
+  color: var(--primary-bg-color);
+  border-bottom: 2px solid var(--primary-bg-color)
+}
+
+#spaceholder {
+  height: 59.6px;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.right-side-menu {
+  display: none;
+  position: absolute;
+  left: -50px;
+  z-index: 2;
+  background: #fff;
+  box-shadow: 0 2px 4px #888;
+}
+
+.right-side-menu>a {
+  display: block;
+  padding: 15px;
+  padding-left: 35px;
+  text-decoration: none;
+  width: 200px;
+  color: #777;
+  font-weight: 400;
+  font-size: 14px;
+  position: relative;
+}
+
+.right-side-menu>a:hover {
+  background-color: #ddd;
+}
+
+.right-side-menu>a>mat-icon {
+  position: absolute;
+  left: 8px;
+  top: 17px;
+  font-size: 1.4em;
+}
+
+.right-side-menu>a>i.fa-power-off {
+  top: 15px;
+}
+
+#right_menu>li:hover>.right-side-menu {
+  display: block;
+}
+
+#menu-icon {
+  display: none;
+}
+
+@media screen and (max-width:1000px) {
+  #wrapper {
+    padding-top: 53px;
+  }
+  #spaceholder {
+    display: none;
+  }
+  #right_menu {
+    display: none;
+  }
+  #menu>li.visible-mob {
+    display: block;
+  }
+  #menu-icon {
+    display: block;
+    width: 40px;
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    cursor: pointer;
+  }
+  #menu-icon>div {
+    width: 35px;
+    height: 5px;
+    background-color: #fff;
+    margin: 6px 0;
+  }
+  #logo {
+    float: left;
+    padding: 17px 15px;
+  }
+  #menu {
+    float: none;
+    height: 100vh;
+    position: absolute;
+    background: var(--primary-bg-color);
+    left: -250px;
+    top: 53.5px;
+    max-width: 250px;
+    transition: all .3s linear;
+    overflow: auto;
+  }
+  #menu>li {
+    display: block;
+    width: 100%;
+    margin: 0;
+  }
+  .submenu {
+    position: relative;
+    height: auto;
+  }
+  .submenu>a {
+    padding: 7px 15px;
+    display: block;
+  }
+  #menu>li>a {
+    padding: 10px 15px;
+  }
+  #menu>li:hover>.submenu:before {
+    display: none;
+  }
+  #menu>li.active>a:before, #menu>li:hover>a:before {
+    display: none;
+  }
+  .submenu>a.active, .submenu>a:hover {
+    border-bottom: none;
+  }
+}
+
+@media screen and (max-width:920px) {
+  header {
+    width: calc(100%);
+    left: 0
+  }
+  header.minimized {
+    left: 0;
+    width: 100%
+  }
+}

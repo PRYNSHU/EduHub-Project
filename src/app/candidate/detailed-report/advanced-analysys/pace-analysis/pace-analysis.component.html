@@ -1,0 +1,71 @@
+<div class="row justify-content-between pace-row-main">
+    <div class="row justify-content-between pace-row">
+        <div class="pace-tube">
+            <div class="pace-shadow"></div>
+            <div class="pace-tube-bar correct-too-slow" [style]="{height:paceAnalysis.correctTooSlow+'%'}"  ></div>
+        </div>
+        <div class="pace-tube">
+            <div class="pace-shadow"></div>
+            <div class="pace-tube-bar correct-perfect" [style]="{height:paceAnalysis.correctPerfect+'%'}"></div>
+        </div>
+        <div class="pace-tube">
+            <div class="pace-shadow"></div>
+            <div class="pace-tube-bar correct-too-fast" [style]="{height:paceAnalysis.correctTooFast+'%'}" ></div>
+        </div>
+        <div class="pace-info">
+            <h3>Correct</h3>
+            <img src="assets/images/detailed-report/pace-arrows.svg">
+            <div class="row pace-labels-row">
+                <h4 class="correct-too-slow">Too Slow</h4>
+                <h4 class="correct-perfect">Perfect</h4>
+                <h4 class="correct-too-fast">Too fast</h4>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-between pace-row">
+        <div class="pace-tube">
+            <div class="pace-shadow"></div>
+            <div class="pace-tube-bar incorrect-too-slow" [style]="{height:paceAnalysis.wrongTooSlow+'%'}" ></div>
+        </div>
+        <div class="pace-tube">
+            <div class="pace-shadow"></div>
+            <div class="pace-tube-bar incorrect-perfect" [style]="{height:paceAnalysis.wrongPerfect+'%'}"></div>
+        </div>
+        <div class="pace-tube">
+            <div class="pace-shadow"></div>
+            <div class="pace-tube-bar incorrect-too-fast" [style]="{height:paceAnalysis.wrongTooFast+'%'}"></div>
+        </div>
+        <div class="pace-info">
+            <h3>Incorrect</h3>
+            <img src="assets/images/detailed-report/pace-arrows.svg">
+            <div class="row pace-labels-row">
+                <h4 class="incorrect-too-slow">Too Slow</h4>
+                <h4 class="incorrect-perfect">Perfect</h4>
+                <h4 class="incorrect-too-fast">Too fast</h4>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-between pace-row">
+        <div class="pace-tube">
+            <div class="pace-shadow"></div>
+            <div class="pace-tube-bar not-answered" [style]="{height:paceAnalysis.notAnswered+'%'}" ></div>
+        </div>
+        <div class="pace-tube">
+            <div class="pace-shadow"></div>
+            <div class="pace-tube-bar marked-for-review"[style]="{height:paceAnalysis.markedForReview+'%'}"></div>
+        </div>
+        <div class="pace-tube">
+            <div class="pace-shadow"></div>
+            <div class="pace-tube-bar not-visited"[style]="{height:paceAnalysis.notVisited+'%'}"></div>
+        </div>
+        <div class="pace-info">
+            <h3>Unattempted</h3>
+            <img src="assets/images/detailed-report/pace-arrows.svg">
+            <div class="row pace-labels-row">
+                <h4 class="not-answered">Not Answered</h4>
+                <h4 class="marked-for-review">Marked for Review</h4>
+                <h4 class="not-visited">Not Visited</h4>
+            </div>
+        </div>
+    </div>
+</div>

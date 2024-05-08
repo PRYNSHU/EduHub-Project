@@ -1,0 +1,37 @@
+<div class="box">
+    <div class="statistic-item">
+        <img src="assets/images/dashboard/question-mark.svg">
+        <div class="statistic-item-name questions">Questions Attempted</div>
+        <circle-progress [percent]="statistics.questionsAttempted" [radius]="40" [showInnerStroke]="false" [outerStrokeWidth]="8"
+            [outerStrokeColor]="'#0e9c8b'" [animation]="true" [showSubtitle]="false" [showUnits]="false"
+            [animationDuration]="300"></circle-progress>
+    </div>
+    <div class="statistic-item below">
+        <img src="assets/images/detailed-report/time-on-questions.svg">
+        <div class="statistic-item-name time">Time on Questions</div>
+        <circle-progress [percent]="statistics.timeOnQuestions" [radius]="40" [showInnerStroke]="false" [outerStrokeWidth]="8"
+            [outerStrokeColor]="'#1193AD'" [animation]="true" [showSubtitle]="false" [showUnits]="false"
+            [animationDuration]="300"></circle-progress>
+    </div>
+    <div class="statistic-item">
+        <img src="assets/images/dashboard/avg-time.svg">
+        <div class="statistic-item-name avg-time">Average Speed</div>
+        <circle-progress [percent]="70" [radius]="40" [showInnerStroke]="false" [outerStrokeWidth]="8"
+            [outerStrokeColor]="'#a8518a'" [animation]="true" [showSubtitle]="false" [showUnits]="false"
+            [animationDuration]="300"></circle-progress>
+    </div>
+    <div class="statistic-item below">
+        <img src="assets/images/detailed-report/marks.svg">
+        <div class="statistic-item-name marks">Marks</div>
+        <circle-progress [percent]="statistics.marks" [radius]="40" [showInnerStroke]="false" [outerStrokeWidth]="8"
+            [outerStrokeColor]="'#575BB8'" [animation]="true" [showSubtitle]="false" [showUnits]="false"
+            [animationDuration]="300"></circle-progress>
+    </div>
+    <div class="statistic-item">
+        <img src="assets/images/detailed-report/percentile.svg">
+        <div class="statistic-item-name percentile">Percentile</div>
+        <circle-progress [percent]="70" [radius]="40" [showInnerStroke]="false" [outerStrokeWidth]="8"
+            [outerStrokeColor]="'#62B354'" [animation]="true" [showSubtitle]="false" [showUnits]="false"
+            [animationDuration]="300"></circle-progress>
+    </div>
+</div>

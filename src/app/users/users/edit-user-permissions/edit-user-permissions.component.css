@@ -1,0 +1,37 @@
+
+#permissions-wrapper{
+    background-color: #fff;
+    max-height: calc(70vh);
+    overflow-y: auto;
+    margin-top:10px;
+}
+
+.permission-item{
+    padding: 8px 15px 8px 15px;
+    box-shadow: 0 0 2px -1px rgba(0,0,0,.25);
+    margin:15px 0;
+    background: #fcfcfc;
+}
+
+.permission-item:first-child{
+    margin-top: 0;
+}
+
+.permission-title{
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 500;
+    color:#555;
+    margin-bottom: 5px;
+}
+
+mat-checkbox{
+    margin-top: 5px;
+    display: block;
+    text-transform: capitalize;
+}
+
+.toggle-checkbox{
+    display:inline-block;
+    margin-left: 10px;
+}

@@ -1,0 +1,14 @@
+<div id="course-include" *ngIf="course">
+    <div id="price-tag">
+        <h1><span>Price</span> {{course.price}} INR</h1>
+        <button id="join-now" (click)="joinCourse()">Join Now</button>
+    </div>
+    <div id="line"></div>
+    <div id="course-include-body">
+        <h2 id="includes-title">Includes</h2>
+        <p class="includes-points" *ngFor="let inc of course.courseIncludes">
+            <img src=""> {{inc.includeTitle}}
+        </p>
+    </div>
+</div>
+<loading [show]="loading"></loading>

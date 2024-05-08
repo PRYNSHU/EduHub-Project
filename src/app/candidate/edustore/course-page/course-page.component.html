@@ -1,0 +1,26 @@
+<candidate-sidebar></candidate-sidebar>
+
+<course-top-section [course]="course"></course-top-section>
+
+<div id="main">
+    <div id="left">
+        <course-buttons [activePart]="activePart"></course-buttons>
+
+        <ng-container *ngIf="activePart.active == 'Overview'">
+            <div class="part" *ngIf="course" [innerHTML]="course.courseOverview"></div>
+        </ng-container>
+
+        <ng-container *ngIf="activePart.active == 'Content'">
+            <div class="part" *ngIf="course" [innerHTML]="course.courseContent"></div>
+        </ng-container>
+
+        <ng-container *ngIf="activePart.active == 'Syllabus'">
+            <div class="part" *ngIf="course" [innerHTML]="course.courseSyllabus"></div>
+        </ng-container>
+
+    </div>
+    <div id="right">
+        <course-includes [course]="course"></course-includes>
+        <course-highlights [course]="course"></course-highlights>
+    </div>
+</div>

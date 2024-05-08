@@ -1,0 +1,160 @@
+<loading [show]="loading"></loading>
+
+<div id="main">
+    <a href="https://www.EduHub.com/">
+        <img src="assets/images/login/logo.svg" id="logo">
+    </a>
+    <div id="row">
+        <div id="left">
+            <img id="kid-mobile" src="assets/images/login/kid-mobile.svg">
+        </div>
+        <div id="right">
+            <div id="regform" *ngIf="showRegForm">
+                <h2 id="form-title">Register Now</h2>
+                <h4>For Turning Your Purpose Into Prosperity</h4>
+                <h6>Enter Your Details</h6>
+                <form #regForm="ngForm">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <input placeholder="Enter Name" name="name" [(ngModel)]="form.name" required>
+                        </div>
+                        <div class="col-sm-6">
+                            <input placeholder="Enter your Mobile Number" name="mobile" [(ngModel)]="form.mobile"
+                                pattern="^[0-9]{10}$" minlength="10" maxlength="10" required>
+                        </div>
+                        <div class="col-sm-6">
+                            <input placeholder="Enter Address" name="address" [(ngModel)]="form.address" required>
+                        </div>
+                        <div class="col-sm-3">
+                            <select name="class" [(ngModel)]="form.course" (change)="setBatches()" required>
+                                <option [value]="null">Select Class</option>
+                                <option *ngFor="let c of courses" [value]="c.course" [innerText]="c.course"></option>
+                            </select>
+                        </div>
+                        <div class="col-sm-3">
+                            <select name="target" [(ngModel)]="form.batch" required>
+                                <option [value]="null">Select Target</option>
+                                <option *ngFor="let b of batches" [value]="b" [innerText]="b"></option>
+                            </select>
+                        </div>
+                        <div class="col-sm-3">
+                            <select name="stateBoard" [(ngModel)]="form.board" required>
+                                <option [value]="null">Select Board</option>
+                                <option *ngFor="let b of boards" [value]="b.boardId" [innerText]="b.board"></option>
+                            </select>
+                        </div>
+                        <div class="col-sm-3">
+                            <select name="state" [(ngModel)]="form.state" required>
+                                <option [value]="null">Select State</option>
+                                <option *ngFor="let s of indianStates" [value]="s.id" [innerText]="s.state"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div style="height: 10px;"></div>
+                    <mat-checkbox [(ngModel)]="termsAndConditions" name="terms" required>I Agree to the Terms &amp;
+                        Conditions</mat-checkbox>
+                    <button id="reg-btn" [disabled]="regForm.invalid"
+                        (click)="verifyMobileAndSendOTP()">Register</button>
+                </form>
+            </div>
+            <div *ngIf="showOTPForm" id="otp-form">
+                <h1 id="student-name">Hi! Anjali</h1>
+                <h2 id="otp-verification">OTP Verification</h2>
+                <div id="otp-fields-wrapper">
+                    <input class="otp-inputs" (keyup)="![8,37,39,46].includes($event.keyCode)?two.focus():null"
+                        maxlength="1" [(ngModel)]="otp1">
+                    <input class="otp-inputs" #two (keyup)="![8,37,39,46].includes($event.keyCode)?three.focus():null"
+                        maxlength="1" [(ngModel)]="otp2">
+                    <input class="otp-inputs" #three (keyup)="![8,37,39,46].includes($event.keyCode)?four.focus():null"
+                        maxlength="1" [(ngModel)]="otp3">
+                    <input class="otp-inputs" #four maxlength="1" [(ngModel)]="otp4">
+                </div>
+
+                <div id="otp-btns-wrapper">
+                    <button id="verify-btn" [disabled]="!isOTPValid()" (click)="verifyOTPAndRegister()">Verify &amp;
+                        Proceed</button>
+                    <button id="resend-btn" [disabled]="count>0" (click)="verifyMobileAndSendOTP()">Resend OTP</button>
+                </div>
+                <div class="row justify-content-between align-items-center" style="padding-top: 20px;">
+                    <button id="edit-mob" (click)="showRegForm=true;showOTPForm=false">Edit Mobile Number</button>
+                    <p *ngIf="count>0">Resend OTP in {{count}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="content">
+    <h1 id="why">Why EduHub App is every student's
+        favourite learning companion </h1>
+    <div class="row why">
+        <div class="why-img-wrapper">
+            <lottie-player src="https://assets4.lottiefiles.com/private_files/lf30_r2x1rha9.json"
+                background="transparent" speed="1" loop autoplay></lottie-player>
+        </div>
+        <div class="why-content">
+            <h1>Interactive Video Lectures</h1>
+            <p>EduHub’ pedagogy is enriched with the world-class technology &amp; curated 2D &amp; 3D visual aids for
+                better grasping of concepts. We have the team of Top teachers across the country. Visual based
+                learning imparts crystal clear understanding &amp; lifelong knowledge of the complex fundamentals. Our
+                revolutionary teaching methodology combines the interactive video lectures with Live Online
+                Tutoring to simulate the Live Class Interaction.</p>
+        </div>
+    </div>
+    <div class="row why">
+        <div class="why-content">
+            <h1>Top Notch Study Material</h1>
+            <p>EduHub has created ample digital resources of study material to simplify the concepts &amp; equip the
+                learning journey with structured study modules. Our subject experts have designed topic wise and
+                chapter-wise practice hurdles to clarify each &amp; every concept with the advantage of unlimited
+                revision &amp; practice at the self-designed pace. Every single concept is accompanying with interactive
+                quizzes to help you check the level of your understanding about the concept and practice to
+                perfection.</p>
+        </div>
+        <div class="why-img-wrapper">
+            <lottie-player src="https://assets6.lottiefiles.com/private_files/lf30_rpzv5boz.json"
+                background="transparent" speed="1" loop autoplay></lottie-player>
+        </div>
+    </div>
+    <div class="row why">
+        <div class="why-img-wrapper">
+            <lottie-player src="https://assets9.lottiefiles.com/private_files/lf30_wekudwbm.json"
+                background="transparent" speed="1" loop autoplay></lottie-player>
+        </div>
+        <div class="why-content">
+            <h1>Map your learning journey</h1>
+            <p>At EduHub, Education is integrated with technologies like Artificial Intelligence, Machine Learning in
+                such a way that learning becomes personalized. While ascending the learning journey, every concept
+                is equipped with interactive quizzes to access the clarification of fundaments with the aim of
+                achieving perfection. This facilitates the learners to study at their self-designed pace.</p>
+        </div>
+    </div>
+    <div class="row why">
+        <div class="why-content">
+            <h1>Personalized Mentoring</h1>
+            <p>Personalized mentoring is one of those features that can make a countable difference while
+                a student aims to ace any career oriented exam. Every student is assigned a dedicated
+                mentor to monitor his/her performance along with helping the student to identify the
+                strong areas and the topics that require more attention. Mentors provide the academic &amp;
+                psychological counselling to the students. </p>
+        </div>
+        <div class="why-img-wrapper">
+
+        </div>
+    </div>
+    <div class="row why">
+        <div class="why-img-wrapper">
+            <lottie-player src="https://assets6.lottiefiles.com/private_files/lf30_525exwuy.json"
+                background="transparent" speed="1" loop autoplay></lottie-player>
+        </div>
+        <div class="why-content">
+            <h1>Comprehensive Performance Analysis</h1>
+            <p>We use data analytics and AI to give personalized feedback to students. It enables the
+                students to identify their weak subjects, knowledge gaps and helps them improve their test-
+                taking skills. We analyse the test behaviour of the students using AI tools and our analysis
+                report comprises of Topic wise, Subject wise &amp; difficulty wise Accuracy, Practice Stamina,
+                Attempt Speed, data of correct &amp; incorrect questions correlating it with time spent on them.
+                Such an in-depth analysis gives the detailed insight of the corrective measures to be taken in
+                future for better results &amp; deep knowledge.</p>
+        </div>
+    </div>
+</div>

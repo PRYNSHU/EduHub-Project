@@ -1,0 +1,113 @@
+#subjectwise-accuracy-chart-box {
+  display: inline-block;
+  position: relative;
+  margin-top: 25px;
+  width: 465px;
+  height: 342px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.subjectwise-accuracy-percentage {
+  color: black;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top: -34px;
+  z-index: 1;
+}
+
+#percentage-accuracy {
+  position: absolute;
+  left: -20px;
+  top: 220px;
+  transform: rotate(-90deg);
+}
+
+.cell {
+  width: 93.5px;
+  background: #f1f1f1;
+  position: absolute;
+  bottom: 42px;
+}
+
+.cell.physics {
+  height: calc(100% - 50px);
+  left: 90px;
+  background: linear-gradient(
+    90deg,
+    #a44040 -74.75%,
+    #ff0000 -74.74%,
+    #a63b3b -74.72%,
+    #e96464 91.58%
+  );
+}
+
+.cell.chemistry {
+  height: calc(50% - 25px);
+  left: 210px;
+  background: linear-gradient(90deg, #06a4c4 0%, #24bcdb 45.88%, #43d5f2 100%);
+}
+
+.cell.mathematics {
+  height: calc(25% - 12.5px);
+  left: 330px;
+  background: linear-gradient(90deg, #6569b1 0%, #8589d4 99.99%, #8589d4 100%);
+}
+
+.circle-wrapper {
+  overflow: hidden;
+  position: absolute;
+  width: 93.5px;
+  height: 7px;
+  bottom: -7px;
+}
+
+.circle {
+  width: 380px;
+  height: 380px;
+  border-radius: 100%;
+  position: absolute;
+  bottom: 0;
+  left: -143px;
+}
+
+.cell.physics .circle {
+  background: linear-gradient(
+    90deg,
+    #a44040 -74.75%,
+    #ff0000 -74.74%,
+    #a63b3b -74.72%,
+    #e96464 91.58%
+  );
+}
+
+.cell.chemistry .circle {
+  background: linear-gradient(90deg, #06a4c4 0%, #24bcdb 45.88%, #43d5f2 100%);
+}
+
+.cell.mathematics .circle {
+  background: linear-gradient(90deg, #6569b1 0%, #8589d4 99.99%, #8589d4 100%);
+}
+
+.cell img.cell-top {
+  display: block;
+  position: absolute;
+  top: -54px;
+  left: -1px;
+  z-index: 0;
+}
+
+.cell img.cell-subject {
+  position: absolute;
+  bottom: -35px;
+  left: 15px;
+}
+.cell h2 {
+  position: absolute;
+  font-family: Arial;
+  font-weight: 400;
+  font-size: 15px;
+  bottom: -85px;
+  width: 100%;
+}

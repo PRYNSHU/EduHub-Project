@@ -1,0 +1,105 @@
+<div id="wrapper">
+  <header [ngClass]="{minimized:minimized}">
+    <nav>
+      <div id="logo"> EduHub </div>
+      <ul id="menu" #menu>
+        <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a
+            [routerLink]="activeDashboard">Dashboard</a></li>
+
+        <ng-container *ngIf="activeLink.includes('manage-students')">
+          <li routerLinkActive="active" *ngIf="permissions.add_student">
+            <a routerLink="/users/manage-students">Candidates</a>
+            <div class="submenu" #candidates>
+              <a routerLink="/users/manage-students/add-candidate" routerLinkActive="active">Add Candidates</a>
+            </div>
+          </li>
+        </ng-container>
+
+
+        <ng-container *ngIf="activeLink.includes('manage-users')">
+          <li routerLinkActive="active"
+            *ngIf="permissions.add_user || permissions.assign_user_subjects || permissions.assign_user_batches">
+            <a routerLink="/users/manage-users">Users</a>
+            <div class="submenu">
+              <a *ngIf="permissions.add_user" routerLink="/users/manage-users/add-user" routerLinkActive="active">Add
+                Users</a>
+              <a *ngIf="permissions.see_assigned_user_batches" routerLink="/users/manage-users/assign-batches"
+                routerLinkActive="active">Assign Batches</a>
+              <a *ngIf="permissions.see_assigned_user_subjects" routerLink="/users/manage-users/assign-subjects"
+                routerLinkActive="active">Assign Subjects</a>
+            </div>
+          </li>
+        </ng-container>
+
+        <ng-container
+          *ngIf="activeLink.includes('courses') && !activeLink.includes('browse-top-courses') && !activeLink.includes('manage-courses') ">
+          <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+            <a routerLink="/users/courses">Courses</a>
+            <div class="submenu" #questions>
+              <a *ngIf="permissions.add_course" routerLink="/users/courses/" [routerLinkActiveOptions]="{exact:true}"
+                routerLinkActive="active">Courses Home</a>
+              <a *ngIf="permissions.add_course" routerLink="/users/courses/add-course" routerLinkActive="active">Add
+                Courses</a>
+              <a *ngIf="permissions.see_subjects" routerLink="/users/courses/subjects" routerLinkActive="active">Manage
+                Subjects</a>
+              <a *ngIf="permissions.see_assigned_course_subjects" routerLink="/users/courses/assign-subjects-in-batches"
+                routerLinkActive="active">Assign Subjects</a>
+            </div>
+          </li>
+        </ng-container>
+
+        <ng-container *ngIf="activeLink.includes('manage-courses') ">
+          <li routerLinkActive="active" [ngClass]="{active:activeLink.includes('edit-course')||activeLink.includes('add-chapter') ||activeLink.includes('add-topic') ||activeLink.includes('edit-chapter') ||activeLink.includes('edit-topic') ||activeLink.includes('edit-subject') }" [routerLinkActiveOptions]="{exact:true}">
+            <a routerLink="/users/manage-courses">Manage Courses</a>
+            <div class="submenu">
+              <a routerLink="/users/manage-courses/" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active">Courses</a>
+              <a routerLink="/users/manage-courses/add-course" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active">Add
+                Courses</a>
+              <a routerLink="/users/manage-courses/add-subjects" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active">Add
+                  Subjects</a>
+              <a routerLink="/users/manage-courses/sort-chapters" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active">Sort Chapters</a>
+              <a routerLink="/users/manage-courses/sort-topics" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active">Sort Topics</a>
+
+            </div>
+          </li>
+        </ng-container>
+
+        <!-- Links Of Right Side -->
+        <li class="visible-mob"><a>EduHub Admin <i class="fa fa-chevron-down"></i></a>
+          <div class='submenu'>
+            <a (click)="candidatePortal($event)" href="#">
+              <mat-icon>account_circle</mat-icon> Canidate Portal
+            </a>
+            <a href="#">
+              <mat-icon>settings</mat-icon>Settings
+            </a>
+            <a routerLink="/logout/users">
+              <mat-icon>settings_power</mat-icon> Logout
+            </a>
+          </div>
+        </li>
+      </ul>
+      <ul id="right_menu">
+        <li><a>{{profile && profile.name}} <i class="fa fa-chevron-down"></i></a>
+          <div class='right-side-menu'>
+            <a (click)="candidatePortal($event)" href="#" *ngIf="permissions.candidate_portal">
+              <mat-icon>account_circle</mat-icon> Canidate Portal
+            </a>
+            <a routerLink="/users/change-session">
+              <mat-icon>settings</mat-icon> Change Session
+            </a>
+            <a routerLink="/logout/users">
+              <mat-icon>settings_power</mat-icon> Logout
+            </a>
+          </div>
+        </li>
+      </ul>
+      <div id="menu-icon" (click)="toggleSidebar(menu)">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </nav>
+    <div id="spaceholder"></div>
+  </header>
+</div>

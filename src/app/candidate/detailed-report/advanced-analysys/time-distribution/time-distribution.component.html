@@ -1,0 +1,43 @@
+<div id="time-distribution-box">
+    <h1 id="total-minutes">{{getMinutes(timeDistribution.total)}} Minutes</h1>
+    <div id="total-time">
+    </div>
+    <div class="subjects physics" [style]="{height:physicsPX+'px'}" >
+        <h2 class="spend-time">{{getMinutes(timeDistribution.physics)}} Min</h2>
+        <div class="droping"></div>
+    </div>
+    <div class="subjects chemistry" [style]="{height:chemistryPX+'px'}">
+        <h2 class="spend-time">{{getMinutes(timeDistribution.chemistry)}} Min</h2>
+        <div class="droping"></div>
+    </div>
+    <div class="subjects mathematics" [style]="{height:mathematicsPX+'px'}" >
+        <h2 class="spend-time">{{getMinutes(timeDistribution.mathematics) }} Min</h2>
+        <div class="droping"></div>
+    </div>
+    <div class="subjects unused" [style]="{height:unUsedPX+'px'}" >
+        <h2 class="spend-time">{{getMinutes(timeDistribution.unUsed) }} Min</h2>
+        <div class="droping"></div>
+    </div>
+    <div id="back"></div>
+    <div id="beeker"></div>
+</div>
+<div id="time-subjects">
+    <div class="row justify-content-between time-subjects-row">
+        <div>
+            <img src="assets/images/detailed-report/time-distribution-physics.svg">
+            <h3>Physics</h3>
+        </div>
+        <div>
+            <img src="assets/images/detailed-report/time-distribution-chemistry.svg">
+            <h3>Chemistry</h3>
+        </div>
+        <div>
+            <img src="assets/images/detailed-report/time-distribution-mathematics.svg">
+            <h3>Mathematics</h3>
+        </div>
+        <div>
+            <img src="assets/images/detailed-report/time-distribution-unused-time.svg">
+            <h3>Unused Time</h3>
+        </div>
+    </div>
+</div>

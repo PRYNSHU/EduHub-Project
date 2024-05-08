@@ -1,0 +1,27 @@
+/*Styles For Right Side Instructions Starts*/
+
+#instructions {
+  background-color: #feffa0;
+  padding-right: 10px;
+}
+
+#instructions>div {
+  position: relative;
+  padding: 20px 10px;
+  border-bottom: 1px solid #888;
+  font-weight: 400;
+  color: #333;
+  font-size: 15px;
+  margin-left: 45px;
+}
+
+#instructions>div>div.material-icons {
+  position: absolute;
+  left: -30px;
+}
+
+#instructions>div:last-child {
+  border-bottom: none;
+}
+
+/*Styles For Right Side Instructions Ends*/

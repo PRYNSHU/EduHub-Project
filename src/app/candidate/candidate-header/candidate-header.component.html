@@ -1,0 +1,38 @@
+<header [ngClass]="{maximize:maximize}">
+    <div id="top">
+        <div class="row">
+            <div id="profile" (click)="profileMenu=profileMenu==0?1:0">
+                <img id="profile-pic" [src]="candidate_image" onerror="this.src='/assets/images/Male.png'">
+                <div id="candidate-name">{{candidate_name}}</div>
+                <div class="submenu" [ngClass]="{active:profileMenu==1}">
+                    <a class="sub-item" routerLink="/candidate/profile">
+                        <mat-icon>account_circle</mat-icon> Profile
+                    </a>
+                    <a class="sub-item" *ngIf="isAdminAvailbale()" routerLink="/users/test-platform">
+                        <mat-icon>account_circle</mat-icon> Admin Portal
+                    </a>
+                    <a class="sub-item" routerLink="/logout/candidate">
+                        <mat-icon>settings_power</mat-icon> Logout
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="top-hamburger" (click)="toggleSidebar()" class="material-icons">menu</div>
+    </div>
+    <div [id]="links==null?'middle_without_menu':'middle_with_menu'" >
+        <div id="page-name">{{details.pageName}}</div>
+        <ng-container *ngIf="links!=null">
+            <div id="search" *ngIf="details.showSearch">
+                <input class="input-field" placeholder="Search">
+                <mat-icon>search</mat-icon>
+            </div>
+            <div class="menu" #menu>
+                <ng-container *ngFor="let link of links">
+                    <a [ngClass]="{active:link.type.type == link.key}"
+                        (click)="link.type.type=link.key;callBackFunction(link);hideMenu(menu)">{{link.name}}</a>
+                </ng-container>
+            </div>
+            <div id="hamburger" (click)="menu.classList.toggle('show-reports-menu')" class="material-icons">menu</div>
+        </ng-container>
+    </div>
+</header>

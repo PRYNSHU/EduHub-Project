@@ -1,0 +1,188 @@
+.content {
+  padding: 7% 15px 10% 15px;
+  background: #f2f1f7;
+  background-position: top center, bottom center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+#title {
+  font-family: Arial;
+  font-weight: bold;
+  color: #1193ad;
+  font-size: 40px;
+  margin-left: 25px;
+}
+
+#reports-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  background-color: #fff;
+  margin-top: 115px;
+  padding: 0 10px;
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 30px;
+  border-top: 3px solid #1193ad;
+  border-left: 7px solid #1193ad;
+}
+
+#reports-menu a {
+  display: block;
+  padding: 13px 10px;
+  color: #444;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+#reports-menu a.active {
+  color: #1193ad;
+  font-weight: 700;
+}
+
+.icon {
+  position: absolute;
+  top: 7px;
+  left: 4px;
+}
+
+.key {
+  color: #333;
+}
+
+.value {
+  font-weight: 600;
+  font-size: 18px;
+  color: #333;
+}
+
+.static {
+  background: #fff;
+  padding: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.static.maximized {
+  left: 65px;
+  width: calc(100% - 50px);
+}
+
+.static-col {
+  width: 25%;
+  position: relative;
+}
+
+#test-name {
+  color: #1193ad;
+  padding-bottom: 5px;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.static-row {
+  margin-top: 5px;
+}
+
+.static-row > div {
+  padding: 10px 15px;
+  padding-left: 40px;
+  border-right: 2px solid #eee;
+}
+
+.static-row > div:last-child {
+  border-right: none;
+}
+
+.statistics-title {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 25px;
+}
+
+.marksrow {
+  padding: 10px;
+  justify-content: space-between;
+  border-top: 1px solid #eee;
+}
+
+.marksrow .value {
+  font-size: 15px;
+}
+
+.reports-table-title {
+  padding: 10px;
+  background: #fff;
+  font-size: 12px;
+  color: #666;
+  margin-top: 15px;
+}
+
+.reports-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.reports-table th {
+  padding: 7px 15px;
+  color: #666;
+  font-size: 14px;
+  font-weight: 500;
+  background: #f1f1f1;
+}
+
+.reports-table td {
+  border-top: 1px solid #d7d7d7;
+  padding: 7px 15px;
+  text-align: center;
+  color: #555;
+  background: #f1f1f1;
+}
+
+.reports-table td:first-child {
+  text-align: left;
+}
+
+.reports-table td:not(:first-child) {
+  background: #fff;
+}
+
+@media screen and (max-width: 920px) {
+  .content {
+    padding: 219px 15px 15px 15px;
+  }
+  .content.comparePage {
+    padding-top: 135.55px;
+  }
+  .static {
+    top: 110px;
+    left: 15px;
+    width: calc(100% - 30px);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .static-col {
+    width: 50%;
+  }
+  .content {
+    padding-top: 257px;
+  }
+  .static-row > div:nth-child(2) {
+    border-right: none;
+  }
+}
+
+@media screen and (max-width: 363px) {
+  .static-row > div {
+    padding: 5px;
+  }
+  .static {
+    padding: 8px;
+  }
+  .content {
+    padding-top: 238px;
+  }
+}

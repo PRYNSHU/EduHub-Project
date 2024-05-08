@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col-sm-4">
+        <div class="box">
+            <h3 class="time" [innerText]="data.productiveTime"></h3>
+            <img src="assets/images/detailed-report/time-statistics-productive.svg">
+            <h2>Productive Time</h2>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="box">
+            <h3 class="time" [innerText]="data.nonProductiveTime"></h3>
+            <img src="assets/images/detailed-report/time-statistics-non-productive.svg">
+            <h2>Non-Productive Time</h2>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="box">
+            <h3 class="time" [innerText]="data.unUsedTime"></h3>
+            <img src="assets/images/detailed-report/time-statistics-unused-time.svg">
+            <h2>Unused Time</h2>
+        </div>
+    </div>
+</div>

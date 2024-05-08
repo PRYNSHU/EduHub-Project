@@ -1,0 +1,5 @@
+<mat-form-field>
+    <mat-label>Enter Role Name</mat-label>
+    <input matInput placeholder="For eg. Manager,Coordinator etc" [(ngModel)]="roleName" required>
+</mat-form-field>
+<button mat-raised-button color="primary" [disabled]="!roleName" (click)="submit()">Submit</button>

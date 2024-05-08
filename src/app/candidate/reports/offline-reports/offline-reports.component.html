@@ -1,0 +1,43 @@
+<candidate-header [details]="details"></candidate-header>
+<candidate-sidebar></candidate-sidebar>
+
+<div class="content">
+  <div class="row justify-content-between subanal">
+    <div class="analysis-box" *ngFor="let s of subjectsData ">
+      <div style="padding:10px">
+        <div class="row justify-content-between">
+          <div class="perfect-centered subject_col">
+            <div>
+              <div class="anal-marks">{{s.marks}}&#47;<span>{{s.totalMarks}}</span></div>
+              <div class="anal-subject">{{s.subject}}</div>
+            </div>
+          </div>
+          <div class="subject-analysis-chart-wrapper" *ngIf="s.correct || s.wrong">
+            <google-chart class="subject-analysis-chart" #chart [type]="'PieChart'"
+              [data]="[['Correct Questions', s.correct],['Incorrect Questions', s.wrong ]]" [options]="options">
+            </google-chart>
+          </div>
+        </div>
+      </div>
+      <div class="row marksrow">
+        <div class="key">Scored Marks</div>
+        <div class="value">{{s.marks}}</div>
+      </div>
+      <div class="row marksrow">
+        <div class="key">Percentage Marks</div>
+        <div class="value">{{fixedDecimal((s.marks/s.totalMarks)*100)}}</div>
+      </div>
+      <div class="row marksrow">
+        <div class="key">Subject Rank</div>
+        <div class="value">{{s.subjectRank}}</div>
+      </div>
+      <div class="row marksrow">
+        <div class="key">Maximum Marks</div>
+        <div class="value">{{s.totalMarks}}</div>
+      </div>
+      <!-- <div class="row marksrow">
+            <div class="key">Topper's Score</div>
+            <div class="value">{{s.topper_score}}</div>
+          </div> -->
+    </div>
+  </div>

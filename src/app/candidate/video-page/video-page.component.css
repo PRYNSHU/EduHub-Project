@@ -1,0 +1,80 @@
+.content {
+  padding: 7% 15px 10% 15px;
+  background: #f2f1f7;
+  background-position: top center, bottom center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+#chapterLogo {
+  max-width: 120px;
+  position: absolute;
+  top: 5%;
+  right: 5%;
+}
+
+#subjectName {
+  color: #fff;
+  margin-left: 25px;
+  text-transform: uppercase;
+}
+
+.type {
+  display: inline-block;
+  width: 200px;
+  height: 40px;
+  margin-top: 15px;
+  margin-left: 25px;
+  line-height: 42px;
+  background-size: cover;
+  text-align: center;
+  color: #1193ad;
+  background-repeat: no-repeat;
+}
+
+#chapter-title {
+  font-family: Arial;
+  font-weight: bold;
+  color: #1193ad;
+  font-size: 40px;
+  margin-left: 25px;
+}
+
+#main-content {
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 120px;
+  text-align: center;
+}
+
+iframe{
+  display: inline-block;
+}
+
+#topic-title {
+  text-align: center;
+  font-family: Arial;
+  color: #1193ad;
+  font-weight: 700;
+  line-height: 41px;
+  font-size: 2rem;
+}
+
+button {
+  width: 150px;
+  font-family: "Nexa Regular";
+  font-weight: normal;
+  font-size: 25px;
+  padding: 10px 20px;
+  margin-top: 10px;
+  color: #fff;
+  border-radius: 30px;
+  border: none;
+  background: linear-gradient(35.71deg, #29dbe5 17.79%, #030281 182.12%);
+  cursor: pointer;
+}
+
+button:disabled{
+  pointer-events: none;
+  opacity: .5;
+}

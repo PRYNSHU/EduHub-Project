@@ -1,0 +1,15 @@
+<button mat-raised-button color="primary" (click)="updatePermissions()">Update</button>
+<div id="permissions-wrapper">
+    <div class="permission-item" *ngFor="let p of permissions">
+        <div class="permission-title" [innerHTML]="p.permissionsTitle | safe"></div>
+        <mat-checkbox class='toggle-checkbox' (change)="toggleAll(p,$event)"></mat-checkbox>
+        <div class="row">
+            <div class="col-sm-2" *ngFor="let permission of getKeys(p.permissions)">
+                <mat-checkbox [(ngModel)]="p.permissions[permission]">
+                    {{renameKeys(permission)}}
+                </mat-checkbox>
+            </div>
+        </div>
+    </div>
+</div>
+<loading [show]="loading"></loading>

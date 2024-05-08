@@ -1,0 +1,111 @@
+<admin-header></admin-header>
+<admin-sidebar></admin-sidebar>
+<div id="page-content">
+  <div class="row main-row">
+    <div class="col-lg-6 col-xl-3 search-wrapper">
+      <input class='input-field' id="searchinput" placeholder="Enter Subject Name"
+        (keyup)="dataSource.filter=subjectname.trim().toLowerCase()" [(ngModel)]="subjectname" #name="ngModel">
+    </div>
+    <div class="col-lg-5 col-xl-3 right-btns-wrapper">
+      <button *ngIf="permissions.add_subject" mat-raised-button class="main-btns" (click)="showAddModal=true;">
+        <mat-icon>add</mat-icon> Add
+      </button>
+      <button *ngIf="permissions.delete_subject" mat-raised-button color="warn" class="main-btns" [disabled]="selection.selected.length==0"
+        (click)="showMultipleDelete()">
+        <mat-icon>delete</mat-icon> Delete
+      </button>
+    </div>
+  </div>
+
+  <table mat-table [dataSource]="dataSource" class="shadow-sm" matSort>
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()"
+          [indeterminate]="selection.hasValue() && !isAllSelected()">
+        </mat-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <mat-checkbox (click)="$event.stopPropagation()" [disabled]="subject_chapters[element.subjectId].length>0"
+          (change)="$event ? selection.toggle(element) : null" [checked]="selection.isSelected(element)">
+        </mat-checkbox>
+      </td>
+    </ng-container>
+    <!-- Srno Column -->
+    <ng-container matColumnDef="srno">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header id="srnocol"> Srno. </th>
+      <td mat-cell *matCellDef="let element;let i=index;"> {{(i+1)}} </td>
+    </ng-container>
+    <!-- Subject Column -->
+    <ng-container matColumnDef="subject">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header id="subjectcol"> Subject </th>
+      <td mat-cell *matCellDef="let element;let i=index;">
+        <ul class="tree" *ngIf="subject_chapters[element.subjectId].length>0">
+          <li><span class="caret" (click)="openTree($event)"> {{element.course}} {{element.subject}}</span>
+            <ul class="nested">
+              <li *ngFor="let s of subject_chapters[element.subjectId];let ind=index ">
+                <span (click)="openTree($event)"
+                  [ngClass]="(chapter_topics[s.chapterId]!=undefined && chapter_topics[s.chapterId].length>0) ?'caret':''">{{s.chapter}}
+                </span>
+                <ul class="nested">
+                  <li *ngFor="let t of chapter_topics[s.chapterId]">{{t.topic}}</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <span class='single-subject' *ngIf="subject_chapters[element.subjectId].length==0"> {{element.course}} {{element.subject}}</span>
+      </td>
+    </ng-container>
+    <!-- Action Column -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element;let i=index" id="actioncol">
+        <button *ngIf="permissions.edit_subject" mat-mini-fab color="primary" (click)="showEdit(element.subjectId)">
+          <mat-icon>create</mat-icon>
+        </button>
+        &nbsp;<button *ngIf="permissions.delete_subject" mat-mini-fab color="warn" (click)="showDelete(element.subjectId,element.subject,i)"
+          [disabled]="subject_chapters[element.subjectId].length>0">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <div *ngIf="dataSource.filteredData.length==0" class='empty-table'>
+    No Records Found
+  </div>
+  <mat-paginator *ngIf="dataSource.filteredData.length>0 && dataSource.data.length>0" [pageSizeOptions]="[8]"
+    showFirstLastButtons></mat-paginator>
+</div>
+
+<!--Add Subject Modal-->
+<div class="modal" modal [show]="showAddModal" [options]="{width:'90%'}">
+  <div class="dialog">
+    <div class="modal-header">Add Subject</div>
+    <div class='close' (click)="showAddModal=false">&times;</div>
+    <div class="modal-body edit-modal-body">
+      <add-subject *ngIf="showAddModal"></add-subject>
+    </div>
+    <div class="modal-footer">
+      <button mat-raised-button color="primary" (click)="showAddModal=false">Close</button>
+    </div>
+  </div>
+</div>
+
+<!--Edit Subject Modal-->
+<div class="modal" modal [show]="showEditModal" [options]="{width:'100%'}">
+  <div class="dialog">
+    <div class="modal-header">Edit Subject</div>
+    <div class='close' (click)="showEditModal=false">&times;</div>
+    <div class="modal-body edit-modal-body">
+      <edit-subject *ngIf="showEditModal" [chapters]="selectedChaptersForEdit" [subjectData]="subjectDataForEdit">
+      </edit-subject>
+    </div>
+    <div class="modal-footer">
+      <button mat-raised-button color="primary" (click)="showEditModal=false">Close</button>
+    </div>
+  </div>
+</div>
+<loading [show]="loading"></loading>

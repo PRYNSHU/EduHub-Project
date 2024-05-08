@@ -1,0 +1,70 @@
+
+
+.class-name {
+    color: #666;
+    margin-bottom: 0;
+}
+
+.teacher-name {
+    margin-bottom: 0;
+    font-size: 12px;
+}
+
+.virtual, .zoom {
+    font-size: 12px;
+    font-weight: 500;
+    color: #fff
+}
+
+.virtual {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    padding: 2px 5px;
+    border-radius: 4px;
+    background: #03b6fc
+}
+
+.virtual .material-icons {
+    font-size: 20px;
+}
+
+.zoom, .status {
+    color: #fff;
+    padding: 2px 5px;
+    display: inline-block;
+    background: #0b5ab5;
+    border-radius: 4px;
+}
+
+.follow-item{
+    box-shadow: 0 0 2px rgba(0,0,0,.25);
+    padding:10px;
+    margin-bottom: 15px;
+}
+
+.carriedOver{
+    border:2px solid#e35662;
+}
+
+.completed{
+    border:2px solid green
+}
+
+.follow-item:last-child{
+    margin-bottom: 0;
+}
+
+.follow-item-footer{
+    border:1px solid #f1f1f1;
+    padding:3px 10px;
+    margin-top:10px;
+    color:#777;
+    font-size: 12px;
+}
+
+.row.content-title{
+    display: row;
+    align-items: center;
+    justify-content: space-between;
+}

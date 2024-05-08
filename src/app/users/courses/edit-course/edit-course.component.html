@@ -1,0 +1,68 @@
+<admin-header></admin-header>
+<admin-sidebar></admin-sidebar>
+<div id="page-content">
+  <div class="row">
+    <div class="col-md-6 col-sm-12 pr">
+      <div class="row edit-course-main-row">
+        <div class="col-sm-12">
+          <div class="content-title">Edit Course</div>
+          <div class="content-box">
+            <form #form="ngForm">
+              <mat-form-field>
+                <mat-label>Course Name</mat-label>
+                <input matInput name="course" [(ngModel)]="course" #cs="ngModel" required>
+              </mat-form-field>
+              <button [disabled]="cs.invalid || disableButton" color="primary" mat-raised-button
+                (click)="updateCourse()">Update</button>
+            </form>
+          </div>
+        </div>
+        <div class="col-sm-12">
+          <div class="content-title">Add Batches</div>
+          <div class="content-box">
+            <form #addBatchForm="ngForm">
+              <div class="row batch" *ngFor="let b of batches;let i=index">
+                <mat-form-field>
+                  <mat-label>Batch</mat-label>
+                  <input matInput [(ngModel)]="b.batch" #bat="ngModel" [name]="'batch'+i" required>
+                </mat-form-field>
+                <button mat-mini-fab color="primary" [disabled]="!b.batch" (click)="$event.preventDefault();addMore()">
+                  <mat-icon>add</mat-icon>
+                </button>
+                <button *ngIf="i>0" mat-mini-fab color="warn" (click)="batches.splice(i,1)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+              <button color="primary" mat-raised-button [disabled]="addBatchForm.invalid || disableButton"
+                (click)="addNewBatches()">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-sm-12 pl">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="content-title">Edit Batches</div>
+          <div class="content-box">
+            <div class="row batch" *ngFor="let b of Activebatches;let i=index">
+              <mat-form-field>
+                <mat-label>Batch</mat-label>
+                <input matInput [(ngModel)]="b.batch" #bat="ngModel" [name]="'batch'+i">
+              </mat-form-field>
+              <button mat-mini-fab color="primary" (click)="updateBatch(b)">
+                <mat-icon>update</mat-icon>
+              </button>
+              <button mat-mini-fab color="warn" (click)="showDelete(b,i)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<loading [show]="loading"></loading>

@@ -1,0 +1,146 @@
+<admin-header></admin-header>
+<admin-sidebar></admin-sidebar>
+<div id="page-content">
+  <div class="content-title">Add User</div>
+  <div class="content-box">
+    <form #candidateForm="ngForm" (ngSubmit)="saveData(candidateForm)">
+      <fieldset>
+        <legend>Login Details &amp; Email</legend>
+        <div class="row justify-content-between">
+          <div class="add-form-cols">
+            <mat-form-field>
+              <mat-label>Username</mat-label>
+              <input matInput name="username" [(ngModel)]="form.username" required>
+            </mat-form-field>
+          </div>
+          <div class="add-form-cols">
+            <mat-form-field>
+              <mat-label>Password</mat-label>
+              <input type="password" matInput name="password" [(ngModel)]="form.password" required>
+            </mat-form-field>
+          </div>
+          <div class="add-form-cols">
+            <mat-form-field>
+              <mat-label>Email</mat-label>
+              <input type="email" [email]="true" matInput name="email" [(ngModel)]="form.email">
+            </mat-form-field>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>User Details</legend>
+        <div class="row justify-content-between">
+          <div class="add-form-cols-66-percent">
+            <div class="row justify-content-between">
+              <div class="add-form-cols-50 ">
+                <mat-form-field style="margin-top: 10px;">
+                  <mat-label>Name</mat-label>
+                  <input matInput name="name" [(ngModel)]="form.name" required>
+                </mat-form-field>
+              </div>
+              <div class="add-form-cols-50 ">
+                <label style="color:#666">Gender</label>
+                <div id="gender-wrapper">
+                  <mat-radio-group name="gender" [(ngModel)]="form.gender" required>
+                    <mat-radio-button [value]="'Male'">Male</mat-radio-button>
+                    <mat-radio-button [value]="'Female'">Female</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+              </div>
+              <div class="add-form-cols-50">
+                <mat-form-field>
+                  <mat-label>Employee Id</mat-label>
+                  <input matInput name="employeeId" [(ngModel)]="form.employeeId">
+                </mat-form-field>
+              </div>
+              <div class="add-form-cols-50">
+                <mat-form-field>
+                  <mat-label>Mobile Number</mat-label>
+                  <input matInput name="phone" #phon="ngModel" [(ngModel)]="form.phone" pattern="^[0-9]{10}$" minlength="10" maxlength="10" >
+                </mat-form-field>
+              </div>
+              <div class="add-form-cols-50">
+                <mat-form-field>
+                  <input #dob name="dob" [(ngModel)]="form.dob" matInput [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1"
+                    placeholder="D.O.B" required>
+                  <span matSuffix class="material-icons">calendar_today</span>
+                  <owl-date-time #dt1 [pickerType]="'calendar'"></owl-date-time>
+                </mat-form-field>
+              </div>
+              <div class="add-form-cols-50">
+                <mat-form-field>
+                  <input #dob name="regDate" [(ngModel)]="form.regDate" matInput [owlDateTime]="dt2"
+                    [owlDateTimeTrigger]="dt2" placeholder="Date of Registration" required>
+                  <span matSuffix class="material-icons">calendar_today</span>
+                  <owl-date-time #dt2 [pickerType]="'calendar'"></owl-date-time>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div class="add-form-cols upl">
+            <div class="row upload">
+              <div class="upload-box">
+                <img src="assets/images/upload-man.png" #imageTarget>
+                <input type="file" name="image" #imageSRC (change)="setSelectedImage($event)"><br>
+                <button type="button" color="primary" (click)="imageSRC.click()" mat-raised-button>Upload Image</button>
+                <p>(Max resolution 150 × 210 px) Format(.png, .jpeg, .jpg)</p>
+              </div>
+              <div class="upload-box">
+                <img src="assets/images/signature.png" #signatureTarget>
+                <input type="file" name="signature" (change)="setSelectedSignature($event)" #signatureSRC><br>
+                <button type="button" color="primary" (click)="signatureSRC.click()" mat-raised-button>Upload
+                  Image</button>
+                <p>(Max resolution 150 × 210 px) Format(.png, .jpeg, .jpg)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-between">
+          <div class="add-form-cols ">
+            <mat-form-field>
+              <mat-label>Qualification</mat-label>
+              <input matInput name="qualification" [(ngModel)]="form.qualification">
+            </mat-form-field>
+          </div>
+          <div class="add-form-cols ">
+            <mat-form-field>
+              <mat-label>Biometric Id</mat-label>
+              <input matInput name="biometricId" [(ngModel)]="form.biometricId">
+            </mat-form-field>
+          </div>
+          <div class="add-form-cols ">
+            <mat-form-field>
+              <mat-label>Address</mat-label>
+              <input matInput name="address" [(ngModel)]="form.address" required>
+            </mat-form-field>
+          </div>
+          <div class="add-form-cols  ">
+            <mat-form-field>
+              <mat-label>State</mat-label>
+              <input matInput name="state" [(ngModel)]="form.state" required>
+            </mat-form-field>
+          </div>
+          <div class="add-form-cols ">
+            <mat-form-field>
+              <mat-label>City</mat-label>
+              <input matInput name="city" [(ngModel)]="form.city" required>
+            </mat-form-field>
+          </div>
+          <div class="add-form-cols ">
+            <mat-form-field>
+              <mat-label>Role</mat-label>
+              <mat-select name="roleId" [(ngModel)]="form.roleId" required>
+                <mat-option [value]="null">Select Role</mat-option>
+                <mat-option *ngFor="let r of roles" [value]="r.roleId" >{{r.roleName}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row" style="justify-content: flex-end;">
+          <button type="submit" mat-raised-button color="primary" [disabled]="!candidateForm.valid">Save</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
+<loading [show]="loading"></loading>

@@ -1,0 +1,11 @@
+.row.batch{
+  align-items: center;
+}
+
+.row.batch mat-form-field{
+  width:calc(100% - 100px);
+}
+
+.row.batch button{
+  margin-left: 10px;
+}

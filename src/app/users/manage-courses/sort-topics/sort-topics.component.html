@@ -1,0 +1,36 @@
+<admin-header></admin-header>
+<admin-sidebar></admin-sidebar>
+<div id="page-content">
+    <div class="row sort-row">
+        <select class="select" [(ngModel)]="courseId" (change)="setSubjects()">
+            <option [value]="null">Select Course</option>
+            <option *ngFor="let c of courses" [value]="c.courseId">
+                {{c.course}}
+            </option>
+        </select>
+        <select class="select" [(ngModel)]="subjectId" (change)="getChapters()">
+            <option [value]="null">Select Subject</option>
+            <option *ngFor="let s of subjects" [value]="s.subjectId">{{s.subject}}</option>
+        </select>
+        <select class="select" [(ngModel)]="chapterId">
+            <option [value]="null">Select Chapter</option>
+            <option *ngFor="let chapter of chapters" [value]="chapter.chapterId">{{chapter.chapter}}</option>
+        </select>
+        
+        <button color="primary" mat-raised-button [disabled]="!courseId || !subjectId || !chapterId " (click)="getTopics()">Search</button>
+    </div>
+
+    <div id="sort-area" *ngIf="topics.length>0">
+        <div class="content-title">Sort Chapters</div>
+        <div class="content-box">
+            <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+                <div class="example-box" *ngFor="let topic of topics" cdkDrag>
+                    <mat-icon>{{topic.lectureType=='Video'?'movie':'notes'}}</mat-icon> {{topic.topic }}
+                </div>
+            </div>
+            <button mat-raised-button color="primary" (click)="submit()">Submit</button>
+        </div>
+    </div>
+    <div class="perfect-centered no-data" *ngIf="topics.length==0">{{noDataMessage}}</div>
+</div>
+<loading [show]="loading"></loading>

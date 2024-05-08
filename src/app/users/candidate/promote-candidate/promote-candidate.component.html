@@ -1,0 +1,32 @@
+<form #promoteForm="ngForm">
+    <div class="row">
+        <div class="col-sm-4">
+            <mat-form-field>
+                <mat-label>Select Session</mat-label>
+                <mat-select (selectionChange)="getCourses(sessionId)" name="sessId" [(ngModel)]="sessionId" required>
+                    <mat-option *ngFor="let s of sessionYears" [value]="s.id">{{s.session}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-sm-4">
+            <mat-form-field>
+                <mat-label>Select Course</mat-label>
+                <mat-select name="cId" (selectionChange)="setBatches()" [(ngModel)]="courseId" required>
+                    <mat-option *ngFor="let c of courses" [value]="c.courseId">{{c.course}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-sm-4">
+            <mat-form-field>
+                <mat-label>Select Batch</mat-label>
+                <mat-select name="bId" [(ngModel)]="batchId" required>
+                    <mat-option *ngFor="let b of batches" [value]="b.batchId">{{b.batch}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-sm-4">
+            <button [disabled]="promoteForm.invalid" mat-raised-button color="primary"
+                (click)="student?promoteStudent():promoteStudents()">Promote</button>
+        </div>
+    </div>
+</form>

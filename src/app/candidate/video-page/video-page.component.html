@@ -1,0 +1,17 @@
+<candidate-sidebar></candidate-sidebar>
+<div class="content">
+    <img *ngIf="chapter && topic" id="chapterLogo" [src]="WEBSITE_URL + chapter.folderPath+topic.image">
+    <h2 id="subjectName" [innerText]="subject?subject.subject:''"></h2>
+    <h1 id="chapter-title" [innerText]="chapter?chapter.chapter:''"></h1>
+    <div class="type">Video Lecture</div>
+    <div id="main-content">
+        <h1 id="topic-title" [innerText]="topic?topic.topic:''"></h1>
+        <iframe *ngIf="topic && showIframe" width="640" height="360" [src]="getVideoLink(topic) | urlsafe" frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture" title="common">
+        </iframe>
+        <div class="text-center">
+            <button (click)="goToTest()" [disabled]="!isCurrentTopicTestCodeValid" >Next</button>
+        </div>
+    </div>
+</div>
+<loading [show]="loading || !showIframe"></loading>

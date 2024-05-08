@@ -1,0 +1,31 @@
+.box:last-child {
+  margin-top: 50px;
+}
+
+.box {
+  position: relative;
+}
+
+.meter-wrapper {
+  display: inline-block;
+  position: relative;
+}
+
+h2.name {
+  position: absolute;
+  left: calc(50% + 25px);
+  transform: translateX(-50%);
+  bottom: 10px;
+  margin: 0;
+  color: #2c7f87;
+  font-weight: normal;
+  font-family: Arial;
+}
+
+.needle {
+  position: absolute;
+  left: 22px;
+  top: 60px;
+  transform-origin: 46.5px;
+  transform: rotate(116.4deg);
+}

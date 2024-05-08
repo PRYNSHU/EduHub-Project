@@ -1,0 +1,82 @@
+
+/*Issue Dialog styles start*/
+#modal {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  #dialog {
+    border-radius: 25px 25px 0  0;
+    width: 400px;
+    background: #fff;
+    box-shadow: 0 0 3px #c5c5c5;
+    position: relative;
+  }
+  
+  .close{
+    font-size: 40px;
+    color:red;
+    top:-20px;
+    right: -20px;
+    position:absolute;
+  }
+  
+  #header {
+    background: linear-gradient(180deg, #62d6ed -65.4%, #fefefe 170.31%);
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 25px 25px 0 0 ;
+  }
+  
+  #header h1 {
+    margin: 0;
+    font-weight: 700;
+    color: #1193ad;
+  }
+  #header img {
+    max-width: 70px;
+  }
+  
+  #body {
+    padding: -2px 15px;
+  }
+  
+  .issue-item {
+    padding: 6px 10px;
+    background: #fff;
+    border-bottom: 2px solid #1193ad;
+    cursor: pointer;
+  }
+  
+  .issue-item:last-child {
+    border: none;
+  }
+  
+  .issue-item p {
+    font-size: 20px;
+    margin: 0;
+    color: #1193ad;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  #footer {
+    background: #cbebf3;
+    height: 15px;
+    border-radius: 0 0 25px 25px;
+    position: absolute;
+    bottom:-15px;
+    left: 0;
+    width: 100%;
+  }
+  
+  /*Issue Dialog styles Ends*/

@@ -1,0 +1,91 @@
+<h3 id="percentage-accuracy">Percentage Accuracy</h3>
+<div id="chart">
+    <div class="lines"> <span>100</span> </div>
+    <div class="lines"> <span>75</span> </div>
+    <div class="lines"> <span>50</span> </div>
+    <div class="lines"> <span>25</span> </div>
+    <div class="lines"> <span>0</span> </div>
+
+    <div id="cells-row">
+        <div class="cells-row row">
+            <div class="cell easy-your">
+                <img [src]="CELL_TOP" class="cell-top">
+                <img [src]="CELL_SHADOW" class="cell-shadow">
+                <div class="cell-bar your-bar" [style]="{height:accuracy.myEasyAccuracy+'%'}">
+                    <img [src]="CELL_YOUR_BAR" class="inner-cell-top">
+                </div>
+                <img [src]="CELL_BOTTOM" class="cell-bottom">
+            </div>
+            <div class="cell easy-your">
+                <img [src]="CELL_TOP" class="cell-top">
+                <img [src]="CELL_SHADOW" class="cell-shadow">
+                <div class="cell-bar overall-bar" [style]="{height:accuracy.overallEasyAccuracy+'%'}">
+                    <img [src]="CELL_OVERALL_BAR" class="inner-cell-top">
+                </div>
+                <img [src]="CELL_BOTTOM" class="cell-bottom">
+            </div>
+            <div class="info">
+                <h4 class='category'>Easy</h4>
+                <img src="assets/images/detailed-report/pace-arrows.svg">
+                <div class="row your-overall-row">
+                    <h4 class='your-overall'>Your Accuracy</h4>
+                    <h4 class="your-overall">Overall</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="cells-row row">
+            <div class="cell easy-your">
+                <img [src]="CELL_TOP" class="cell-top">
+                <img [src]="CELL_SHADOW" class="cell-shadow">
+                <div class="cell-bar your-bar" [style]="{height:accuracy.myMediumAccuracy+'%'}">
+                    <img [src]="CELL_YOUR_BAR" class="inner-cell-top">
+                </div>
+                <img [src]="CELL_BOTTOM" class="cell-bottom">
+            </div>
+            <div class="cell easy-your">
+                <img [src]="CELL_TOP" class="cell-top">
+                <img [src]="CELL_SHADOW" class="cell-shadow">
+                <div class="cell-bar overall-bar" [style]="{height:accuracy.overallMediumAccuracy+'%'}">
+                    <img [src]="CELL_OVERALL_BAR" class="inner-cell-top">
+                </div>
+                <img [src]="CELL_BOTTOM" class="cell-bottom">
+            </div>
+            <div class="info">
+                <h4 class='category'>Medium</h4>
+                <img src="assets/images/detailed-report/pace-arrows.svg">
+                <div class="row your-overall-row">
+                    <h4 class='your-overall'>Your Accuracy</h4>
+                    <h4 class="your-overall">Overall</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="cells-row row">
+            <div class="cell easy-your">
+                <img [src]="CELL_TOP" class="cell-top">
+                <img [src]="CELL_SHADOW" class="cell-shadow">
+                <div class="cell-bar your-bar" [style]="{height:accuracy.myHardAccuracy+'%'}">
+                    <img [src]="CELL_YOUR_BAR" class="inner-cell-top">
+                </div>
+                <img [src]="CELL_BOTTOM" class="cell-bottom">
+            </div>
+            <div class="cell easy-your">
+                <img [src]="CELL_TOP" class="cell-top">
+                <img [src]="CELL_SHADOW" class="cell-shadow">
+                <div class="cell-bar overall-bar" [style]="{height:accuracy.overallHardAccuracy+'%'}">
+                    <img [src]="CELL_OVERALL_BAR" class="inner-cell-top">
+                </div>
+                <img [src]="CELL_BOTTOM" class="cell-bottom">
+            </div>
+            <div class="info">
+                <h4 class='category'>Hard</h4>
+                <img src="assets/images/detailed-report/pace-arrows.svg">
+                <div class="row your-overall-row">
+                    <h4 class='your-overall'>Your Accuracy</h4>
+                    <h4 class="your-overall">Overall</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

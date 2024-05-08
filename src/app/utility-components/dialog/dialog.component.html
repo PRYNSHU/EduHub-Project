@@ -1,0 +1,16 @@
+<div class="modal" *ngIf="show" style="z-index: 4;">
+  <div class="dialog" id="dialog">
+    <div class="modal-header">{{title}}</div>
+    <div class='close' (click)="show=false;closeFunction()">&times;</div>
+    <div class="modal-body" [innerHTML]="content | safe">
+    </div>
+    <div class="modal-footer">
+      <button *ngIf="callBack" mat-raised-button [color]="callBackButtonColor" class='pull-right'
+        style='margin-right:10px;line-height: 30px;'
+        (click)="show=false;actionFunction()">{{callBackButtonText}}</button>
+
+      <button mat-raised-button color="primary" class='pull-right' style='margin-right:10px;line-height: 30px;'
+        (click)="show = false;closeFunction()">Close</button>
+    </div>
+  </div>
+</div>

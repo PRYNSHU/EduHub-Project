@@ -1,0 +1,16 @@
+
+fieldset {
+    padding: 0 10px 10px 10px;
+    margin-bottom: 0px;
+    border: 1px solid transparent;
+  }
+  
+  legend {
+    padding: 0 0px;
+    font-weight: 500;
+    color: #0063c6;
+  }
+  
+  [class*="col-"]{
+    padding:0 7.5px
+  }

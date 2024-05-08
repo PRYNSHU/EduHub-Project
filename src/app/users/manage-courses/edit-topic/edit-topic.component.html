@@ -1,0 +1,41 @@
+<admin-header></admin-header>
+<admin-sidebar></admin-sidebar>
+<div id="page-content">
+    <div class="content-title">Edit Topic</div>
+    <div class="content-box">
+        <form #form="ngForm" *ngIf="topic" (ngSubmit)="update(form)">
+            <div class="row align-items-center">
+                <div class="col-sm-3">
+                    <mat-form-field>
+                        <mat-label>Topic</mat-label>
+                        <input name="topic" matInput [(ngModel)]="topic.topic" required>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-2">
+                    <mat-form-field>
+                        <mat-label>Test Code</mat-label>
+                        <input name="testCode" matInput [(ngModel)]="topic.testCode" required>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-2">
+                    <mat-form-field>
+                        <mat-label>Video Id(Vimeo or Youtube)</mat-label>
+                        <input name="videoId" matInput [(ngModel)]="topic.videoId" required>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-2">
+                    <mat-radio-group name="platform" [(ngModel)]="topic.platform" required>
+                        <mat-radio-button value="vimeo">Vimeo</mat-radio-button>&nbsp;
+                        <mat-radio-button value="youtube">Youtube</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <div class="col-sm-3">
+                    <input type="file" name="file" (change)="setTopicImage($event)">
+                </div>
+                <div class="col-sm-12">
+                    <button mat-raised-button color="primary" [disabled]="form.invalid">Update Topic</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

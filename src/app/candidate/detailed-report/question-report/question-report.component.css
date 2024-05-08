@@ -1,0 +1,46 @@
+.question-report{
+  background: #fff;
+  padding:10px;
+  align-items: center;
+}
+
+.question-report-title{
+  position: relative;
+  background: #1193ad;
+  color: #fff;
+  padding: 6px 40px;
+}
+
+.question-report-title img {
+  position: absolute;
+  left: 10px;
+  top: 3px;
+}
+
+#question-report-buttons button{
+  line-height: 30px;
+  font-weight: 400;
+  margin-left:10px;
+  width:140px;
+}
+
+.bonus-image{
+  width:25px;
+}
+
+.correct{
+  color:var(--text-success)
+}
+.wrong{
+  color:var(--text-danger)
+}
+
+@media screen and (max-width:1190px){
+  #question-report-buttons button{
+    margin-right:10px;
+    margin-top: 10px;
+    margin-left: 0;
+  }
+}
+
+

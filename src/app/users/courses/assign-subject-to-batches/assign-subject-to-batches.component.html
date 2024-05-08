@@ -1,0 +1,74 @@
+<admin-header></admin-header>
+<admin-sidebar></admin-sidebar>
+<div id="page-content">
+    <div *ngIf="permissions.assign_course_subjects" class="content-title">Assign Subjects</div>
+    <div *ngIf="permissions.assign_course_subjects" class="content-box">
+        <form #form="ngForm">
+            <div class="row">
+                <div class="col-sm-6 pr">
+                    <mat-form-field>
+                        <mat-label>Select Course</mat-label>
+                        <mat-select name="course" [(ngModel)]="courseId" (selectionChange)="setBatches(courseId)"
+                            required>
+                            <mat-option>Select Course</mat-option>
+                            <mat-option *ngFor="let c of courses" [value]="c.courseId">{{c.course}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-6 pl">
+                    <mat-form-field>
+                        <mat-label>Select Batch</mat-label>
+                        <mat-select name="batch" [(ngModel)]="batchId" (selectionChange)="filterSubjects()" required>
+                            <mat-option>Select Batch</mat-option>
+                            <mat-option *ngFor="let b of batches" [value]="b.batchId">{{b.batch}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-7 pr subject row" *ngFor="let ss of choosedSubjects;let i = index">
+                    <mat-form-field>
+                        <mat-label>Select Subject</mat-label>
+                        <mat-select [name]="'subject'+i" [(ngModel)]="ss.subjectId"
+                            (selectionChange)="onSelectionChange()" required>
+                            <mat-option>Select Subject</mat-option>
+                            <!-- -->
+                            <mat-option *ngFor="let s of ss.subjects "
+                                [disabled]="assignedSubjectsInDatabase.includes(s.subjectId) || assignedSubjectsInClientSide.includes(s.subjectId) "
+                                [value]="s.subjectId">{{s.course}} ({{s.subject}})</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <button mat-mini-fab color="primary" (click)="$event.preventDefault();addMore()">
+                        <mat-icon>add</mat-icon>
+                    </button>
+                    <button *ngIf="i>0" mat-mini-fab color="warn" (click)="choosedSubjects.splice(i,1)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+                <div class="col-sm-12">
+                    <button mat-raised-button color="primary" (click)="assign()"
+                        [disabled]="!form.valid">Assign</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div style="height:15px"></div>
+
+    <div class="content-title">Assigned Subjects</div>
+    <table class="common-table">
+        <tr>
+            <th>Batch</th>
+            <th>Subjects</th>
+        </tr>
+        <tr *ngFor="let bs of batch_subjects;let batchIndex = index">
+            <td>{{bs.batch}}</td>
+            <td>
+                <div class="assigned-items" *ngFor="let s of bs.subjects;let subjectIndex = index">{{s.subject}} <mat-icon *ngIf="permissions.deassign_course_subjects" color="warn"
+                        (click)="showDeleteAssignedSubject(s.batchId,s.subjectId,batchIndex,subjectIndex)">delete
+                    </mat-icon>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<loading [show]="loading"></loading>

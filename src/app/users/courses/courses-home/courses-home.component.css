@@ -1,0 +1,26 @@
+.main-row {
+  justify-content: flex-end;
+  padding: 15px 0px;
+  padding-top: 0;
+}
+
+table {
+  width: 100%;
+  user-select: none;
+}
+.empty-table {
+  min-height: 400px;
+  background: #fff;
+  font-size: 1.2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mat-column-srno,.mat-column-id{
+  width:60px;
+}
+
+.btns-box > * {
+  margin-right: 10px;
+}

@@ -1,0 +1,32 @@
+<div class="row mainrow">
+  <div class="col-12 col-lg-9 pr">
+    <div class="custom-shadow">
+      <div class="content-box">
+        <div class="border-box">
+          <div class="field-wrapper">
+            <mat-form-field>
+              <mat-label>Enter Subject Name</mat-label>
+              <input matInput placeholder="Enter Subject Name" (focus)="status=''" [(ngModel)]="subject" #sub="ngModel"
+                required>
+            </mat-form-field>
+          </div>
+          <div class="button-wrapper">
+            <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="sub.invalid"> Submit </button>
+          </div>
+        </div>
+        <p style='font-weight: 500;color:red;margin-top:10px'>{{status}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-lg-3 pl">
+    <div class="custom-shadow">
+      <div class="content-title">Important Instructions</div>
+      <div id="instructions">
+        <div><div class="material-icons">check_box</div>Add subject to the question bank.</div>
+        <div> <div class="material-icons">check_box</div>Can define 4 level hierarchy to a created subject. </div>
+        <div> <div class="material-icons">check_box</div>Considering an example:
+          add a subject, chapter, topic, sub-topic</div>
+      </div>
+    </div>
+  </div>
+</div>

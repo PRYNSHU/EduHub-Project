@@ -1,0 +1,33 @@
+<candidate-sidebar></candidate-sidebar>
+
+<section>
+    <div id="filter">
+        <div id="information">
+            <p>7 <span>Courses</span></p>
+            <p>1,001 <span>Video Tutorials</span></p>
+        </div>
+        <div id="elements">
+            <select>
+                <option>Sort By</option>
+            </select>
+            <input placeholder="Search our courses">
+        </div>
+    </div>
+    <div id="courses-wrapper">
+        <div class="course-item" *ngFor="let course of courses">
+            <img [src]="''+course.image">
+            <div class="item-body">
+                <h2>{{course.course}}</h2>
+                <p class='info'><i class='fa fa-desktop'></i> LIVE class</p>
+                <p class='info'><i class="fa fa-desktop"></i> {{course.lessonsCount}} Lessons | <i
+                        class="fa fa-clock-o"></i>
+                    {{course.duration}}</p>
+                <div class="footer">
+                    <p><i class="fa fa-user"></i> {{course.studentsEnrolled}}+ Enrolled</p>
+                    <button class="join-button" [routerLink]="'/candidate/edustore/courses/'+course.courseId">Join
+                        now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

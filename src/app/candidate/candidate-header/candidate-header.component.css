@@ -1,0 +1,212 @@
+/* Styles For Header Etc */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 250px;
+    z-index: 3;
+    width: calc(100% - 250px);
+}
+
+header.maximize{
+    width: calc(100% - 50px);
+    left: 50px;
+}
+
+#top {
+    display: flex;
+    height: 45px;
+    max-height: 45px;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0px 15px;
+    background: var(--primary-bg-color)
+}
+
+#profile {
+    cursor: pointer;
+    position: relative;
+    padding: 3px 15px
+}
+
+#profile:hover {
+    background: var(--primary-bg-color-light)
+}
+
+.submenu {
+    position: absolute;
+    display: none;
+    background: #fff;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .25);
+    width: 100%;
+    top: 100%;
+    left: 0;
+    z-index: 2;
+}
+
+.submenu.active {
+    display: block;
+}
+
+.sub-item {
+    display: block;
+    text-decoration: none;
+    padding: 8px 30px;
+    color: #555;
+    border-bottom: 1px solid #888;
+    position: relative;
+}
+
+.sub-item mat-icon {
+    position: absolute;
+    left: 5px;
+    top: 8px;
+}
+
+.sub-item:last-child {
+    border-bottom: none;
+}
+
+#profile-pic {
+    width: 30px;
+    vertical-align: middle;
+    margin-right: 15px;
+}
+
+#candidate-name {
+    color: #fff;
+    vertical-align: middle;
+    display: inline-block;
+    font-weight: 500;
+}
+
+#top-hamburger {
+    display: none;
+}
+
+#hamburger {
+    display: none;
+}
+
+/* #middle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 15px;
+    padding-bottom: 0;
+    background: #1a73cc;
+    position: relative;
+} */
+
+#page-name {
+    color: #fff;
+    font-weight: 500;
+    font-size: 22px;
+}
+
+.menu {
+    width: 100%;
+    margin-top: 15px;
+    border-top: 1.5px solid var(--primary-bg-color)
+}
+
+.menu>a {
+    display: inline-block;
+    padding: 6px 10px;
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.menu>a.active {
+    border-bottom: 3px solid #fff;
+}
+
+#search {
+    width: 350px;
+    position: relative;
+}
+
+#search mat-icon {
+    position: absolute;
+    right: 5px;
+    top: 6px;
+}
+
+#middle_without_menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background: var(--primary-bg-color-light);
+    position: relative;
+    padding: 35px 15px;
+}
+
+#middle_with_menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background: var(--primary-bg-color-light);
+    position: relative;
+    padding: 15px;
+    padding-bottom: 0;
+}
+
+@media screen and (max-width:920px) {
+    #hamburger {
+        display: block;
+        color: #fff;
+        font-size: 2.2rem;
+    }
+    .menu {
+        display: none;
+        position: absolute;
+        width: calc(100% - 30px);
+        background: var(--primary-bg-color-light);
+        left: 15px;
+        top: calc(100% - 15px);
+    }
+    .menu>a {
+        display: block;
+    }
+
+    .show-reports-menu{
+        display: block;
+    }
+
+    header {
+        width: 100%;
+        left: 0
+    }
+
+    header.maximize{
+        width: 100%;
+        left: 0
+    }
+
+    #top {
+        justify-content: space-between;
+        padding: 0 15px;
+    }
+    #top-hamburger {
+        display: block;
+        color: #fff;
+        font-size: 2.2rem;
+    }
+
+    #middle_with_menu {
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width:564px){
+    #search {
+        width:50%
+    }
+}

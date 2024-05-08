@@ -1,0 +1,75 @@
+<loading [show]="loading"></loading>
+
+<div id="main">
+  <img src="assets/images/login/logo.svg" id="logo">
+  <div id="row">
+    <div id="left">
+      <img id="kid-mobile" src="assets/images/login/kid-mobile.svg">
+    </div>
+    <div id="right">
+      <div *ngIf="forms.loginForm" id="form">
+        <div id="form-title">Welcome to EduHub</div>
+        <div id="form-body">
+          <div id="lets-begin">Let's Begin</div>
+          <p id="note">Enter your mobile number to sign in to your EduHub`s account</p>
+          <div id="input-wrapper">
+            <select class="loginSelect">
+              <option>+91</option>
+            </select>
+            <input class="loginInput" placeholder="Enter your Mobile Number" #mobil="ngModel" [(ngModel)]="mobile"
+              pattern="^[0-9]{10}$" minlength="10" maxlength="10" required>
+          </div>
+          <button id="login-button" [disabled]="mobil.invalid" (click)="verifyMobileAndSendOTP()">Login</button>
+        </div>
+        <div style="text-align: left;">
+          <a routerLink="/sign-up" id="reg-link">Register</a>
+        </div>
+      </div>
+      <div *ngIf="forms.otpForm" id="otp-form">
+        <h1 id="student-name">Hi! {{name}}</h1>
+        <h2 id="otp-verification">OTP Verification</h2>
+        <div id="otp-fields-wrapper">
+          <input class="otp-inputs" (keyup)="![8,37,39,46].includes($event.keyCode)?two.focus():null" maxlength="1"
+            [(ngModel)]="otp1">
+          <input class="otp-inputs" #two (keyup)="![8,37,39,46].includes($event.keyCode)?three.focus():null"
+            maxlength="1" [(ngModel)]="otp2">
+          <input class="otp-inputs" #three (keyup)="![8,37,39,46].includes($event.keyCode)?four.focus():null"
+            maxlength="1" [(ngModel)]="otp3">
+          <input class="otp-inputs" #four maxlength="1" [(ngModel)]="otp4">
+        </div>
+
+        <div id="otp-btns-wrapper">
+          <button id="verify-btn" [disabled]="!isOTPValid()" (click)="verifyOTPandLogin()">Verify &amp; Proceed</button>
+          <button id="resend-btn" [disabled]="count>0" (click)="verifyMobileAndSendOTP()">Resend OTP</button>
+        </div>
+
+        <div class="row justify-content-between align-items-center" style="padding-top: 20px;">
+          <button id="edit-mob" (click)="forms.otpForm=false;forms.loginForm=true">Edit Mobile Number</button>
+          <p *ngIf="count>0">Resend OTP in {{count}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Forgot Modal-->
+<div class="modal" modal [show]="modals.forgotModal" [options]="{width:'500px'}">
+  <div class="dialog">
+    <div class="modal-header">Forgot Password</div>
+    <div class='close' (click)="modals.forgotModal=false">&times;</div>
+    <div class="modal-body">
+      <forgot-password [modal]="modals" *ngIf="modals.forgotModal"></forgot-password>
+    </div>
+  </div>
+</div>
+
+<!-- Verify Email -->
+<div class="modal" modal [show]="modals.verifyEmail" [options]="{width:'500px'}">
+  <div class="dialog">
+    <div class="modal-header">Verify Email</div>
+    <div class='close' (click)="modals.verifyEmail=false">&times;</div>
+    <div class="modal-body">
+      <verify-email [email]="email" [message]="emailMessage"></verify-email>
+    </div>
+  </div>
+</div>

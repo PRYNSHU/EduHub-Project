@@ -1,0 +1,178 @@
+
+#percentage-accuracy {
+  position: absolute;
+  left: -40px;
+  top: 150px;
+  transform: rotate(-90deg);
+}
+
+#cells-row {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.cells-row {
+  justify-content: space-between;
+  width: 110px;
+  position: relative;
+}
+
+.cell {
+  position: relative;
+  width: 50px;
+  height: 200px;
+  background: #dfe3e6;
+  bottom: 0;
+}
+
+.cell-top {
+  position: absolute;
+  display: block;
+  left: 0;
+  top: -26px;
+  z-index: 2;
+}
+
+.cell-bottom {
+  position: absolute;
+  display: block;
+  left: 0;
+  bottom: -19px;
+  z-index: 2;
+}
+
+.cell-shadow {
+  position: absolute;
+  display: block;
+  left: 8px;
+  top: 5px;
+  height: 100%;
+  z-index: 2;
+}
+
+.cell-bar {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  height: 0%;
+  z-index: 1;
+}
+
+.your-bar {
+  background: linear-gradient(
+    90deg,
+    #e35ba5 0%,
+    #e35ba4 7.45%,
+    #fab9e0 16.86%,
+    #c03d9a 56.86%,
+    #b12c95 72.16%,
+    #b93598 85.1%,
+    #e45ba3 100%
+  );
+}
+
+.overall-bar {
+  background: linear-gradient(
+    90deg,
+    #17b0c0 0%,
+    #4ac1c9 13.73%,
+    #bfe7de 30.2%,
+    #12adbf 60%,
+    #18b1c1 76.08%,
+    #7dd2d2 100%
+  );
+}
+
+.inner-cell-top {
+  position: absolute;
+  display: block;
+  top: -10px;
+}
+
+#chart {
+  margin:40px auto 40px;
+  height: 200px;
+  width: 450px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.lines {
+  position: relative;
+  width: 100%;
+  height: 1px;
+  background: #777;
+}
+
+.lines span {
+  position: absolute;
+  left: -30px;
+  top: -10px;
+}
+
+.info{
+  position: absolute;
+  width:100%;
+  height:50px;
+  bottom:-70px;
+  text-align: center;
+}
+
+.your-overall-row{
+  justify-content: space-between;
+  padding:0 5px;
+  margin-top: -4px;
+}
+
+.info h4.category{
+  margin:0;
+  font-size: 12px;
+}
+
+h4.your-overall{
+  font-size: 8px;
+  position: relative;
+} 
+
+.your-overall:nth-child(1){
+  color:#BF3C9A;
+}
+.your-overall:nth-child(1)::before{
+  background-color:#BF3C9A;
+}
+
+.your-overall:nth-child(2){
+  color:#13ADBF
+}
+
+.your-overall:nth-child(2)::before{
+  background-color:#13ADBF
+}
+
+h4.your-overall::before{
+  display: block;
+  content: "";
+  position: absolute;
+  width:9px;
+  height:9px;
+  background: chocolate;
+  border-radius: 100%;
+  left:-12px;
+  top:8px;
+}
+
+.info img{
+  position: absolute;
+  width: 100%;
+  top:20px;
+  left: 0;
+}

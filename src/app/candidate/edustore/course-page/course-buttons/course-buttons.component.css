@@ -1,0 +1,22 @@
+
+section {
+    padding: 3.1875rem 0; /* 51px */
+}
+
+button {
+    background: #f7f7f7;
+    padding: .9rem 1.938rem;
+    border: none;
+    outline: none;
+    color: rgba(58, 58, 58, 0.8);
+    font-size: 1.25rem;
+    font-weight: bold;
+    border-radius: 0.625rem; /* 10px */
+    white-space: nowrap;
+    margin-right: 1.875rem; /* 30px */
+}
+
+button.active{
+    background: var(--primary-color);
+    color:#fff;
+}

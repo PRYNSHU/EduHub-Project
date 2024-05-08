@@ -1,0 +1,45 @@
+<candidate-sidebar [minimize]="minimize"></candidate-sidebar>
+<!-- <candidate-header [details]="details" [links]="links"></candidate-header> -->
+
+<div class="content" [ngClass]="{'comparePage':ActiveType=='compare'}">
+  <h1 id="title">REPORTS</h1>
+  <div id="reports-menu">
+    <a [ngClass]="{active:ActiveType=='score-card'}" (click)="openLink('score-card')">Score Card</a>
+    <a [ngClass]="{active:ActiveType=='subject-report'}" (click)="openLink('subject-report')">Subject Report</a>
+    <a [ngClass]="{active:ActiveType=='solution-report'}" (click)="openLink('solution-report')">Solution Report</a>
+    <a [ngClass]="{active:ActiveType=='question-report'}" (click)="openLink('question-report')">Question Report</a>
+    <a [ngClass]="{active:ActiveType=='compare'}" (click)="openLink('compare')">Compare Yourself</a>
+    <a [ngClass]="{active:ActiveType=='advanced-analysys'}" (click)="openLink('advanced-analysys')">Advanced Analysys</a>
+  </div>
+  <div class="static" [ngClass]="{maximized:minimize.minimized}" *ngIf="ActiveType!='compare'">
+    <div id="test-name">{{test_name}}</div>
+    <div class="row static-row">
+      <div class="static-col row justify-content-between">
+        <img class='icon' src="assets/images/detailed-report/total-candidates.svg">
+        <span class="key">Total Candidates</span>
+        <span class="value">{{total_candidates}}</span>
+      </div>
+      <div class="static-col row justify-content-between">
+        <img class='icon' src="assets/images/detailed-report/total-questions.svg">
+        <span class="key">Total Questions</span>
+        <span class="value">{{total_questions}}</span>
+      </div>
+      <div class="static-col row justify-content-between">
+        <img class='icon' src="assets/images/detailed-report/maximum-marks.svg">
+        <span class="key">Maximum Marks</span>
+        <span class="value">{{total_marks}}</span>
+      </div>
+      <div class="static-col row justify-content-between ">
+        <img class='icon' src="assets/images/detailed-report/total-time.svg">
+        <span class="key">Total Time</span>
+        <span class="value">{{total_time}}</span>
+      </div>
+    </div>
+  </div>
+  <score-card [testInfo]="testInfoForComponents" *ngIf="ActiveType=='score-card'"></score-card>
+  <subject-report [testInfo]="testInfoForComponents" *ngIf="ActiveType=='subject-report'"></subject-report>
+  <question-report [testInfo]="testInfoForComponents" *ngIf="ActiveType=='question-report'"></question-report>
+  <compare-yourself [testInfo]="testInfoForComponents" *ngIf="ActiveType=='compare'"></compare-yourself>
+  <solution-report [testInfo]="testInfoForComponents" *ngIf="ActiveType=='solution-report'"></solution-report>
+  <advanced-analysys [testInfo]="testInfoForComponents" *ngIf="ActiveType=='advanced-analysys'"></advanced-analysys>
+</div>

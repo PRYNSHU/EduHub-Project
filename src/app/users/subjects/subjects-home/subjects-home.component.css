@@ -1,0 +1,146 @@
+table {
+  width: 100%;
+  user-select: none;
+}
+
+#subjectcol {
+  width: 80%;
+}
+
+.empty-table {
+  min-height: 400px;
+  background: #fff;
+  font-size: 1.2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-row {
+  padding: 15px 0;
+  margin-bottom: 15px;
+  justify-content: space-between;
+}
+
+.right-btns-wrapper,
+.search-wrapper {
+  text-align: right;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-btns {
+  width: calc(50% - 5px);
+}
+
+.single-subject {
+  color: #666;
+  font-size: .9em;
+}
+
+.opened {
+  margin-top: 13px;
+}
+
+ul,
+#myUL {
+  list-style-type: none;
+}
+
+.tree {
+  margin: 0;
+  padding: 0;
+}
+
+.tree ul {
+  margin-left: 15px;
+}
+
+.tree li {
+  color: #666;
+  font-weight: 400;
+  font-size: .9em;
+}
+
+
+.caret {
+  cursor: pointer;
+  -webkit-user-select: none;
+  /* Safari 3.1+ */
+  -moz-user-select: none;
+  /* Firefox 2+ */
+  -ms-user-select: none;
+  /* IE 10+ */
+  user-select: none;
+  position: relative;
+}
+
+.caret::before {
+  position: absolute;
+  left: -15px;
+  content: "\271A";
+  color: black;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.caret-down::before {
+  content: '\268A';
+}
+
+.nested {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+.edit-modal-body {
+  background-color: #fff;
+}
+
+@media screen and (max-width:1200px) {
+  #subjectcol {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width:1000px) {
+  .main-row {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+  }
+  .right-btns-wrapper {
+    text-align: left;
+  }
+  #searchinput{
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width:800px) {
+  #subjectcol {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width:600px) {
+  #subjectcol {
+    width: auto;
+  }
+
+  #srnocol {
+    width: 30px;
+  }
+
+  #actioncol {
+    width: 120px;
+  }
+
+  .action {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}

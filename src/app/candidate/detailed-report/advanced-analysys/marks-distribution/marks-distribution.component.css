@@ -1,0 +1,23 @@
+
+.dumbbell-box{
+    position: relative;
+}
+
+.dumbbell-box.below {
+  margin-top: 100px;
+}
+
+.dumbbell-box h3 {
+  font-size: 14px;
+}
+
+.dumbbell-box h4{
+    position: absolute;
+    margin:0;
+    width: 100%;
+    text-align: center;
+    top:25px;
+    font-size: 18px;
+    font-family: Arial;
+    font-weight: 400;
+}

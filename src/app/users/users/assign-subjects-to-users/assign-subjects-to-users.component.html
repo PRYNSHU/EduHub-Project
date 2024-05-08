@@ -1,0 +1,81 @@
+<admin-header></admin-header>
+<admin-sidebar></admin-sidebar>
+<div id="page-content">
+    <ng-container *ngIf="permissions.assign_user_subjects">
+        <div class="content-title">Assign Subjects</div>
+        <div class="content-box">
+            <form #assignForm="ngForm">
+                <mat-form-field>
+                    <mat-label>Select User</mat-label>
+                    <mat-select name="userId" [(ngModel)]="userId" (selectionChange)="setUserChoosedIds()" required>
+                        <mat-option *ngFor="let u of users" [value]="u.userId">{{u.name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <div class="row" *ngFor="let cbs of CourseBatchesSubjects;let i = index">
+                    <div class="col-sm-3 pr">
+                        <mat-form-field>
+                            <mat-label>Select Course</mat-label>
+                            <mat-select [(ngModel)]="cbs.courseId" [name]="'courseId'+i"
+                                (selectionChange)="setBatches(cbs.courseId,i)" required>
+                                <mat-option *ngFor="let c of cbs.courses" [value]="c.courseId">{{c.course}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-3 pr pl">
+                        <mat-form-field>
+                            <mat-label>Select Batch</mat-label>
+                            <mat-select [(ngModel)]="cbs.batchId" [name]="'batchId'+i"
+                                (selectionChange)="setSubjects(cbs.batchId,i)" required>
+                                <mat-option *ngFor="let b of cbs.batches" [value]="b.batchId">
+                                    {{b.batch}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-3 pr pl">
+                        <mat-form-field>
+                            <mat-label>Select Subject</mat-label>
+                            <mat-select [(ngModel)]="cbs.subjectId" [name]="'subjectId'+i"
+                                (selectionChange)="setChoosedIds()" required>
+                                <!--   -->
+                                <mat-option *ngFor="let s of cbs.subjects" [value]="s.subjectId"
+                                    [disabled]="(choosedIds.includes(s.subjectId+'-'+cbs.batchId)) || (userChoosedIds.includes(s.subjectId+'-'+cbs.batchId)) ">
+                                    {{s.subjectId+ " " + s.subject}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-3 pl">
+                        <button mat-mini-fab color="primary" (click)="$event.preventDefault();addMore()">
+                            <mat-icon>add</mat-icon>
+                        </button>&nbsp;&nbsp;
+                        <button mat-mini-fab color="warn" *ngIf="i>0" (click)="removeItem(i)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </div>
+                </div>
+                <button mat-raised-button color="primary" (click)="assignSubjects()"
+                    [disabled]="assignForm.invalid">Submit</button>
+            </form>
+        </div>
+    </ng-container>
+    <div style="height:15px"></div>
+    <div class="content-title">Assigned Subjects</div>
+    <table class="common-table">
+        <tr>
+            <th>Name</th>
+            <th>Course - Batch - Subjects</th>
+        </tr>
+        <tr *ngFor="let ab of assignedSubjectUsers;let userIndex = index">
+            <td>{{ab.name}}</td>
+            <td>
+                <div class="assigned-items" *ngFor="let data of ab.assignedSubjects;let subjectIndex = index">
+                    {{data.course+" - "+data.batch+ " - "+data.subject}}
+                    <mat-icon color="warn" *ngIf="permissions.deassign_user_subjects"
+                        (click)="showRemoveSubjectFromUser(data.userId,data.batchId,data.subjectId,userIndex,subjectIndex)">
+                        delete</mat-icon>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<loading [show]="loading"></loading>
